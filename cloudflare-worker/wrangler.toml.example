@@ -1,0 +1,11 @@
+name = "bmth-k10-chatbot"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+GEMINI_MODEL = "gemini-3.8-flash"
+# Sau khi biết URL GitHub Pages, thay bằng URL thật, không có dấu / ở cuối.
+ALLOWED_ORIGINS = "https://TEN-GITHUB.github.io"
+
+# Không ghi GEMINI_API_KEY vào tệp này.
+# Dùng lệnh: npx wrangler secret put GEMINI_API_KEY
