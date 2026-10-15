@@ -1,108 +1,114 @@
-// Chỉnh nội dung tại đây. Có thể dùng đường dẫn file PDF trong thư mục materials/.
+// Nội dung 5 chương được biên soạn từ tài liệu học phần Công nghệ thông tin.
+// Kho trích đoạn đầy đủ để chatbot tra cứu nằm trong data/knowledge.js.
 window.BMTH_TOPICS = [
   {
-    id: "tong-quan",
+    id: "chuyen-doi-so",
+    chapter: 1,
     number: "01",
-    title: "Tổng quan về CNTT và chuyển đổi số",
-    shortTitle: "Tổng quan CNTT",
+    title: "Một số nội dung cơ bản về chuyển đổi số, Chương trình chuyển đổi số quốc gia và thực hiện chuyển đổi số trong Bộ Quốc phòng",
+    shortTitle: "Chuyển đổi số",
     icon: "network",
-    duration: "6 tiết",
-    description: "Nhận diện vai trò của công nghệ thông tin, dữ liệu và chuyển đổi số trong học tập, công tác và quản lý.",
+    duration: "Theo kế hoạch học phần",
+    description: "Trang bị kiến thức nền tảng về chuyển đổi số, các công nghệ số chủ yếu, Chương trình chuyển đổi số quốc gia và nhiệm vụ chuyển đổi số trong Bộ Quốc phòng.",
     objectives: [
-      "Trình bày được các khái niệm cơ bản về công nghệ thông tin và chuyển đổi số.",
-      "Phân biệt số hóa, ứng dụng số và chuyển đổi số.",
-      "Liên hệ vai trò của dữ liệu và công nghệ trong môi trường công tác."
+      "Trình bày được khái niệm, thành phần, mô hình và các cấp độ chuyển đổi số.",
+      "Phân tích được ba trụ cột Chính phủ số, kinh tế số và xã hội số.",
+      "Nắm được chủ trương, kết quả, nhiệm vụ và giải pháp chuyển đổi số trong Bộ Quốc phòng."
     ],
     sections: [
-      { title: "1. Khái niệm nền tảng", content: "Công nghệ thông tin bao gồm các phương pháp, công cụ và hệ thống dùng để tạo lập, xử lý, lưu trữ, bảo vệ và trao đổi thông tin. Chuyển đổi số là quá trình thay đổi tổng thể cách tổ chức hoạt động dựa trên dữ liệu và công nghệ số." },
-      { title: "2. Ba cấp độ phát triển", content: "Số hóa chuyển tài liệu vật lý thành dữ liệu số; ứng dụng số dùng phần mềm để cải tiến quy trình; chuyển đổi số tái thiết quy trình, phương thức quản trị và trải nghiệm người dùng dựa trên dữ liệu." },
-      { title: "3. Năng lực số cần thiết", content: "Năng lực khai thác thông tin, giao tiếp và cộng tác số, sáng tạo nội dung số, bảo đảm an toàn thông tin và giải quyết vấn đề bằng công nghệ." }
+      { title: "1. Kiến thức chung về chuyển đổi số", content: "Khái niệm chuyển đổi số; hạ tầng, dữ liệu, nền tảng, công nghệ, quy trình, nhân lực và văn hóa số; các mô hình và cấp độ chuyển đổi số; dịch vụ công trực tuyến." },
+      { title: "2. Chương trình chuyển đổi số quốc gia", content: "Chính phủ số, kinh tế số, xã hội số; quan điểm, tầm nhìn, mục tiêu và các nhóm nhiệm vụ phát triển thể chế, hạ tầng, dữ liệu, nền tảng, nhân lực và doanh nghiệp công nghệ số." },
+      { title: "3. Chuyển đổi số trong Bộ Quốc phòng", content: "Chủ trương, tiến trình, kết quả thực hiện cùng các nhiệm vụ và giải pháp thúc đẩy chuyển đổi số gắn với nhiệm vụ quân sự, quốc phòng." }
     ],
-    keyPoints: ["Dữ liệu là tài nguyên cốt lõi", "Công nghệ phải phục vụ nhiệm vụ", "Con người quyết định hiệu quả chuyển đổi số"],
+    keyPoints: ["Chuyển đổi đồng bộ công nghệ - quy trình - con người", "Dữ liệu là tài nguyên chiến lược", "Chuyển đổi số phải gắn với an toàn, bảo mật và chủ quyền số"],
     document: ""
   },
   {
-    id: "he-dieu-hanh-du-lieu",
+    id: "tu-dong-hoa-chi-huy",
+    chapter: 2,
     number: "02",
-    title: "Hệ điều hành, quản lý dữ liệu và điện toán đám mây",
-    shortTitle: "Hệ điều hành & dữ liệu",
+    title: "Khái lược về hệ thống tự động hóa chỉ huy và phần mềm dùng chung trong Bộ Quốc phòng",
+    shortTitle: "Tự động hóa chỉ huy",
     icon: "database",
-    duration: "8 tiết",
-    description: "Tổ chức tệp, thư mục và dữ liệu khoa học; sử dụng hệ điều hành và dịch vụ đám mây hiệu quả, đúng quy định.",
+    duration: "Theo kế hoạch học phần",
+    description: "Giới thiệu cơ sở của tự động hóa chỉ huy, mô hình C4ISR, một số hệ thống tự động hóa chỉ huy và các phần mềm, nền tảng dùng chung trong Bộ Quốc phòng.",
     objectives: [
-      "Thực hiện được các thao tác quản lý tệp và thư mục.",
-      "Xây dựng quy tắc đặt tên, phân loại và sao lưu dữ liệu.",
-      "Lựa chọn hình thức lưu trữ phù hợp với mức độ nhạy cảm của thông tin."
+      "Trình bày được khái niệm, vai trò và các mô hình tự động hóa chỉ huy.",
+      "Mô tả được các thành phần và chức năng cơ bản của hệ thống C4ISR.",
+      "Nhận biết và sử dụng đúng mục đích các phần mềm, nền tảng dùng chung được giới thiệu trong tài liệu."
     ],
     sections: [
-      { title: "1. Hệ điều hành", content: "Hệ điều hành quản lý phần cứng, phần mềm, tệp dữ liệu, tài khoản người dùng và cung cấp môi trường để các ứng dụng hoạt động." },
-      { title: "2. Tổ chức dữ liệu", content: "Cấu trúc thư mục nên phản ánh nhiệm vụ, thời gian và phiên bản. Tên tệp cần ngắn gọn, thống nhất, không dùng ký tự gây lỗi và có thông tin phiên bản khi cần." },
-      { title: "3. Sao lưu và đám mây", content: "Áp dụng nguyên tắc sao lưu nhiều bản, trên nhiều phương tiện và có ít nhất một bản ở vị trí tách biệt. Chỉ đưa dữ liệu lên dịch vụ được phép sử dụng." }
+      { title: "1. Khái lược về tự động hóa chỉ huy", content: "Những vấn đề chung, vai trò của tự động hóa trong tham mưu và chỉ huy; các mô hình tổ chức và yêu cầu đối với hệ thống tự động hóa chỉ huy." },
+      { title: "2. Hệ thống C4ISR", content: "Khái niệm và mối liên hệ giữa chỉ huy, điều khiển, thông tin liên lạc, máy tính, tình báo, giám sát và trinh sát trong hỗ trợ ra quyết định." },
+      { title: "3. Phần mềm dùng chung", content: "Khái niệm, vai trò, nhóm phần mềm dùng chung trong Bộ Quốc phòng và nội dung sử dụng ứng dụng QiMe theo tài liệu học phần." }
     ],
-    keyPoints: ["Tổ chức tệp thống nhất", "Sao lưu định kỳ", "Phân loại dữ liệu trước khi lưu trữ"],
+    keyPoints: ["Thông tin chính xác và kịp thời hỗ trợ quyết định", "C4ISR liên kết nhiều thành phần trong một hệ thống", "Sử dụng phần mềm đúng thẩm quyền và quy định"],
     document: ""
   },
   {
-    id: "internet-dich-vu-so",
+    id: "microstation-v8i",
+    chapter: 3,
     number: "03",
-    title: "Khai thác Internet và các dịch vụ số",
-    shortTitle: "Internet & dịch vụ số",
+    title: "Sử dụng phần mềm MicroStation V8i",
+    shortTitle: "MicroStation V8i",
     icon: "globe",
-    duration: "8 tiết",
-    description: "Tìm kiếm, đánh giá, trích dẫn thông tin và cộng tác trên môi trường số một cách hiệu quả, có trách nhiệm.",
+    duration: "Theo kế hoạch học phần",
+    description: "Hướng dẫn thiết lập môi trường làm việc, sử dụng công cụ vẽ và thao tác đối tượng, xây dựng ký hiệu và văn kiện tác chiến số bằng MicroStation V8i.",
     objectives: [
-      "Sử dụng từ khóa và toán tử tìm kiếm để thu hẹp kết quả.",
-      "Đánh giá độ tin cậy của nguồn thông tin trực tuyến.",
-      "Thực hiện giao tiếp và cộng tác số đúng chuẩn mực."
+      "Khởi động, thiết lập tham số và sử dụng được giao diện MicroStation V8i.",
+      "Tạo, lựa chọn, chỉnh sửa và quản lý các đối tượng đồ họa.",
+      "Sử dụng công cụ hỗ trợ xây dựng, lưu và in văn kiện tác chiến số."
     ],
     sections: [
-      { title: "1. Tìm kiếm thông tin", content: "Xác định rõ nhu cầu, xây dựng từ khóa trọng tâm, dùng dấu ngoặc kép và các toán tử phù hợp, sau đó đối chiếu kết quả từ nhiều nguồn." },
-      { title: "2. Đánh giá nguồn", content: "Kiểm tra tác giả, cơ quan phát hành, thời điểm cập nhật, bằng chứng được dẫn và mục đích của nội dung. Ưu tiên nguồn chính thức và tài liệu gốc." },
-      { title: "3. Văn hóa số", content: "Giao tiếp rõ ràng, tôn trọng, bảo vệ thông tin cá nhân, tuân thủ bản quyền và chịu trách nhiệm về nội dung chia sẻ." }
+      { title: "1. Giới thiệu MicroStation V8i", content: "Thông tin chung, cách khởi động, cửa sổ làm việc và các thanh công cụ thường dùng trong phần mềm." },
+      { title: "2. Công cụ vẽ và thao tác đối tượng", content: "Tạo đối tượng cơ bản; lựa chọn, sao chép, di chuyển, xoay, thay đổi thuộc tính và chỉnh sửa đối tượng trên bản vẽ." },
+      { title: "3. Tác nghiệp văn kiện tác chiến", content: "Mở và quản lý bảng màu, đặt và chỉnh sửa ký hiệu hoặc kiểu đường quân sự, thiết lập tham số, lưu và in ấn sản phẩm." }
     ],
-    keyPoints: ["Tìm đúng trước khi tìm nhanh", "Luôn kiểm chứng nguồn", "Tôn trọng bản quyền và chuẩn mực số"],
+    keyPoints: ["Thiết lập đúng môi trường và tham số", "Chọn đúng công cụ cho từng đối tượng", "Kiểm tra lớp, thuộc tính, ký hiệu trước khi lưu hoặc in"],
     document: ""
   },
   {
-    id: "ung-dung-van-phong",
+    id: "tri-tue-nhan-tao",
+    chapter: 4,
     number: "04",
-    title: "Ứng dụng văn phòng và cộng tác trực tuyến",
-    shortTitle: "Ứng dụng văn phòng",
+    title: "Kiến thức chung về trí tuệ nhân tạo và sử dụng một số công cụ trí tuệ nhân tạo",
+    shortTitle: "Trí tuệ nhân tạo",
     icon: "apps",
-    duration: "14 tiết",
-    description: "Soạn thảo văn bản, xử lý bảng tính, thiết kế trình chiếu và phối hợp công việc trên nền tảng trực tuyến.",
+    duration: "Theo kế hoạch học phần",
+    description: "Cung cấp kiến thức về khái niệm, lịch sử, hệ thống và lĩnh vực ứng dụng AI; đồng thời hướng dẫn kỹ thuật viết yêu cầu và sử dụng một số công cụ AI tạo sinh.",
     objectives: [
-      "Tạo văn bản có cấu trúc, định dạng và mục lục tự động.",
-      "Sử dụng công thức, hàm và biểu đồ để xử lý dữ liệu.",
-      "Thiết kế bài trình chiếu rõ ràng, trực quan và có tương tác."
+      "Trình bày được khái niệm, phân loại, quá trình phát triển và các hệ thống AI.",
+      "Phân tích được cơ hội, thách thức và những vấn đề đặt ra khi ứng dụng AI.",
+      "Thực hành viết yêu cầu và sử dụng AI cho chatbot, giọng nói, trình chiếu và video."
     ],
     sections: [
-      { title: "1. Soạn thảo văn bản", content: "Sử dụng Styles để định dạng thống nhất; thiết lập trang, tiêu đề, mục lục, chú thích và trích dẫn theo yêu cầu của tài liệu." },
-      { title: "2. Bảng tính", content: "Tổ chức dữ liệu dạng bảng, dùng tham chiếu ô, hàm thống kê và điều kiện; trực quan hóa bằng biểu đồ phù hợp với thông điệp cần truyền đạt." },
-      { title: "3. Trình chiếu và cộng tác", content: "Mỗi trang chiếu tập trung vào một ý chính, bảo đảm tương phản và khả năng đọc. Phân quyền xem, nhận xét hoặc chỉnh sửa đúng đối tượng khi cộng tác trực tuyến." }
+      { title: "1. Kiến thức chung về AI", content: "Khái niệm, phân loại và lịch sử phát triển; các hệ thống sử dụng AI; các lĩnh vực ứng dụng phổ biến; xu hướng, cơ hội, thách thức và yêu cầu sử dụng có trách nhiệm." },
+      { title: "2. AI tạo sinh và kỹ thuật viết yêu cầu", content: "Đặc điểm của AI tạo sinh, cấu trúc một yêu cầu hiệu quả, cách cung cấp bối cảnh, nhiệm vụ, định dạng đầu ra và quy trình kiểm tra kết quả." },
+      { title: "3. Sử dụng một số công cụ AI", content: "Các bước ứng dụng chatbot AI, chuyển văn bản thành giọng nói, tạo bài trình chiếu và tạo video phục vụ học tập, nghiên cứu và công tác." }
     ],
-    keyPoints: ["Tự động hóa định dạng", "Dữ liệu rõ ràng và kiểm tra được", "Trình chiếu phục vụ người học"],
+    keyPoints: ["AI hỗ trợ con người xử lý và tạo nội dung", "Yêu cầu rõ ràng giúp nâng cao chất lượng đầu ra", "Luôn kiểm chứng kết quả và bảo vệ dữ liệu"],
     document: ""
   },
   {
-    id: "an-toan-ai",
+    id: "an-toan-thong-tin",
+    chapter: 5,
     number: "05",
-    title: "An toàn thông tin và ứng dụng trí tuệ nhân tạo",
-    shortTitle: "An toàn thông tin & AI",
+    title: "An toàn thông tin và an ninh mạng",
+    shortTitle: "An toàn thông tin",
     icon: "shield",
-    duration: "9 tiết",
-    description: "Nhận diện rủi ro số, bảo vệ tài khoản và khai thác trí tuệ nhân tạo đúng mục đích, an toàn và có trách nhiệm.",
+    duration: "Theo kế hoạch học phần",
+    description: "Trang bị kiến thức pháp lý, kỹ năng nhận diện và phòng ngừa nguy cơ, quy tắc ứng xử số và yêu cầu bảo đảm an toàn thông tin, an ninh mạng trong Bộ Quốc phòng.",
     objectives: [
-      "Nhận diện các hình thức lừa đảo, mã độc và rò rỉ dữ liệu phổ biến.",
-      "Áp dụng mật khẩu mạnh, xác thực nhiều lớp và nguyên tắc tối thiểu quyền.",
-      "Sử dụng AI tạo sinh với quy trình kiểm chứng và bảo vệ dữ liệu."
+      "Phân biệt được an toàn thông tin, an ninh mạng và các nguyên tắc bảo vệ thông tin.",
+      "Nhận diện được nguy cơ, lừa đảo và áp dụng kỹ năng bảo vệ thiết bị, tài khoản, dữ liệu cá nhân.",
+      "Nắm được quy định và mô hình phòng thủ theo chiều sâu trong cơ quan, đơn vị."
     ],
     sections: [
-      { title: "1. Mối đe dọa phổ biến", content: "Lừa đảo qua liên kết, tệp đính kèm độc hại, giả mạo danh tính, mật khẩu yếu và chia sẻ dữ liệu sai phạm là những rủi ro thường gặp." },
-      { title: "2. Thực hành bảo vệ", content: "Dùng mật khẩu riêng cho từng dịch vụ, bật xác thực nhiều lớp, cập nhật phần mềm, kiểm tra người gửi và phân loại thông tin trước khi chia sẻ." },
-      { title: "3. Ứng dụng AI có trách nhiệm", content: "Không nhập dữ liệu mật hoặc thông tin cá nhân nhạy cảm vào công cụ AI công cộng. Luôn kiểm tra độ chính xác, nguồn dẫn và trách nhiệm của người sử dụng đối với sản phẩm cuối cùng." }
+      { title: "1. Kiến thức chung", content: "Khái niệm, nguy cơ, công cụ hỗ trợ, cơ sở pháp lý và các nguyên tắc bảo đảm an toàn thông tin, an ninh mạng." },
+      { title: "2. Kỹ năng an toàn trên môi trường số", content: "Nhận diện lừa đảo; bảo vệ thiết bị, dữ liệu cá nhân và quyền riêng tư; bảo vệ sức khỏe, môi trường; thực hiện quy tắc ứng xử trên không gian mạng." },
+      { title: "3. Bảo đảm an toàn trong Bộ Quốc phòng", content: "Nguy cơ đặc thù; quy định về hệ thống, thiết bị, phần mềm, tài khoản, dữ liệu và Internet; trách nhiệm báo cáo, phối hợp xử lý; mô hình phòng thủ theo chiều sâu." }
     ],
-    keyPoints: ["Dừng lại và kiểm tra trước khi bấm", "Không đưa dữ liệu nhạy cảm vào AI công cộng", "AI hỗ trợ, con người chịu trách nhiệm"],
+    keyPoints: ["Bảo đảm bí mật, toàn vẹn và sẵn sàng", "Đúng hệ thống - đúng quyền hạn - đúng quy trình", "Phòng thủ theo chiều sâu kết hợp con người, quản lý và kỹ thuật"],
     document: ""
   }
 ];

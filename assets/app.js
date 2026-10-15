@@ -53,7 +53,7 @@
         </div>`
       : `<div class="document-empty">
           <span aria-hidden="true">▤</span>
-          <p>Chưa gắn tệp PDF cho chủ đề này. Giảng viên có thể tải tệp vào thư mục <strong>materials</strong> và khai báo đường dẫn trong <strong>data/topics.js</strong>.</p>
+          <p>Nội dung đầy đủ đã được nạp vào kho tri thức của chatbot. Bản PDF không được công khai trên GitHub nhằm hạn chế sao chép tài liệu.</p>
         </div>`;
 
     panel.innerHTML = `
@@ -118,11 +118,15 @@
     return wrapper;
   }
 
-  function courseContext() {
-    return topics.map((topic) => {
-      const sections = topic.sections.map((section) => `${section.title}: ${section.content}`).join("\n");
-      return `CHỦ ĐỀ ${topic.number}: ${topic.title}\nMô tả: ${topic.description}\nMục tiêu: ${topic.objectives.join("; ")}\n${sections}\nTrọng tâm: ${topic.keyPoints.join("; ")}`;
-    }).join("\n\n---\n\n");
+  function topicSummary(topic) {
+    if (!topic) return "";
+    const sections = topic.sections.map((section) => `${section.title}: ${section.content}`).join("\n");
+    return `CHƯƠNG ${topic.chapter}: ${topic.title}\nMô tả: ${topic.description}\nMục tiêu: ${topic.objectives.join("; ")}\n${sections}\nTrọng tâm: ${topic.keyPoints.join("; ")}`;
+  }
+
+  function courseContext(activeTopic) {
+    const overview = activeTopic ? topicSummary(activeTopic) : topics.map(topicSummary).join("\n\n---\n\n");
+    return `TÓM LƯỢC CHƯƠNG NGƯỜI HỌC ĐANG MỞ\n${overview}`;
   }
 
   async function askAssistant(message) {
@@ -147,7 +151,7 @@
         body: JSON.stringify({
           message,
           activeTopic: activeTopic ? activeTopic.title : "",
-          context: courseContext(),
+          context: courseContext(activeTopic),
           history: history.slice(-8)
         })
       });

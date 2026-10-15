@@ -12,10 +12,9 @@ Website học phần Công nghệ thông tin gồm 5 chủ đề, nội dung ch�
 
 ## Thay nội dung bài giảng
 
-1. Tải PDF vào thư mục `materials`.
-2. Mở `data/topics.js`.
-3. Sửa tên, mô tả, mục tiêu, nội dung và trường `document` của chủ đề tương ứng.
-4. Commit thay đổi. GitHub Pages sẽ cập nhật tự động.
+1. Mở `data/topics.js` để sửa tên, mô tả, mục tiêu và nội dung tóm lược của 5 chương.
+2. Kho kiến thức đầy đủ của chatbot được đặt trong Cloudflare Worker để không công khai toàn văn trên GitHub Pages.
+3. Commit thay đổi. GitHub Pages sẽ cập nhật tự động.
 
 ## Bật GitHub Pages
 
