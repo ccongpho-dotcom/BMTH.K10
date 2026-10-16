@@ -124,9 +124,9 @@
     return `CHƯƠNG ${topic.chapter}: ${topic.title}\nMô tả: ${topic.description}\nMục tiêu: ${topic.objectives.join("; ")}\n${sections}\nTrọng tâm: ${topic.keyPoints.join("; ")}`;
   }
 
-  function courseContext(activeTopic) {
-    const overview = activeTopic ? topicSummary(activeTopic) : topics.map(topicSummary).join("\n\n---\n\n");
-    return `TÓM LƯỢC CHƯƠNG NGƯỜI HỌC ĐANG MỞ\n${overview}`;
+  function courseContext() {
+    const overview = topics.map(topicSummary).join("\n\n---\n\n");
+    return `TÓM LƯỢC TOÀN BỘ HỌC PHẦN\n${overview}`;
   }
 
   async function askAssistant(message) {
@@ -151,7 +151,7 @@
         body: JSON.stringify({
           message,
           activeTopic: activeTopic ? activeTopic.title : "",
-          context: courseContext(activeTopic),
+          context: courseContext(),
           history: history.slice(-8)
         })
       });
