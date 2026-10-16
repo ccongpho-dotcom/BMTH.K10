@@ -2,6 +2,7 @@
   "use strict";
 
   const topics = Array.isArray(window.BMTH_TOPICS) ? window.BMTH_TOPICS : [];
+  const mediaByTopic = window.BMTH_MEDIA && typeof window.BMTH_MEDIA === "object" ? window.BMTH_MEDIA : {};
   const config = window.BMTH_CONFIG || {};
   const nav = document.getElementById("topic-nav");
   const panel = document.getElementById("lesson-panel");
@@ -69,15 +70,45 @@
       return;
     }
 
+    const media = mediaByTopic[topic.id] || {};
+    const summary = media.summary || topic.description;
+    const videoUrl = typeof media.video === "string" ? media.video.trim() : "";
+    const audioUrl = typeof media.audio === "string" ? media.audio.trim() : "";
+    const mediaPlayers = [
+      videoUrl ? `
+        <div class="media-card media-card-video">
+          <div class="media-label"><span aria-hidden="true">▶</span> Video tóm tắt</div>
+          <video controls controlsList="nodownload noplaybackrate" disablePictureInPicture playsinline preload="metadata">
+            <source src="${escapeHtml(videoUrl)}">
+            Trình duyệt của đồng chí không hỗ trợ phát video.
+          </video>
+        </div>
+      ` : "",
+      audioUrl ? `
+        <div class="media-card media-card-audio">
+          <div class="media-label"><span aria-hidden="true">♪</span> Âm thanh tóm tắt</div>
+          <audio controls controlsList="nodownload noplaybackrate" preload="metadata">
+            <source src="${escapeHtml(audioUrl)}">
+            Trình duyệt của đồng chí không hỗ trợ phát âm thanh.
+          </audio>
+        </div>
+      ` : ""
+    ].filter(Boolean).join("");
+
     panel.innerHTML = `
       <div class="lesson-kicker">CHỦ ĐỀ ${escapeHtml(topic.number)}</div>
       <h2 class="lesson-title">${escapeHtml(topic.title)}</h2>
       <p class="lesson-description">${escapeHtml(topic.description)}</p>
-      <div class="lesson-meta">
-        <span class="meta-chip">Thời lượng: ${escapeHtml(topic.duration)}</span>
-        <span class="meta-chip">Chế độ: Chỉ đọc</span>
-        <span class="meta-chip">Trợ lý AI hỗ trợ 24/7</span>
-      </div>
+      <section class="lesson-summary" aria-labelledby="summary-title-${escapeHtml(topic.id)}">
+        <div class="summary-heading">
+          <h3 id="summary-title-${escapeHtml(topic.id)}">Tóm tắt nội dung</h3>
+          <span class="summary-badge">Video / Âm thanh</span>
+        </div>
+        <p>${escapeHtml(summary)}</p>
+        ${mediaPlayers
+          ? `<div class="summary-media-grid">${mediaPlayers}</div>`
+          : `<div class="media-empty"><span aria-hidden="true">＋</span> Chưa gán video hoặc tệp âm thanh cho chủ đề này.</div>`}
+      </section>
       <section class="objectives">
         <h3>Mục tiêu học tập</h3>
         <ul>${topic.objectives.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>

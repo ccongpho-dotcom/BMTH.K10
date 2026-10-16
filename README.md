@@ -6,6 +6,8 @@ Website học phần Công nghệ thông tin gồm 5 chủ đề, nội dung ch�
 
 - `index.html`: giao diện chính.
 - `data/topics.js`: tên và nội dung 5 chủ đề.
+- `data/media.js`: nội dung tóm tắt và đường dẫn video/âm thanh của từng chủ đề.
+- `media/video/`, `media/audio/`: nơi lưu video và tệp âm thanh.
 - `materials/`: nơi lưu tệp PDF bài giảng.
 - `config.js`: địa chỉ API chatbot.
 - `cloudflare-worker/`: backend bảo vệ Gemini API key.
@@ -15,6 +17,16 @@ Website học phần Công nghệ thông tin gồm 5 chủ đề, nội dung ch�
 1. Mở `data/topics.js` để sửa tên, mô tả, mục tiêu và nội dung tóm lược của 5 chương.
 2. Kho kiến thức đầy đủ của chatbot được đặt trong Cloudflare Worker để không công khai toàn văn trên GitHub Pages.
 3. Commit thay đổi. GitHub Pages sẽ cập nhật tự động.
+
+## Gán video hoặc âm thanh cho chủ đề
+
+1. Tải video lên `media/video/` hoặc tệp âm thanh lên `media/audio/`.
+2. Mở `data/media.js`, tìm đúng mã chủ đề và điền đường dẫn vào `video` hoặc `audio`.
+3. Ví dụ: `video: "media/video/chuyen-doi-so.mp4"` hoặc `audio: "media/audio/chuyen-doi-so.mp3"`.
+4. Có thể điền cả hai nếu muốn hiển thị đồng thời video và âm thanh. Để trống chuỗi `""` nếu không dùng.
+5. Commit thay đổi và chờ GitHub Pages cập nhật.
+
+Đường dẫn cũng có thể là URL trực tiếp bắt đầu bằng `https://`. Liên kết trang xem YouTube không phải là URL tệp video trực tiếp nên không dùng trong trường `video` này.
 
 ## Bật GitHub Pages
 
