@@ -69,16 +69,6 @@
       return;
     }
 
-    const documentMarkup = topic.document
-      ? `<div class="document-viewer">
-          <iframe src="${escapeHtml(topic.document)}#toolbar=0&navpanes=0&scrollbar=1" title="Tài liệu ${escapeHtml(topic.title)}" loading="lazy"></iframe>
-          <div class="document-watermark">BMTH.K10</div>
-        </div>`
-      : `<div class="document-empty">
-          <span aria-hidden="true">▤</span>
-          <p>Nội dung đầy đủ đã được nạp vào kho tri thức của chatbot. Bản PDF không được công khai trên GitHub nhằm hạn chế sao chép tài liệu.</p>
-        </div>`;
-
     panel.innerHTML = `
       <div class="lesson-kicker">CHỦ ĐỀ ${escapeHtml(topic.number)}</div>
       <h2 class="lesson-title">${escapeHtml(topic.title)}</h2>
@@ -98,10 +88,6 @@
       <section class="key-points">
         <h3>Trọng tâm cần ghi nhớ</h3>
         <div class="key-list">${topic.keyPoints.map((item, index) => `<div class="key-item"><span>${index + 1}</span>${escapeHtml(item)}</div>`).join("")}</div>
-      </section>
-      <section class="document-box">
-        <h3>Tài liệu bài giảng</h3>
-        ${documentMarkup}
       </section>
     `;
     window.location.hash = topic.id;
