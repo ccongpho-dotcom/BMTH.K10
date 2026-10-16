@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#061b35">
   <title>BMTH.K10</title>
   <link rel="icon" type="image/svg+xml" href="assets/ai-digital-logo.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20261015-2">
+  <link rel="stylesheet" href="assets/styles.css?v=20261016-2">
 </head>
 <body>
   <header class="site-header">
@@ -88,9 +88,12 @@
       <div class="chat-avatar"><img src="assets/ai-digital-logo.svg" alt=""></div>
       <div>
         <strong>Trợ lý AI BMTH.K10</strong>
-        <span><i></i>Sẵn sàng hỗ trợ học tập</span>
+        <span id="chat-status" class="chat-status" data-state="ready" aria-live="polite">Sẵn sàng hỗ trợ học tập</span>
       </div>
-      <button id="chat-close" type="button" aria-label="Đóng trợ lý AI">×</button>
+      <div class="chat-header-actions">
+        <button id="chat-reset" type="button" aria-label="Bắt đầu cuộc trò chuyện mới" title="Cuộc trò chuyện mới">↻</button>
+        <button id="chat-close" type="button" aria-label="Đóng trợ lý AI" title="Đóng">×</button>
+      </div>
     </header>
     <div id="chat-messages" class="chat-messages" aria-live="polite">
       <div class="message assistant">
@@ -98,9 +101,10 @@
       </div>
     </div>
     <div class="quick-prompts" aria-label="Câu hỏi gợi ý">
-      <button type="button" data-prompt="Tóm tắt chủ đề đang mở">Tóm tắt chủ đề</button>
-      <button type="button" data-prompt="Nêu 3 ý chính cần ghi nhớ">3 ý cần nhớ</button>
-      <button type="button" data-prompt="Tạo 3 câu hỏi tự kiểm tra">Tự kiểm tra</button>
+      <button type="button" data-prompt="Tóm tắt Chương 1">Tóm tắt Chương 1</button>
+      <button type="button" data-prompt="Trí tuệ nhân tạo là gì?">Trí tuệ nhân tạo</button>
+      <button type="button" data-prompt="Phân tích các biện pháp bảo đảm an toàn thông tin">An toàn thông tin</button>
+      <button type="button" data-prompt="Trình bày nội dung chuyển đổi số trong Bộ Quốc phòng">Chuyển đổi số trong BQP</button>
     </div>
     <form id="chat-form" class="chat-form">
       <label class="sr-only" for="chat-input">Nhập câu hỏi</label>
@@ -116,6 +120,6 @@
 
   <script src="config.js?v=20261015-2"></script>
   <script src="data/topics.js?v=20261015-2"></script>
-  <script src="assets/app.js?v=20261016-1"></script>
+  <script src="assets/app.js?v=20261016-2"></script>
 </body>
 </html>

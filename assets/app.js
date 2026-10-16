@@ -8,6 +8,8 @@
   const chatLauncher = document.getElementById("chat-launcher");
   const chatPanel = document.getElementById("chat-panel");
   const chatClose = document.getElementById("chat-close");
+  const chatReset = document.getElementById("chat-reset");
+  const chatStatus = document.getElementById("chat-status");
   const chatForm = document.getElementById("chat-form");
   const chatInput = document.getElementById("chat-input");
   const chatMessages = document.getElementById("chat-messages");
@@ -16,6 +18,7 @@
   let activeTopicId = topics[0] ? topics[0].id : null;
   let history = [];
   let busy = false;
+  const welcomeMessage = "Xin chào! Đồng chí cần làm rõ nội dung nào?";
 
   const escapeHtml = (value) => String(value || "")
     .replaceAll("&", "&amp;")
@@ -28,6 +31,26 @@
     toast.textContent = message;
     toast.classList.add("show");
     window.setTimeout(() => toast.classList.remove("show"), 3300);
+  }
+
+  function setChatStatus(state, message) {
+    chatStatus.dataset.state = state;
+    chatStatus.textContent = message;
+  }
+
+  function resetConversation() {
+    if (busy) {
+      showToast("Vui lòng chờ chatbot trả lời xong.");
+      return;
+    }
+    history = [];
+    chatMessages.innerHTML = "";
+    addMessage(welcomeMessage, "assistant");
+    chatInput.value = "";
+    chatInput.style.height = "auto";
+    setChatStatus(navigator.onLine ? "ready" : "offline", navigator.onLine ? "Sẵn sàng hỗ trợ học tập" : "Mất kết nối mạng");
+    showToast("Đã bắt đầu cuộc trò chuyện mới.");
+    chatInput.focus();
   }
 
   function renderNavigation() {
@@ -131,7 +154,13 @@
 
   async function askAssistant(message) {
     if (busy) return;
+    if (!navigator.onLine) {
+      setChatStatus("offline", "Mất kết nối mạng");
+      addMessage("Thiết bị đang mất kết nối mạng. Đồng chí vui lòng kiểm tra kết nối và thử lại.", "assistant");
+      return;
+    }
     if (!config.chatApiUrl) {
+      setChatStatus("error", "Chatbot chưa được kết nối");
       addMessage("Chatbot chưa được kết nối. Giảng viên cần điền URL Cloudflare Worker trong tệp config.js sau khi thiết lập API Google AI Studio.", "assistant");
       showToast("Chưa cấu hình địa chỉ chatbot");
       return;
@@ -140,6 +169,8 @@
     busy = true;
     const submitButton = chatForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
+    chatReset.disabled = true;
+    setChatStatus("busy", "Đang tìm trong toàn bộ học phần…");
     addMessage(message, "user");
     const typing = addMessage("", "assistant", "typing");
 
@@ -161,18 +192,22 @@
       const answer = data.answer || "Tôi chưa thể tạo câu trả lời lúc này.";
       addMessage(answer, "assistant");
       history.push({ role: "user", text: message }, { role: "model", text: answer });
+      setChatStatus("ready", "Sẵn sàng hỗ trợ học tập");
     } catch (error) {
       typing.remove();
       addMessage(`Xin lỗi, hệ thống đang gặp lỗi: ${error.message}`, "assistant");
+      setChatStatus(navigator.onLine ? "error" : "offline", navigator.onLine ? "Hệ thống đang bận, vui lòng thử lại" : "Mất kết nối mạng");
     } finally {
       busy = false;
       submitButton.disabled = false;
+      chatReset.disabled = false;
       chatInput.focus();
     }
   }
 
   chatLauncher.addEventListener("click", () => toggleChat());
   chatClose.addEventListener("click", () => toggleChat(false));
+  chatReset.addEventListener("click", resetConversation);
   chatForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const message = chatInput.value.trim();
@@ -192,6 +227,9 @@
     }
   });
   document.querySelectorAll("[data-prompt]").forEach((button) => button.addEventListener("click", () => askAssistant(button.dataset.prompt)));
+
+  window.addEventListener("online", () => setChatStatus("ready", "Sẵn sàng hỗ trợ học tập"));
+  window.addEventListener("offline", () => setChatStatus("offline", "Mất kết nối mạng"));
 
   document.addEventListener("contextmenu", (event) => {
     if (event.target.closest(".protected-content")) {
