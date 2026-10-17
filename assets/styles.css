@@ -111,21 +111,34 @@ a { color: inherit; }
 .primary-button span { color: var(--gold); font-size: 1.3rem; }
 
 .hero-visual { --parallax-x: 0px; --parallax-y: 0px; min-height: 350px; display: grid; place-items: center; transform: translate3d(var(--parallax-x), var(--parallax-y), 0); transition: transform .35s ease-out; will-change: transform; }
-.digital-core { width: 190px; height: 190px; display: grid; place-items: center; border-radius: 42px; background: linear-gradient(145deg, rgba(21, 87, 125, .8), rgba(5, 28, 55, .88)); border: 1px solid rgba(83, 235, 218, .42); box-shadow: 0 0 70px rgba(49, 192, 209, .25), inset 0 0 40px rgba(70, 212, 214, .12); transform: rotate(5deg); }
-.digital-core img { width: 145px; filter: drop-shadow(0 0 18px rgba(72, 219, 211, .35)); transform: rotate(-5deg); }
+.digital-core { position: relative; width: 190px; height: 190px; display: grid; place-items: center; border-radius: 42px; background: linear-gradient(145deg, rgba(21, 87, 125, .8), rgba(5, 28, 55, .88)); border: 1px solid rgba(83, 235, 218, .42); box-shadow: 0 0 70px rgba(49, 192, 209, .25), inset 0 0 40px rgba(70, 212, 214, .12); transform: rotate(5deg); animation: coreFloat 5.2s ease-in-out infinite, corePulse 3.6s ease-in-out infinite alternate; }
+.digital-core::before { content: ""; position: absolute; inset: -15px; border: 1px solid rgba(85, 232, 221, .2); border-radius: 52px; animation: coreRing 3.6s ease-out infinite; }
+.digital-core::after { content: ""; position: absolute; left: 20px; right: 20px; top: 25%; height: 1px; opacity: 0; background: linear-gradient(90deg, transparent, rgba(108, 241, 229, .9), transparent); box-shadow: 0 0 12px rgba(82, 232, 221, .8); animation: coreScan 3.8s ease-in-out infinite; }
+.digital-core img { position: relative; z-index: 1; width: 145px; filter: drop-shadow(0 0 18px rgba(72, 219, 211, .35)); transform: rotate(-5deg); animation: logoBreathe 3.2s ease-in-out infinite; }
 .orbit { position: absolute; border: 1px solid rgba(90, 221, 219, .32); border-radius: 50%; }
-.orbit::after { content: ""; position: absolute; top: 50%; left: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+.orbit::before, .orbit::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); animation: nodePulse 1.8s ease-in-out infinite alternate; }
+.orbit::after { top: 50%; left: -5px; }
+.orbit::before { right: 11%; bottom: 12%; width: 7px; height: 7px; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); animation-delay: -.9s; }
 .orbit-one { width: 310px; height: 310px; animation: spin 16s linear infinite; }
 .orbit-two { width: 395px; height: 250px; border-style: dashed; animation: spin-reverse 22s linear infinite; }
 .data-pill { position: absolute; padding: 8px 13px; border: 1px solid rgba(83, 229, 216, .3); border-radius: 999px; color: #a7f3eb; background: rgba(4, 28, 52, .86); font-size: .7rem; letter-spacing: .16em; font-weight: 800; box-shadow: 0 8px 24px rgba(0,0,0,.2); animation: pillFloat 4.6s ease-in-out infinite; }
-.pill-one { top: 22%; right: 11%; }.pill-two { bottom: 22%; left: 5%; }.pill-three { bottom: 10%; right: 16%; }
-.pill-two { animation-delay: -1.6s; }.pill-three { animation-delay: -3.1s; }
+.pill-one { top: 22%; right: 11%; animation-name: pillDriftOne; }
+.pill-two { bottom: 22%; left: 5%; animation-name: pillDriftTwo; animation-delay: -1.6s; }
+.pill-three { bottom: 10%; right: 16%; animation-name: pillDriftThree; animation-delay: -3.1s; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes spin-reverse { to { transform: rotate(-360deg); } }
+@keyframes coreFloat { 0%, 100% { transform: translateY(0) rotate(5deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+@keyframes corePulse { to { box-shadow: 0 0 95px rgba(49, 192, 209, .42), inset 0 0 48px rgba(70, 212, 214, .2); border-color: rgba(106, 240, 227, .68); } }
+@keyframes coreRing { 0% { opacity: 0; transform: scale(.92); } 35% { opacity: .7; } 100% { opacity: 0; transform: scale(1.17); } }
+@keyframes coreScan { 0%, 15% { top: 22%; opacity: 0; } 28% { opacity: .8; } 72% { opacity: .7; } 88%, 100% { top: 78%; opacity: 0; } }
+@keyframes logoBreathe { 0%, 100% { transform: rotate(-5deg) scale(1); filter: drop-shadow(0 0 16px rgba(72, 219, 211, .32)); } 50% { transform: rotate(-2deg) scale(1.045); filter: drop-shadow(0 0 28px rgba(89, 225, 226, .62)); } }
+@keyframes nodePulse { to { transform: scale(1.35); opacity: .62; } }
 @keyframes pageGlow { to { transform: scale(1.06) translate3d(1.5%, -1%, 0); } }
 @keyframes gridDrift { to { background-position: 160px 80px; } }
 @keyframes heroGlow { to { transform: translate3d(-110px, 80px, 0) scale(1.16); opacity: .66; } }
-@keyframes pillFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes pillDriftOne { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(8px, -10px, 0); } }
+@keyframes pillDriftTwo { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(-8px, -8px, 0); } }
+@keyframes pillDriftThree { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(10px, 7px, 0); } }
 @keyframes buttonShine { 0%, 68% { left: -30%; opacity: 0; } 76% { opacity: 1; } 94%, 100% { left: 120%; opacity: 0; } }
 
 .course-shell { width: min(1440px, calc(100% - 40px)); margin: -34px auto 70px; position: relative; z-index: 3; display: grid; grid-template-columns: 345px minmax(0, 1fr); min-height: 690px; background: #fff; border: 1px solid rgba(166, 204, 218, .42); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: box-shadow .35s ease, transform .35s ease; }
