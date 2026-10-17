@@ -72,6 +72,9 @@ a { color: inherit; }
 .slogan { margin: 0; color: #f7d783; letter-spacing: .105em; text-align: center; font-size: clamp(.72rem, 1vw, .91rem); font-weight: 800; }
 .menu-button { display: none; justify-self: end; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: transparent; }
 .menu-button span { display: block; width: 21px; height: 2px; margin: 4px auto; background: #fff; }
+.view-mode-toggle { display: none; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 0 11px; border: 1px solid rgba(255,255,255,.22); border-radius: 11px; color: #d9f5f2; background: rgba(255,255,255,.06); font-size: .72rem; font-weight: 800; cursor: pointer; }
+.view-mode-toggle svg { width: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.view-mode-toggle:hover { color: #fff; border-color: rgba(88, 225, 213, .52); background: rgba(47, 190, 181, .13); }
 
 .hero {
   position: relative;
@@ -285,14 +288,31 @@ a { color: inherit; }
   .sidebar-note { display: none; }
 }
 @media (max-width: 760px) {
-  .site-header { padding: 10px 16px; }
+  .site-header { grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; padding: 10px max(14px, env(safe-area-inset-left)) 10px max(14px, env(safe-area-inset-right)); }
+  .brand { gap: 8px; min-width: 0; }
+  .brand img { width: 43px; height: 43px; }
+  .brand-copy strong { font-size: 1rem; }
   .brand-copy small { font-size: .57rem; }
   .slogan { font-size: .6rem; letter-spacing: .06em; }
-  .hero { min-height: 460px; padding: 54px 22px 105px; }
-  .hero h1 { font-size: clamp(2.15rem, 10vw, 3.35rem); }
+  .view-mode-toggle { display: inline-flex; }
+  .menu-button { width: 40px; height: 40px; }
+  .hero { min-height: 710px; grid-template-areas: "heading" "copy" "visual"; padding: 48px 20px 102px; row-gap: 22px; }
+  .hero h1 { font-size: clamp(1.82rem, 8.6vw, 2.75rem); }
   .hero-lead { font-size: .96rem; }
+  .hero-visual { display: grid; min-height: 270px; margin-top: -2px; }
+  .digital-core { width: 132px; height: 132px; border-radius: 30px; }
+  .digital-core img { width: 100px; }
+  .digital-core::before { inset: -11px; border-radius: 38px; }
+  .orbit-one { width: 218px; height: 218px; }
+  .orbit-two { width: 282px; height: 180px; }
+  .data-pill { padding: 6px 10px; font-size: .58rem; }
+  .pill-one { top: 16%; right: 7%; }
+  .pill-two { bottom: 20%; left: 2%; }
+  .pill-three { bottom: 5%; right: 10%; }
   .course-shell { width: calc(100% - 20px); margin-bottom: 34px; border-radius: 17px; }
   .topic-sidebar { padding: 24px 16px 16px; }
+  .topic-nav { grid-template-columns: repeat(5, minmax(158px, 76vw)); scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: rgba(87, 218, 207, .45) transparent; }
+  .topic-button { min-height: 72px; scroll-snap-align: start; }
   .section-number { font-size: 2.7rem; }
   .lesson-panel { padding: 31px 20px 40px; }
   .lesson-summary { padding: 19px 17px; }
@@ -302,7 +322,21 @@ a { color: inherit; }
   .content-grid, .key-list { grid-template-columns: 1fr; }
   .content-section h3 { min-height: auto; }
   .site-footer { padding: 18px 22px 100px; display: grid; }
-  .chat-launcher { right: 16px; bottom: 16px; width: 58px; padding: 0; justify-content: center; }
+  .chat-launcher { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); width: 58px; padding: 0; justify-content: center; }
   .chat-label { display: none; }
-  .chat-panel { right: 8px; bottom: 82px; width: calc(100vw - 16px); height: min(650px, calc(100vh - 94px)); }
+  .chat-panel { right: max(8px, env(safe-area-inset-right)); bottom: max(82px, calc(70px + env(safe-area-inset-bottom))); width: calc(100vw - 16px); height: min(650px, calc(100dvh - 94px)); }
+}
+
+html.overview-mode .view-mode-toggle {
+  position: fixed;
+  z-index: 110;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  min-height: 46px;
+  padding: 0 15px;
+  color: #fff;
+  border-color: rgba(90, 226, 214, .55);
+  background: linear-gradient(135deg, #0b365f, #0d726f);
+  box-shadow: 0 12px 32px rgba(3, 32, 61, .32);
 }

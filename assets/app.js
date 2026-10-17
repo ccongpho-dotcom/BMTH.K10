@@ -16,10 +16,51 @@
   const chatMessages = document.getElementById("chat-messages");
   const toast = document.getElementById("toast");
   const menuButton = document.querySelector(".menu-button");
+  const viewportMeta = document.querySelector('meta[name="viewport"]');
+  const viewModeToggle = document.getElementById("view-mode-toggle");
   let activeTopicId = topics[0] ? topics[0].id : null;
   let history = [];
   let busy = false;
   const welcomeMessage = "Xin chào! Đồng chí cần làm rõ nội dung nào?";
+
+  function isPhoneScreen() {
+    return Math.min(window.screen.width || window.innerWidth, window.screen.height || window.innerHeight) <= 760;
+  }
+
+  function setViewMode(overview, persist) {
+    if (!viewportMeta || !viewModeToggle) return;
+    const enabled = Boolean(overview && isPhoneScreen());
+    document.documentElement.classList.toggle("overview-mode", enabled);
+    viewportMeta.setAttribute("content", enabled
+      ? "width=1180, initial-scale=1, viewport-fit=cover"
+      : "width=device-width, initial-scale=1, viewport-fit=cover");
+    viewModeToggle.setAttribute("aria-pressed", String(enabled));
+    viewModeToggle.setAttribute("aria-label", enabled ? "Trở về giao diện điện thoại" : "Xem bố cục toàn cảnh");
+    const label = viewModeToggle.querySelector("span");
+    if (label) label.textContent = enabled ? "Về di động" : "Toàn cảnh";
+    if (persist) {
+      try {
+        window.localStorage.setItem("bmth-view-mode", enabled ? "overview" : "mobile");
+      } catch (_) {
+        // Trình duyệt có thể chặn lưu tùy chọn; giao diện vẫn hoạt động trong phiên hiện tại.
+      }
+    }
+  }
+
+  if (viewModeToggle) {
+    let savedViewMode = "mobile";
+    try {
+      savedViewMode = window.localStorage.getItem("bmth-view-mode") || "mobile";
+    } catch (_) {
+      savedViewMode = "mobile";
+    }
+    setViewMode(savedViewMode === "overview", false);
+    viewModeToggle.addEventListener("click", () => {
+      const nextOverview = !document.documentElement.classList.contains("overview-mode");
+      setViewMode(nextOverview, true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
   const escapeHtml = (value) => String(value || "")
     .replaceAll("&", "&amp;")
