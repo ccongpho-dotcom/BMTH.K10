@@ -2,6 +2,8 @@
 
 Website học phần Công nghệ thông tin gồm 5 chủ đề, nội dung chỉ đọc và chatbot sử dụng Gemini API của Google AI Studio.
 
+Giao diện có hiệu ứng động nhẹ gồm nền số, chuyển chủ đề, hiệu ứng khi cuộn và thanh tiến độ đọc. Trình duyệt sẽ tự giảm hiệu ứng khi thiết bị bật chế độ giảm chuyển động.
+
 ## Cấu trúc
 
 - `index.html`: giao diện chính.

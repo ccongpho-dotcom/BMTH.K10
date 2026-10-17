@@ -122,6 +122,7 @@
       </section>
     `;
     window.location.hash = topic.id;
+    panel.dispatchEvent(new CustomEvent("bmth:lesson-rendered", { detail: { topicId: topic.id } }));
   }
 
   function chooseTopic(id, scrollIntoView) {
