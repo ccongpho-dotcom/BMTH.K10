@@ -19,7 +19,7 @@ window.BMTH_MEDIA = {
   "tri-tue-nhan-tao": {
     summary: "Chủ đề cung cấp kiến thức chung về trí tuệ nhân tạo, kỹ thuật viết yêu cầu và cách sử dụng một số công cụ AI tạo sinh phục vụ học tập, nghiên cứu và công tác.",
     video: "",
-    audio: ""
+    audio: "media/audio/Tri tue nhan tao.mp3"
   },
   "an-toan-thong-tin": {
     summary: "Chủ đề tập trung vào nhận diện nguy cơ, kỹ năng tự bảo vệ trên môi trường số và các yêu cầu bảo đảm an toàn thông tin, an ninh mạng trong Bộ Quốc phòng.",
