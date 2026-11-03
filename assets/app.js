@@ -155,7 +155,6 @@
           <span class="topic-quiz-icon" aria-hidden="true">✓</span>
           <div>
             <h3>Tự kiểm tra kiến thức</h3>
-            <p>Làm bộ câu hỏi được trộn ngẫu nhiên riêng cho chủ đề này.</p>
           </div>
         </div>
         <a href="quiz.html?topic=${encodeURIComponent(topic.id)}">Bắt đầu <span aria-hidden="true">→</span></a>

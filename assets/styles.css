@@ -199,7 +199,6 @@ a { color: inherit; }
 .topic-quiz-card > div { display: flex; align-items: center; gap: 13px; min-width: 0; }
 .topic-quiz-icon { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; border-radius: 13px; color: #fff; background: linear-gradient(135deg, #137c78, #19a99f); font-size: 1.2rem; font-weight: 900; box-shadow: 0 8px 18px rgba(16, 132, 126, .22); }
 .topic-quiz-card h3 { margin: 0 0 3px; color: #0d3c5b; font-size: .98rem; }
-.topic-quiz-card p { margin: 0; color: #687b8c; font-size: .82rem; }
 .topic-quiz-card > a { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 9px; padding: 10px 14px; border-radius: 10px; color: #fff; background: #0e716e; text-decoration: none; font-size: .8rem; font-weight: 800; }
 .topic-quiz-card > a:hover { background: #095d5b; }
 .objectives { margin: 0 0 32px; padding: 22px 24px; border: 1px solid #dce9ee; border-left: 4px solid var(--cyan); border-radius: 14px; background: #f7fbfc; }
