@@ -1,7 +1,5 @@
 window.BMTH_CONFIG = {
   chatApiUrl: "https://bmth-k10-chatbot.ccongpho.workers.dev/",
-  // Điền URL Worker trắc nghiệm sau khi triển khai, ví dụ:
-  // https://bmth-k10-quiz.ten-tai-khoan.workers.dev
-  quizApiUrl: "",
+  quizApiUrl: "https://bmth-k10-quiz.ccongpho.workers.dev",
   siteName: "BMTH.K10"
 };
