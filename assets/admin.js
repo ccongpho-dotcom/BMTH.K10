@@ -14,6 +14,7 @@
   const emptyBox = document.getElementById("question-empty");
   const totalBox = document.getElementById("question-total");
   const topicFilter = document.getElementById("admin-topic-filter");
+  const importTopic = document.getElementById("import-topic");
   const searchInput = document.getElementById("admin-search");
   const dialog = document.getElementById("question-dialog");
   const questionForm = document.getElementById("question-form");
@@ -69,6 +70,10 @@
       filterOption.value = topic.id;
       filterOption.textContent = label;
       topicFilter.appendChild(filterOption);
+      const importOption = document.createElement("option");
+      importOption.value = topic.id;
+      importOption.textContent = label;
+      importTopic.appendChild(importOption);
       const formOption = document.createElement("option");
       formOption.value = topic.id;
       formOption.textContent = label;
@@ -359,15 +364,89 @@
     });
   }
 
-  async function importCsv(event) {
+  function textToQuestions(text, topicId) {
+    if (!topicId || !topics.some((topic) => topic.id === topicId)) {
+      throw new Error("Hãy chọn chủ đề trước khi nạp file TXT.");
+    }
+
+    const lines = String(text || "").replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n").split("\n");
+    const items = [];
+    let current = null;
+    let explanationMode = false;
+
+    function finishCurrent() {
+      if (!current) return;
+      current.questionText = current.questionText.trim();
+      current.explanation = current.explanation.trim();
+      if (!current.questionText || Object.values(current.options).some((option) => !option.trim()) || !["A", "B", "C", "D"].includes(current.correctOption)) {
+        throw new Error(`Câu ${items.length + 1} thiếu nội dung, chưa đủ 4 đáp án hoặc chưa có đáp án đúng.`);
+      }
+      Object.keys(current.options).forEach((key) => { current.options[key] = current.options[key].trim(); });
+      items.push(current);
+      current = null;
+      explanationMode = false;
+    }
+
+    lines.forEach((rawLine) => {
+      const line = rawLine.trim();
+      if (!line) return;
+
+      const questionMatch = line.match(/^Câu(?:\s+hỏi)?\s+\d+\s*:\s*(.+)$/i);
+      if (questionMatch) {
+        finishCurrent();
+        current = {
+          topicId,
+          questionText: questionMatch[1].trim(),
+          options: { A: "", B: "", C: "", D: "" },
+          correctOption: "",
+          explanation: "",
+          difficulty: "co-ban",
+          isActive: true
+        };
+        return;
+      }
+
+      if (!current) return;
+      const optionMatch = line.match(/^([A-D])\s*[.):\-]\s*(.+)$/i);
+      if (optionMatch) {
+        current.options[optionMatch[1].toUpperCase()] = optionMatch[2].trim();
+        explanationMode = false;
+        return;
+      }
+
+      const answerMatch = line.match(/^Đáp\s+án\s+đúng\s*:\s*([A-D])\s*$/i);
+      if (answerMatch) {
+        current.correctOption = answerMatch[1].toUpperCase();
+        explanationMode = false;
+        return;
+      }
+
+      const explanationMatch = line.match(/^Giải\s+thích\s*:\s*(.*)$/i);
+      if (explanationMatch) {
+        current.explanation = explanationMatch[1].trim();
+        explanationMode = true;
+        return;
+      }
+
+      if (explanationMode) current.explanation += `${current.explanation ? " " : ""}${line}`;
+    });
+
+    finishCurrent();
+    if (!items.length) throw new Error("Không tìm thấy câu hỏi trong file TXT. Hãy dùng đúng mẫu 'Câu 1:', A–D và 'Đáp án đúng:'.");
+    return items;
+  }
+
+  async function importQuestionFile(event) {
     const file = event.target.files && event.target.files[0];
     event.target.value = "";
     if (!file) return;
     try {
-      const items = csvToQuestions(await file.text());
+      const text = await file.text();
+      const isTextForm = file.name.toLowerCase().endsWith(".txt");
+      const items = isTextForm ? textToQuestions(text, importTopic.value) : csvToQuestions(text);
       if (items.length > 500) throw new Error("Mỗi lần chỉ được nạp tối đa 500 câu hỏi.");
       const data = await apiRequest("/api/admin/import", { method: "POST", body: JSON.stringify({ questions: items }) });
-      showAlert(`Đã nạp ${data.inserted || 0} câu; bỏ qua ${data.skipped || 0} câu trùng hoặc không hợp lệ.`, "success");
+      showAlert(`Đã đọc ${items.length} câu từ ${file.name}; nạp mới ${data.inserted || 0} câu, bỏ qua ${data.skipped || 0} câu trùng hoặc không hợp lệ.`, "success");
       await refreshDashboard();
     } catch (error) {
       showAlert(error.message, "error");
@@ -382,7 +461,7 @@
     document.getElementById("close-question-dialog").addEventListener("click", closeQuestionDialog);
     document.getElementById("cancel-question").addEventListener("click", closeQuestionDialog);
     document.getElementById("refresh-questions").addEventListener("click", refreshDashboard);
-    document.getElementById("csv-file").addEventListener("change", importCsv);
+    document.getElementById("question-file").addEventListener("change", importQuestionFile);
     questionForm.addEventListener("submit", saveQuestion);
     topicFilter.addEventListener("change", () => loadQuestions().catch((error) => showAlert(error.message, "error")));
     searchInput.addEventListener("input", () => {

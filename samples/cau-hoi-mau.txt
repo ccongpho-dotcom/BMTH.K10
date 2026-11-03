@@ -1,0 +1,15 @@
+Câu 1: Trong MicroStation V8i, một Design File được lưu với phần mở rộng nào?
+A. .DWG
+B. .DGN
+C. .DXF
+D. .V7
+Đáp án đúng: B
+Giải thích: Design File trong MicroStation có phần mở rộng mặc định là .DGN.
+
+Câu hỏi 2: MicroStation V8i là phần mềm do hãng nào cung cấp?
+A. Bentley Systems
+B. Microsoft
+C. Apple
+D. Samsung
+Đáp án đúng: A
+Giải thích: Phần mềm MicroStation V8i do hãng Bentley Systems sản xuất.

@@ -129,6 +129,7 @@ input:focus, select:focus, textarea:focus { border-color: #27a79e; box-shadow: 0
 .admin-toolbar { margin-bottom: 20px; padding: 17px; display: flex; align-items: center; justify-content: space-between; gap: 15px; }
 .toolbar-actions, .toolbar-filters { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
 .file-button { color: #fff; background: #1a7794; cursor: pointer; }
+.toolbar-actions select { width: 225px; }
 .toolbar-filters select { width: 190px; }
 .toolbar-filters input { width: 250px; }
 .icon-button { width: 43px; height: 43px; border: 1px solid #cddbe2; border-radius: 10px; background: #f8fbfc; font-size: 1.15rem; }
@@ -192,7 +193,7 @@ input:focus, select:focus, textarea:focus { border-color: #27a79e; box-shadow: 0
   .admin-stats { grid-template-columns: repeat(2, 1fr); }
   .toolbar-actions, .toolbar-filters { width: 100%; }
   .toolbar-actions > *, .toolbar-filters > * { flex: 1 1 145px; }
-  .toolbar-filters select, .toolbar-filters input { width: auto; }
+  .toolbar-actions select, .toolbar-filters select, .toolbar-filters input { width: auto; }
   .question-dialog form { padding: 20px 16px; }
 }
 

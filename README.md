@@ -94,12 +94,32 @@ Commit các tệp lên nhánh `main`. Sau khi GitHub Pages cập nhật:
 - Người học mở `quiz.html` hoặc bấm **Tự kiểm tra** trên giao diện.
 - Quản trị viên mở `admin.html`, đăng nhập bằng tài khoản đã cấu hình.
 
-## Nạp câu hỏi bằng form CSV
+## Nạp câu hỏi bằng form TXT hoặc CSV
 
-1. Trong `admin.html`, bấm **Tải form mẫu**.
+### Form TXT đơn giản
+
+1. Trong `admin.html`, chọn chủ đề cần nạp.
+2. Bấm **Tải form TXT** và soạn câu hỏi theo cấu trúc `Câu...`, bốn đáp án A–D, `Đáp án đúng` và `Giải thích` (không bắt buộc).
+3. Bấm **Nạp file TXT/CSV** và chọn tệp `.txt`. Hệ thống nhận cả cách ghi `Câu 1:` và `Câu hỏi 1:`.
+
+Ví dụ:
+
+```text
+Câu 1: MicroStation V8i là phần mềm do hãng nào cung cấp?
+A. Bentley Systems
+B. Microsoft
+C. Apple
+D. Samsung
+Đáp án đúng: A
+Giải thích: MicroStation V8i do Bentley Systems phát triển.
+```
+
+### Form CSV
+
+1. Trong `admin.html`, bấm **Tải form CSV**.
 2. Mỗi dòng là một câu hỏi, có đúng 4 đáp án A–D và một đáp án đúng.
 3. Giữ nguyên tên cột và lưu dạng **CSV UTF-8 (Comma delimited)**.
-4. Bấm **Nạp file CSV**. Mỗi lần có thể nạp tối đa 500 câu.
+4. Bấm **Nạp file TXT/CSV**. Mỗi lần có thể nạp tối đa 500 câu.
 
 Các mã chủ đề hợp lệ:
 

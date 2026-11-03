@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Quản trị câu hỏi | BMTH.K10</title>
   <link rel="icon" type="image/svg+xml" href="assets/ai-digital-logo.svg">
-  <link rel="stylesheet" href="assets/quiz.css?v=20261103-1">
+  <link rel="stylesheet" href="assets/quiz.css?v=20261103-2">
 </head>
 <body class="admin-page">
   <header class="quiz-topbar">
@@ -44,9 +44,13 @@
       <section class="quiz-card admin-toolbar">
         <div class="toolbar-actions">
           <button id="add-question" class="quiz-primary" type="button">＋ Thêm câu hỏi</button>
-          <label class="file-button" for="csv-file">↑ Nạp file CSV</label>
-          <input id="csv-file" type="file" accept=".csv,text/csv" hidden>
-          <a class="quiz-secondary" href="samples/cau-hoi-mau.csv" download>Tải form mẫu</a>
+          <select id="import-topic" aria-label="Chủ đề dành cho file TXT">
+            <option value="">Chọn chủ đề cho file TXT</option>
+          </select>
+          <label class="file-button" for="question-file">↑ Nạp file TXT/CSV</label>
+          <input id="question-file" type="file" accept=".txt,.csv,text/plain,text/csv" hidden>
+          <a class="quiz-secondary" href="samples/cau-hoi-mau.txt" download>Tải form TXT</a>
+          <a class="quiz-secondary" href="samples/cau-hoi-mau.csv" download>Tải form CSV</a>
         </div>
         <div class="toolbar-filters">
           <select id="admin-topic-filter" aria-label="Lọc theo chủ đề"><option value="all">Tất cả chủ đề</option></select>
@@ -91,6 +95,6 @@
 
   <script src="config.js?v=20261103-1"></script>
   <script src="data/topics.js?v=20261015-2"></script>
-  <script src="assets/admin.js?v=20261103-1"></script>
+  <script src="assets/admin.js?v=20261103-2"></script>
 </body>
 </html>
