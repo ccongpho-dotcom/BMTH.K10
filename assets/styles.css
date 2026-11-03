@@ -232,8 +232,6 @@ a { color: inherit; }
 .site-footer div { display: grid; gap: 3px; }
 .site-footer strong { color: #123b5e; letter-spacing: .12em; }
 .site-footer p { margin: 0; }
-.admin-entry { width: fit-content; color: #568091; font-size: .72rem; text-decoration: none; }
-.admin-entry:hover { color: #116d69; text-decoration: underline; }
 
 .chat-launcher { position: fixed; z-index: 90; right: 24px; bottom: 24px; height: 60px; padding: 0 20px 0 15px; display: flex; align-items: center; gap: 10px; border: 1px solid rgba(67, 220, 207, .45); border-radius: 999px; color: #fff; background: linear-gradient(135deg, #0b365f, #0d726f); box-shadow: 0 12px 35px rgba(3, 32, 61, .35); cursor: pointer; animation: chatFloat 4s ease-in-out infinite; transition: transform .22s ease, box-shadow .22s ease; }
 .chat-launcher:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 42px rgba(3, 32, 61, .42); animation-play-state: paused; }

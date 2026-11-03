@@ -137,5 +137,10 @@ Cột `dap_an_dung` chỉ nhận `A`, `B`, `C` hoặc `D`. Cột `muc_do` nhận
 
 - Không ghi mật khẩu quản trị, `QUIZ_TOKEN_SECRET` hoặc API key vào GitHub.
 - Câu hỏi và đáp án đúng lưu trong D1; đề gửi cho người học không chứa đáp án đúng.
+- Website người học không hiển thị đường dẫn trang quản trị. Quản trị viên lưu riêng địa chỉ `admin.html` để truy cập khi cần.
+- Việc ẩn đường dẫn chỉ giúp giảm truy cập tình cờ, không thay thế xác thực. API quản trị vẫn bắt buộc tên đăng nhập, mật khẩu và token có thời hạn.
+- Dùng mật khẩu quản trị riêng, dài tối thiểu 16 ký tự; `QUIZ_TOKEN_SECRET` dài tối thiểu 32 ký tự và thay đổi định kỳ.
+- `ALLOWED_ORIGINS` chỉ đặt đúng tên miền website đang sử dụng, không dùng ký tự `*`.
+- Phương án bảo vệ cao hơn: đặt trang quản trị sau Cloudflare Access và bật giới hạn truy cập cho đường dẫn `/api/admin/login` trong Cloudflare Security/WAF.
 - Website chặn chọn chữ, chuột phải, in và một số phím tắt trong vùng bài giảng. Đây chỉ là biện pháp hạn chế thao tác thông thường; nội dung hiển thị trên trình duyệt vẫn có thể bị chụp màn hình hoặc truy xuất bởi người có kiến thức kỹ thuật.
 - Nếu tài liệu nhạy cảm, cần thêm đăng nhập/phân quyền và không lưu công khai trên GitHub Pages.
