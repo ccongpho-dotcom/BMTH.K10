@@ -84,8 +84,9 @@
       ? Number(meta.totalActive || 0)
       : Number((meta.topics || []).find((item) => item.id === selected)?.count || 0);
     availability.textContent = count > 0
-      ? `Ngân hàng hiện có ${count} câu hỏi đang sử dụng trong phạm vi này.`
+      ? ""
       : "Phạm vi này chưa có câu hỏi. Giảng viên cần nạp câu hỏi trong trang quản trị.";
+    availability.hidden = count > 0;
     startButton.disabled = count < 1;
   }
 

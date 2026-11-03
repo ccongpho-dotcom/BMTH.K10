@@ -51,8 +51,6 @@ input, select, textarea { width: 100%; border: 1px solid #cad9e2; border-radius:
 input, select { min-height: 46px; padding: 0 12px; }
 textarea { padding: 11px 12px; resize: vertical; }
 input:focus, select:focus, textarea:focus { border-color: #27a79e; box-shadow: 0 0 0 3px rgba(39,167,158,.12); }
-.setup-features { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
-.setup-features span { padding: 7px 10px; border-radius: 999px; color: #266c69; background: #eaf7f5; font-size: .72rem; font-weight: 800; }
 .setup-form > button { grid-column: 1 / -1; justify-self: start; }
 .availability { min-height: 21px; margin: 18px 0 0; color: #738594; font-size: .78rem; }
 
@@ -178,7 +176,7 @@ input:focus, select:focus, textarea:focus { border-color: #27a79e; box-shadow: 0
   .back-link { padding: 8px; font-size: .68rem; }
   .quiz-main, .admin-main { width: calc(100% - 18px); padding-top: 34px; }
   .setup-form, .form-grid { grid-template-columns: 1fr; }
-  .setup-features, .setup-form > button, .full-field { grid-column: auto; }
+  .setup-form > button, .full-field { grid-column: auto; }
   .setup-form > button { width: 100%; }
   .question-wrap { min-height: 430px; padding: 25px 18px; }
   .session-head, .session-actions { padding-left: 15px; padding-right: 15px; }
