@@ -1,0 +1,18 @@
+name = "bmth-k10-quiz"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://ccongpho-dotcom.github.io"
+QUIZ_ADMIN_USERNAME = "admin"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "bmth-k10-quiz"
+database_id = "DAN_DATABASE_ID_VAO_DAY"
+
+# Không ghi mật khẩu hoặc khóa ký vào tệp này.
+# Tạo bằng lệnh:
+# wrangler secret put QUIZ_ADMIN_PASSWORD
+# wrangler secret put QUIZ_TOKEN_SECRET
+

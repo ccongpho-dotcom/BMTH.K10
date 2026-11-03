@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Tự kiểm tra kiến thức học phần Công nghệ thông tin BMTH.K10.">
+  <meta name="theme-color" content="#061b35">
+  <title>Tự kiểm tra kiến thức | BMTH.K10</title>
+  <link rel="icon" type="image/svg+xml" href="assets/ai-digital-logo.svg">
+  <link rel="stylesheet" href="assets/quiz.css?v=20261103-1">
+</head>
+<body class="quiz-page">
+  <header class="quiz-topbar">
+    <a class="quiz-brand" href="index.html">
+      <img src="assets/ai-digital-logo.svg" alt="" width="48" height="48">
+      <span><strong>BMTH.K10</strong><small>TỰ KIỂM TRA KIẾN THỨC</small></span>
+    </a>
+    <a class="back-link" href="index.html">← Về bài giảng</a>
+  </header>
+
+  <main class="quiz-main">
+    <section class="quiz-intro" aria-labelledby="quiz-title">
+      <p class="quiz-eyebrow">NGÂN HÀNG CÂU HỎI HỌC PHẦN</p>
+      <h1 id="quiz-title">Tự kiểm tra kiến thức</h1>
+      <p>Chọn phạm vi và số lượng câu hỏi. Hệ thống sẽ tự trộn câu hỏi và phương án trả lời cho mỗi lượt làm bài.</p>
+    </section>
+
+    <div id="quiz-alert" class="quiz-alert" role="status" aria-live="polite" hidden></div>
+
+    <section id="quiz-setup" class="quiz-card setup-card" aria-labelledby="setup-title">
+      <div class="card-heading">
+        <span class="card-step">01</span>
+        <div><p>THIẾT LẬP</p><h2 id="setup-title">Chọn nội dung kiểm tra</h2></div>
+      </div>
+      <form id="quiz-setup-form" class="setup-form">
+        <label>
+          <span>Phạm vi kiến thức</span>
+          <select id="quiz-topic" required>
+            <option value="all">Toàn bộ 5 chủ đề</option>
+          </select>
+        </label>
+        <label>
+          <span>Số lượng câu hỏi</span>
+          <select id="quiz-count" required>
+            <option value="5">5 câu</option>
+            <option value="10" selected>10 câu</option>
+            <option value="15">15 câu</option>
+            <option value="20">20 câu</option>
+          </select>
+        </label>
+        <div class="setup-features" aria-label="Đặc điểm bài kiểm tra">
+          <span>✓ Trộn câu hỏi</span><span>✓ Trộn đáp án</span><span>✓ Có giải thích</span>
+        </div>
+        <button id="start-quiz" class="quiz-primary" type="submit">Bắt đầu tự kiểm tra <span>→</span></button>
+      </form>
+      <p id="question-availability" class="availability" aria-live="polite"></p>
+    </section>
+
+    <section id="quiz-session" class="quiz-card session-card" aria-labelledby="question-title" hidden>
+      <div class="session-head">
+        <div>
+          <span id="session-scope" class="session-scope">Toàn bộ học phần</span>
+          <strong id="session-progress-text">Câu 1/10</strong>
+        </div>
+        <button id="exit-quiz" class="text-button" type="button">Thoát lượt làm</button>
+      </div>
+      <div class="progress-track" aria-hidden="true"><span id="session-progress-bar"></span></div>
+      <div class="question-wrap">
+        <div id="question-number" class="question-number">CÂU 01</div>
+        <h2 id="question-title"></h2>
+        <div id="answer-options" class="answer-options" role="radiogroup" aria-label="Các phương án trả lời"></div>
+      </div>
+      <div class="session-actions">
+        <button id="previous-question" class="quiz-secondary" type="button">← Câu trước</button>
+        <div id="question-dots" class="question-dots" aria-label="Danh sách câu hỏi"></div>
+        <button id="next-question" class="quiz-primary" type="button">Câu tiếp theo →</button>
+        <button id="submit-quiz" class="quiz-submit" type="button" hidden>Nộp bài</button>
+      </div>
+    </section>
+
+    <section id="quiz-result" class="quiz-card result-card" aria-labelledby="result-title" hidden>
+      <div class="result-summary">
+        <div id="score-ring" class="score-ring"><strong id="result-percent">0%</strong><span>Hoàn thành</span></div>
+        <div>
+          <p class="quiz-eyebrow">KẾT QUẢ TỰ KIỂM TRA</p>
+          <h2 id="result-title">Đã hoàn thành</h2>
+          <p id="result-message"></p>
+          <div class="result-stats">
+            <span><strong id="result-correct">0</strong> câu đúng</span>
+            <span><strong id="result-incorrect">0</strong> câu sai</span>
+          </div>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button id="retry-quiz" class="quiz-primary" type="button">Làm bộ câu hỏi khác</button>
+        <a class="quiz-secondary" href="index.html">Về bài giảng</a>
+      </div>
+      <div id="result-review" class="result-review"></div>
+    </section>
+  </main>
+
+  <footer class="quiz-footer">BMTH.K10 · Tự học chủ động · Đánh giá trung thực</footer>
+  <script src="config.js?v=20261103-1"></script>
+  <script src="data/topics.js?v=20261015-2"></script>
+  <script src="assets/quiz.js?v=20261103-1"></script>
+</body>
+</html>

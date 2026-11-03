@@ -150,6 +150,16 @@
           ? `<div class="summary-media-grid">${mediaPlayers}</div>`
           : `<div class="media-empty"><span aria-hidden="true">＋</span> Chưa gán video hoặc tệp âm thanh cho chủ đề này.</div>`}
       </section>
+      <section class="topic-quiz-card" aria-label="Tự kiểm tra chủ đề ${escapeHtml(topic.shortTitle || topic.title)}">
+        <div>
+          <span class="topic-quiz-icon" aria-hidden="true">✓</span>
+          <div>
+            <h3>Tự kiểm tra kiến thức</h3>
+            <p>Làm bộ câu hỏi được trộn ngẫu nhiên riêng cho chủ đề này.</p>
+          </div>
+        </div>
+        <a href="quiz.html?topic=${encodeURIComponent(topic.id)}">Bắt đầu <span aria-hidden="true">→</span></a>
+      </section>
       <section class="objectives">
         <h3>Mục tiêu học tập</h3>
         <ul>${topic.objectives.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
