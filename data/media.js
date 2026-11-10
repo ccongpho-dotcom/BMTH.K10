@@ -9,7 +9,7 @@ window.BMTH_MEDIA = {
   "tu-dong-hoa-chi-huy": {
     summary: "Chủ đề khái quát tự động hóa chỉ huy, mô hình C4ISR và vai trò của các phần mềm, nền tảng dùng chung trong hỗ trợ chỉ huy, điều hành.",
     video: "",
-    audio: ""
+    audio: "media/audio/CD2.mp3"
   },
   "microstation-v8i": {
     summary: "Chủ đề hướng dẫn thiết lập môi trường, sử dụng các công cụ vẽ, thao tác đối tượng và xây dựng văn kiện tác chiến số bằng MicroStation V8i.",
