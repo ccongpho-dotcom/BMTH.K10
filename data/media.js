@@ -4,7 +4,7 @@ window.BMTH_MEDIA = {
   "chuyen-doi-so": {
     summary: "Chủ đề trình bày nền tảng của chuyển đổi số, ba trụ cột quốc gia và những nhiệm vụ trọng tâm khi triển khai chuyển đổi số trong Bộ Quốc phòng.",
     video: "",
-    audio: ""
+    audio: "media/audio/CD1.mp3"
   },
   "tu-dong-hoa-chi-huy": {
     summary: "Chủ đề khái quát tự động hóa chỉ huy, mô hình C4ISR và vai trò của các phần mềm, nền tảng dùng chung trong hỗ trợ chỉ huy, điều hành.",
