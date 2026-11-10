@@ -14,7 +14,7 @@ window.BMTH_MEDIA = {
   "microstation-v8i": {
     summary: "Chủ đề hướng dẫn thiết lập môi trường, sử dụng các công cụ vẽ, thao tác đối tượng và xây dựng văn kiện tác chiến số bằng MicroStation V8i.",
     video: "",
-    audio: ""
+    audio: "media/audio/CD3.mp3"
   },
   "tri-tue-nhan-tao": {
     summary: "Chủ đề cung cấp kiến thức chung về trí tuệ nhân tạo, kỹ thuật viết yêu cầu và cách sử dụng một số công cụ AI tạo sinh phục vụ học tập, nghiên cứu và công tác.",
