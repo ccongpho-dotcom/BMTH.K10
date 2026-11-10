@@ -24,6 +24,6 @@ window.BMTH_MEDIA = {
   "an-toan-thong-tin": {
     summary: "Chủ đề tập trung vào nhận diện nguy cơ, kỹ năng tự bảo vệ trên môi trường số và các yêu cầu bảo đảm an toàn thông tin, an ninh mạng trong Bộ Quốc phòng.",
     video: "",
-    audio: ""
+    audio: "media/audio/CD5.mp3"
   }
 };
