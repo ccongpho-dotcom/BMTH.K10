@@ -3,6 +3,7 @@
 
   const topics = Array.isArray(window.BMTH_TOPICS) ? window.BMTH_TOPICS : [];
   const mediaByTopic = window.BMTH_MEDIA && typeof window.BMTH_MEDIA === "object" ? window.BMTH_MEDIA : {};
+  const faqEntries = Array.isArray(window.BMTH_FAQ) ? window.BMTH_FAQ : [];
   const config = window.BMTH_CONFIG || {};
   const nav = document.getElementById("topic-nav");
   const panel = document.getElementById("lesson-panel");
@@ -22,6 +23,11 @@
   let history = [];
   let busy = false;
   const welcomeMessage = "Xin chào! Đồng chí cần làm rõ nội dung nào?";
+  const answerIntro = "Chào học viên, trợ lý học tập xin giải đáp câu hỏi của bạn như sau:";
+  const maxApiRequestsPerSession = 6;
+  const apiUsageKey = "bmth-ai-api-count";
+  const sessionIdKey = "bmth-chat-session-id";
+  const stopWords = new Set(["la", "gi", "nhung", "nhu", "the", "nao", "cua", "co", "va", "cho", "trong", "mot", "cac", "duoc", "ve", "voi", "khi", "can", "hay", "toi", "dong", "chi"]);
 
   function isPhoneScreen() {
     return Math.min(window.screen.width || window.innerWidth, window.screen.height || window.innerHeight) <= 760;
@@ -68,6 +74,85 @@
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+
+  function normalizeText(value) {
+    return String(value || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d")
+      .replace(/Đ/g, "D")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function meaningfulTokens(value) {
+    return normalizeText(value).split(" ").filter((token) => token.length > 1 && !stopWords.has(token));
+  }
+
+  function phraseIncluded(question, phrase) {
+    const normalizedPhrase = normalizeText(phrase);
+    if (normalizedPhrase.length < 4) return question === normalizedPhrase;
+    return question === normalizedPhrase || question.includes(normalizedPhrase) || normalizedPhrase.includes(question);
+  }
+
+  function findQuickAnswer(message) {
+    const question = normalizeText(message);
+    const questionTokens = new Set(meaningfulTokens(question));
+    if (!question || !questionTokens.size) return null;
+
+    let best = null;
+    for (const item of faqEntries) {
+      const patterns = [item.question, ...(Array.isArray(item.patterns) ? item.patterns : [])];
+      const exactPattern = patterns.some((pattern) => phraseIncluded(question, pattern));
+      const keywordPhrases = Array.isArray(item.keywords) ? item.keywords.map(normalizeText).filter(Boolean) : [];
+      const keywordHits = keywordPhrases.filter((keyword) => {
+        if (keyword.includes(" ")) return question.includes(keyword);
+        return questionTokens.has(keyword);
+      }).length;
+      const referenceTokens = new Set(meaningfulTokens(`${item.question} ${keywordPhrases.join(" ")}`));
+      const overlap = [...questionTokens].filter((token) => referenceTokens.has(token)).length;
+      const unionSize = new Set([...questionTokens, ...referenceTokens]).size || 1;
+      const overlapScore = overlap / unionSize;
+      const keywordScore = keywordHits / Math.max(2, Math.min(4, keywordPhrases.length || 2));
+      const score = exactPattern ? 1 : keywordScore * 0.72 + overlapScore * 0.28;
+      const eligible = exactPattern || (keywordHits >= 2 && score >= 0.58);
+      if (eligible && (!best || score > best.score)) best = { ...item, score };
+    }
+    return best && best.score >= 0.58 ? best : null;
+  }
+
+  function readApiUsage() {
+    try {
+      return Math.max(0, Number(window.sessionStorage.getItem(apiUsageKey)) || 0);
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  function incrementApiUsage() {
+    const next = readApiUsage() + 1;
+    try {
+      window.sessionStorage.setItem(apiUsageKey, String(next));
+    } catch (_) {
+      // Nếu trình duyệt chặn sessionStorage, Worker vẫn duy trì giới hạn phía máy chủ.
+    }
+    return next;
+  }
+
+  function getChatSessionId() {
+    try {
+      let value = window.sessionStorage.getItem(sessionIdKey);
+      if (!value) {
+        value = window.crypto?.randomUUID?.() || `bmth-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        window.sessionStorage.setItem(sessionIdKey, value);
+      }
+      return value;
+    } catch (_) {
+      return `bmth-${Math.random().toString(16).slice(2)}`;
+    }
+  }
 
   function showToast(message) {
     toast.textContent = message;
@@ -215,16 +300,48 @@
     return `CHƯƠNG ${topic.chapter}: ${topic.title}\nMô tả: ${topic.description}\nMục tiêu: ${topic.objectives.join("; ")}\n${sections}\nTrọng tâm: ${topic.keyPoints.join("; ")}`;
   }
 
-  function courseContext() {
-    const overview = topics.map(topicSummary).join("\n\n---\n\n");
-    return `TÓM LƯỢC TOÀN BỘ HỌC PHẦN\n${overview}`;
+  function courseContext(message, currentTopicId) {
+    const normalizedMessage = normalizeText(message);
+    const messageTokens = new Set(meaningfulTokens(normalizedMessage));
+    const refersToCurrentTopic = /\b(chu de nay|noi dung nay|phan nay|bai nay)\b/.test(normalizedMessage);
+    let selected = refersToCurrentTopic ? topics.filter((topic) => topic.id === currentTopicId) : [];
+
+    if (!selected.length) {
+      const ranked = topics.map((topic) => {
+        const searchable = normalizeText(`${topic.title} ${topic.shortTitle} ${topic.description} ${topic.sections.map((section) => `${section.title} ${section.content}`).join(" ")} ${topic.keyPoints.join(" ")}`);
+        const score = [...messageTokens].reduce((total, token) => total + (searchable.includes(token) ? 1 : 0), 0);
+        return { topic, score };
+      }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score);
+      const bestScore = ranked[0]?.score || 0;
+      selected = ranked.filter((item) => item.score >= Math.max(2, bestScore - 1)).slice(0, 2).map((item) => item.topic);
+    }
+
+    if (!selected.length) selected = topics;
+    const overview = selected.map(topicSummary).join("\n\n---\n\n");
+    const scope = selected.length === topics.length ? "TOÀN BỘ HỌC PHẦN" : `NỘI DUNG LIÊN QUAN (${selected.map((topic) => topic.shortTitle).join(", ")})`;
+    return `${scope}\n${overview}`;
   }
 
   async function askAssistant(message) {
     if (busy) return;
+    addMessage(message, "user");
+
+    const quickAnswer = findQuickAnswer(message);
+    if (quickAnswer) {
+      const answer = `${answerIntro}\n\n${quickAnswer.answer}`;
+      addMessage(answer, "assistant");
+      history.push({ role: "user", text: message }, { role: "model", text: answer });
+      history = history.slice(-8);
+      setChatStatus("ready", "Đã trả lời từ học liệu có sẵn · Không dùng API");
+      window.setTimeout(() => {
+        if (!busy) setChatStatus("ready", "Sẵn sàng hỗ trợ học tập");
+      }, 4200);
+      return;
+    }
+
     if (!navigator.onLine) {
       setChatStatus("offline", "Mất kết nối mạng");
-      addMessage("Thiết bị đang mất kết nối mạng. Đồng chí vui lòng kiểm tra kết nối và thử lại.", "assistant");
+      addMessage("Câu hỏi này chưa có trong bộ trả lời nhanh và thiết bị đang mất kết nối mạng. Đồng chí vui lòng kiểm tra kết nối rồi thử lại.", "assistant");
       return;
     }
     if (!config.chatApiUrl) {
@@ -234,32 +351,45 @@
       return;
     }
 
+    if (readApiUsage() >= maxApiRequestsPerSession) {
+      setChatStatus("ready", "Đã đạt giới hạn hỏi AI trong phiên");
+      addMessage(`Để tiết kiệm hạn mức dùng thử, mỗi phiên được gửi tối đa ${maxApiRequestsPerSession} câu hỏi mới tới AI. Đồng chí vẫn có thể hỏi các nội dung phổ biến trong học phần hoặc bắt đầu lại sau khi mở phiên trình duyệt mới.`, "assistant");
+      return;
+    }
+
     busy = true;
     const submitButton = chatForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
     chatReset.disabled = true;
     setChatStatus("busy", "Đang tìm trong toàn bộ học phần…");
-    addMessage(message, "user");
     const typing = addMessage("", "assistant", "typing");
 
     try {
       const activeTopic = topics.find((item) => item.id === activeTopicId);
+      incrementApiUsage();
       const response = await fetch(config.chatApiUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-BMTH-Session": getChatSessionId()
+        },
         body: JSON.stringify({
           message,
           activeTopic: activeTopic ? activeTopic.title : "",
-          context: courseContext(),
-          history: history.slice(-8)
+          context: courseContext(message, activeTopic?.id),
+          history: history.slice(-4)
         })
       });
       const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.error || "Không thể kết nối với trợ lý AI.");
+      if (!response.ok) {
+        if (response.status === 429) throw new Error(data.error || "Hệ thống đang có nhiều câu hỏi. Vui lòng đợi khoảng 60 giây rồi thử lại.");
+        throw new Error(data.error || "Không thể kết nối với trợ lý AI.");
+      }
       typing.remove();
       const answer = data.answer || "Tôi chưa thể tạo câu trả lời lúc này.";
       addMessage(answer, "assistant");
       history.push({ role: "user", text: message }, { role: "model", text: answer });
+      history = history.slice(-8);
       setChatStatus("ready", "Sẵn sàng hỗ trợ học tập");
     } catch (error) {
       typing.remove();
