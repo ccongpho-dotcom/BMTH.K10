@@ -51,6 +51,33 @@ Không đặt API key trong `config.js`, `index.html` hoặc bất kỳ tệp n�
 5. Có thể tạo Variable `GEMINI_MODEL`; mặc định website dùng model được ghi trong Worker.
 6. Deploy Worker, sao chép URL và dán vào `chatApiUrl` trong `config.js`.
 
+## Cơ chế tiết kiệm Gemini API
+
+Phiên bản này ưu tiên trả lời câu hỏi phổ biến ngay trên trình duyệt và chỉ gọi Gemini khi câu hỏi chưa có trong ngân hàng trả lời nhanh.
+
+- `data/faq.js`: ngân hàng câu hỏi và câu trả lời có sẵn của 5 chủ đề.
+- Câu hỏi khớp FAQ được trả lời ngay, kể cả khi mất mạng, và không dùng lượt Gemini API.
+- Câu hỏi mới hoặc chuyên sâu mới được gửi tới Cloudflare Worker.
+- Mỗi phiên trình duyệt được gửi tối đa 6 câu hỏi mới tới AI; câu hỏi FAQ không bị giới hạn.
+- Worker giới hạn 8 yêu cầu/10 phút cho mỗi phiên và 120 yêu cầu/10 phút cho mỗi IP để nhiều học viên dùng chung mạng không bị tính chung ở mức quá thấp.
+- Lịch sử gửi tới AI được rút còn 4 lượt gần nhất, câu trả lời tối đa 1.000 token và chỉ nội dung chủ đề liên quan được gửi làm ngữ cảnh.
+- Model dự phòng mặc định là `gemini-3.5-flash-lite`.
+
+Để bổ sung câu trả lời có sẵn, mở `data/faq.js`, sao chép một mục và sửa các trường:
+
+```js
+{
+  id: "ma-khong-trung",
+  topicId: "tri-tue-nhan-tao",
+  question: "Câu hỏi chuẩn là gì?",
+  patterns: ["cach hoi thu nhat", "cach hoi thu hai"],
+  keywords: ["tu khoa 1", "tu khoa 2"],
+  answer: "Nội dung trả lời ngắn gọn, chính xác theo bài giảng."
+}
+```
+
+Không đặt thông tin mật, API key hoặc nội dung ngoài phạm vi học phần trong `data/faq.js` vì tệp này được tải công khai cùng website.
+
 ## Triển khai ngân hàng câu hỏi trắc nghiệm
 
 Worker trắc nghiệm được tách riêng nên không làm thay đổi Worker chatbot đang chạy.
