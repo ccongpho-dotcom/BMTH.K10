@@ -23,7 +23,7 @@
   let history = [];
   let busy = false;
   const welcomeMessage = "Xin chào! Đồng chí cần làm rõ nội dung nào?";
-  const answerIntro = "Chào học viên, trợ lý học tập xin giải đáp câu hỏi của bạn như sau:";
+  const legacyAnswerIntro = /^(?:\s*(?:>\s*)?(\*{1,2}|_{1,2})?chào học viên\s*[,!:–—-]?\s*trợ lý học tập xin giải đáp câu hỏi của bạn(?:\s+dựa trên tài liệu học phần)?\s+như sau(?:[ \t]*[:：.!–—-](?:\1)?|\1[ \t]*[:：.!–—-]|(?:\1)?(?=[ \t]*(?:\r?\n|$)))[ \t]*(?:\r?\n[ \t]*)*)+/iu;
   const maxApiRequestsPerSession = 6;
   const apiUsageKey = "bmth-ai-api-count";
   const sessionIdKey = "bmth-chat-session-id";
@@ -89,6 +89,10 @@
 
   function meaningfulTokens(value) {
     return normalizeText(value).split(" ").filter((token) => token.length > 1 && !stopWords.has(token));
+  }
+
+  function stripAnswerIntro(value) {
+    return String(value || "").normalize("NFC").replace(legacyAnswerIntro, "").trim();
   }
 
   function phraseIncluded(question, phrase) {
@@ -326,11 +330,10 @@
     if (busy) return;
     addMessage(message, "user");
 
-    const quickAnswer = findQuickAnswer(message);
+    const quickAnswer = stripAnswerIntro(findQuickAnswer(message)?.answer);
     if (quickAnswer) {
-      const answer = `${answerIntro}\n\n${quickAnswer.answer}`;
-      addMessage(answer, "assistant");
-      history.push({ role: "user", text: message }, { role: "model", text: answer });
+      addMessage(quickAnswer, "assistant");
+      history.push({ role: "user", text: message }, { role: "model", text: quickAnswer });
       history = history.slice(-8);
       setChatStatus("ready", "Đã trả lời từ học liệu có sẵn · Không dùng API");
       window.setTimeout(() => {
@@ -386,7 +389,7 @@
         throw new Error(data.error || "Không thể kết nối với trợ lý AI.");
       }
       typing.remove();
-      const answer = data.answer || "Tôi chưa thể tạo câu trả lời lúc này.";
+      const answer = stripAnswerIntro(data.answer) || "Tôi chưa thể tạo câu trả lời lúc này.";
       addMessage(answer, "assistant");
       history.push({ role: "user", text: message }, { role: "model", text: answer });
       history = history.slice(-8);
