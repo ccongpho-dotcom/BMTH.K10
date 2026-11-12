@@ -24,8 +24,6 @@
   let busy = false;
   const welcomeMessage = "Xin chào! Đồng chí cần làm rõ nội dung nào?";
   const legacyAnswerIntro = /^(?:\s*(?:>\s*)?(\*{1,2}|_{1,2})?chào học viên\s*[,!:–—-]?\s*trợ lý học tập xin giải đáp câu hỏi của bạn(?:\s+dựa trên tài liệu học phần)?\s+như sau(?:[ \t]*[:：.!–—-](?:\1)?|\1[ \t]*[:：.!–—-]|(?:\1)?(?=[ \t]*(?:\r?\n|$)))[ \t]*(?:\r?\n[ \t]*)*)+/iu;
-  const maxApiRequestsPerSession = 6;
-  const apiUsageKey = "bmth-ai-api-count";
   const sessionIdKey = "bmth-chat-session-id";
   const stopWords = new Set(["la", "gi", "nhung", "nhu", "the", "nao", "cua", "co", "va", "cho", "trong", "mot", "cac", "duoc", "ve", "voi", "khi", "can", "hay", "toi", "dong", "chi"]);
 
@@ -127,35 +125,23 @@
     return best && best.score >= 0.58 ? best : null;
   }
 
-  function readApiUsage() {
-    try {
-      return Math.max(0, Number(window.sessionStorage.getItem(apiUsageKey)) || 0);
-    } catch (_) {
-      return 0;
-    }
-  }
 
-  function incrementApiUsage() {
-    const next = readApiUsage() + 1;
-    try {
-      window.sessionStorage.setItem(apiUsageKey, String(next));
-    } catch (_) {
-      // Nếu trình duyệt chặn sessionStorage, Worker vẫn duy trì giới hạn phía máy chủ.
-    }
-    return next;
-  }
 
+  // BMTH_GEMINI_QUOTA_UI_V1: giữ mã phiên; Worker chịu trách nhiệm tính lượt.
+  let bmthMemorySessionId;
   function getChatSessionId() {
+    if (bmthMemorySessionId) return bmthMemorySessionId;
     try {
-      let value = window.sessionStorage.getItem(sessionIdKey);
-      if (!value) {
-        value = window.crypto?.randomUUID?.() || `bmth-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-        window.sessionStorage.setItem(sessionIdKey, value);
+      const saved = window.sessionStorage.getItem(sessionIdKey);
+      if (saved && /^[a-zA-Z0-9-]{12,100}$/.test(saved)) {
+        bmthMemorySessionId = saved;
+        return bmthMemorySessionId;
       }
-      return value;
-    } catch (_) {
-      return `bmth-${Math.random().toString(16).slice(2)}`;
-    }
+    } catch (_) { /* Dùng cùng một mã phiên trong bộ nhớ nếu storage bị chặn. */ }
+    bmthMemorySessionId = window.crypto?.randomUUID?.() ||
+      ("bmth-" + Date.now() + "-" + Math.random().toString(16).slice(2));
+    try { window.sessionStorage.setItem(sessionIdKey, bmthMemorySessionId); } catch (_) { /* giữ trong bộ nhớ */ }
+    return bmthMemorySessionId;
   }
 
   function showToast(message) {
@@ -354,12 +340,6 @@
       return;
     }
 
-    if (readApiUsage() >= maxApiRequestsPerSession) {
-      setChatStatus("ready", "Đã đạt giới hạn hỏi AI trong phiên");
-      addMessage(`Để tiết kiệm hạn mức dùng thử, mỗi phiên được gửi tối đa ${maxApiRequestsPerSession} câu hỏi mới tới AI. Đồng chí vẫn có thể hỏi các nội dung phổ biến trong học phần hoặc bắt đầu lại sau khi mở phiên trình duyệt mới.`, "assistant");
-      return;
-    }
-
     busy = true;
     const submitButton = chatForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
@@ -369,7 +349,6 @@
 
     try {
       const activeTopic = topics.find((item) => item.id === activeTopicId);
-      incrementApiUsage();
       const response = await fetch(config.chatApiUrl, {
         method: "POST",
         headers: {
@@ -384,6 +363,12 @@
         })
       });
       const data = await response.json().catch(() => ({}));
+      if (response.status === 429 && data.code === "GEMINI_SESSION_LIMIT") {
+        typing.remove();
+        setChatStatus("ready", "Đã hết lượt Gemini · Vẫn tra cứu được học liệu");
+        addMessage(data.error || "Đồng chí đã hết lượt hỏi Gemini trong phiên. Vẫn có thể hỏi các câu có trong kho học phần.", "assistant");
+        return;
+      }
       if (!response.ok) {
         if (response.status === 429) throw new Error(data.error || "Hệ thống đang có nhiều câu hỏi. Vui lòng đợi khoảng 60 giây rồi thử lại.");
         throw new Error(data.error || "Không thể kết nối với trợ lý AI.");
