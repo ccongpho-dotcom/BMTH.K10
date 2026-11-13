@@ -16,7 +16,22 @@
   const chatInput = document.getElementById("chat-input");
   const chatMessages = document.getElementById("chat-messages");
   const toast = document.getElementById("toast");
-  const menuButton = document.querySelector(".menu-button");
+  const header = document.querySelector(".site-header");
+  const courseShell = document.getElementById("chu-de");
+  const tabsPrev = document.querySelector(".topic-scroll-prev");
+  const tabsNext = document.querySelector(".topic-scroll-next");
+  const progress = document.getElementById("learning-progress");
+  const progressLabel = document.getElementById("learning-progress-label");
+  const learningKey = "bmth-k10:learning:v1";
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const isTopic = (id) => topics.some((topic) => topic.id === id);
+  let learned = new Set();
+  let lastTopic = null;
+  try {
+    const saved = JSON.parse(localStorage.getItem(learningKey) || "null");
+    if (Array.isArray(saved?.learned)) learned = new Set(saved.learned.filter(isTopic));
+    if (isTopic(saved?.lastTopic)) lastTopic = saved.lastTopic;
+  } catch (_) { /* Storage may be disabled. */ }
   const viewportMeta = document.querySelector('meta[name="viewport"]');
   const viewModeToggle = document.getElementById("view-mode-toggle");
   let activeTopicId = topics[0] ? topics[0].id : null;
@@ -209,12 +224,103 @@
 
   function renderNavigation() {
     nav.innerHTML = topics.map((topic) => `
-      <button class="topic-button${topic.id === activeTopicId ? " active" : ""}" type="button" data-topic-id="${escapeHtml(topic.id)}" aria-current="${topic.id === activeTopicId ? "page" : "false"}">
+      <button class="topic-button" id="tab-${escapeHtml(topic.id)}" type="button" role="tab" aria-controls="lesson-panel" aria-selected="false" tabindex="-1" data-topic-id="${escapeHtml(topic.id)}">
         <span class="topic-number">${escapeHtml(topic.number)}</span>
         <span class="topic-name">${escapeHtml(topic.shortTitle || topic.title)}</span>
-        <span class="topic-arrow" aria-hidden="true">›</span>
+        <span class="topic-learned" aria-hidden="true" hidden>✓</span>
       </button>
     `).join("");
+  }
+
+  function saveLearning() {
+    try {
+      localStorage.setItem(learningKey, JSON.stringify({ learned: [...learned], lastTopic: activeTopicId }));
+      return true;
+    } catch (_) { return false; }
+  }
+
+  function updateLearning() {
+    progress.max = Math.max(1, topics.length);
+    progress.value = learned.size;
+    progressLabel.textContent = `Đã học ${learned.size}/${topics.length} chủ đề`;
+    nav.querySelectorAll("[role='tab']").forEach((tab) => {
+      const complete = learned.has(tab.dataset.topicId);
+      tab.querySelector(".topic-learned").hidden = !complete;
+      tab.setAttribute("aria-label", tab.querySelector(".topic-name").textContent + (complete ? " (đã học)" : ""));
+    });
+    const button = panel.querySelector("#mark-learned");
+    if (button) {
+      const complete = learned.has(activeTopicId);
+      button.setAttribute("aria-pressed", String(complete));
+      button.querySelector(".learned-state").textContent = complete ? "✓ Đã học" : "";
+    }
+    const tab = nav.querySelector("[aria-selected='true']");
+    if (tab) revealTab(tab);
+  }
+
+  function updateTabOverflow() {
+    const left = nav.scrollLeft > 2;
+    const right = nav.scrollLeft < nav.scrollWidth - nav.clientWidth - 2;
+    tabsPrev.hidden = !left;
+    tabsNext.hidden = !right;
+  }
+
+  function revealTab(tab) {
+    const frame = nav.getBoundingClientRect();
+    const item = tab.getBoundingClientRect();
+    if (item.left < frame.left + 6) nav.scrollLeft += item.left - frame.left - 6;
+    else if (item.right > frame.right - 6) nav.scrollLeft += item.right - frame.right + 6;
+    updateTabOverflow();
+  }
+
+  function updateHeaderSize() {
+    document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+    updateTabOverflow();
+  }
+
+  function wireAudio(topic) {
+    const audio = panel.querySelector("audio");
+    if (!audio) return;
+    const rate = panel.querySelector(".audio-rate");
+    rate.addEventListener("change", () => { audio.playbackRate = Number(rate.value); });
+    audio.addEventListener("ratechange", () => {
+      if ([...rate.options].some((option) => Number(option.value) === audio.playbackRate)) rate.value = String(audio.playbackRate);
+    });
+    const skips = panel.querySelectorAll("[data-audio-skip]");
+    const update = () => skips.forEach((button) => { button.disabled = !Number.isFinite(audio.duration); });
+    for (const name of ["loadedmetadata", "durationchange", "emptied", "error"]) audio.addEventListener(name, update);
+    skips.forEach((button) => button.addEventListener("click", () => {
+      if (Number.isFinite(audio.duration)) audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + Number(button.dataset.audioSkip)));
+    }));
+    update();
+    const details = panel.querySelector(".audio-transcript");
+    const body = details.querySelector(".audio-transcript-body");
+    details.addEventListener("toggle", async () => {
+      if (!details.open || details.dataset.loaded || details.dataset.loading) return;
+      details.dataset.loading = "true";
+      body.textContent = "Đang tải bản chữ…";
+      try {
+        const response = await fetch(`media/transcripts/${encodeURIComponent(topic.id)}.json?v=20261113-ui1`);
+        if (!response.ok) throw new Error("transcript unavailable");
+        const { segments } = await response.json();
+        if (!Array.isArray(segments) || !segments.length) throw new Error("empty transcript");
+        const fragment = document.createDocumentFragment();
+        for (const entry of segments) {
+          if (typeof entry?.text !== "string") continue;
+          const paragraph = document.createElement("p");
+          const seconds = Math.max(0, Math.floor(Number(entry.start) || 0));
+          const stamp = document.createElement("span");
+          stamp.className = "transcript-time";
+          stamp.textContent = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+          paragraph.append(stamp, document.createTextNode(entry.text));
+          fragment.appendChild(paragraph);
+        }
+        body.replaceChildren(fragment);
+        details.dataset.loaded = "true";
+      } catch (_) {
+        body.textContent = "Chưa tải được bản chữ. Đồng chí có thể đọc phần tóm tắt phía trên hoặc đóng rồi mở lại để thử lại.";
+      } finally { delete details.dataset.loading; }
+    });
   }
 
   function renderLesson(topic) {
@@ -240,10 +346,23 @@
       audioUrl ? `
         <div class="media-card media-card-audio">
           <div class="media-label"><span aria-hidden="true">♪</span> Âm thanh tóm tắt</div>
-          <audio controls controlsList="nodownload noplaybackrate" preload="metadata">
+          <audio controls controlsList="nodownload" preload="metadata" aria-label="Âm thanh tóm tắt: ${escapeHtml(topic.shortTitle || topic.title)}">
             <source src="${escapeHtml(audioUrl)}">
             Trình duyệt của đồng chí không hỗ trợ phát âm thanh.
           </audio>
+          <div class="audio-tools">
+            <button type="button" data-audio-skip="-10" aria-label="Tua lùi 10 giây" disabled>↶ 10 giây</button>
+            <button type="button" data-audio-skip="10" aria-label="Tua tới 10 giây" disabled>↷ 10 giây</button>
+            <label>Tốc độ <select class="audio-rate" aria-label="Tốc độ phát âm thanh">
+              <option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option>
+              <option value="1.5">1,5×</option><option value="2">2×</option>
+            </select></label>
+          </div>
+          <details class="audio-transcript">
+            <summary>Bản chữ của audio</summary>
+            <p class="transcript-note">Bản chép tự động, có thể nhận sai từ hoặc thuật ngữ. Hãy đối chiếu với audio và bài giảng khi cần.</p>
+            <div class="audio-transcript-body" aria-live="polite"></div>
+          </details>
         </div>
       ` : ""
     ].filter(Boolean).join("");
@@ -282,31 +401,82 @@
         <h3>Trọng tâm cần ghi nhớ</h3>
         <div class="key-list">${topic.keyPoints.map((item, index) => `<div class="key-item"><span>${index + 1}</span>${escapeHtml(item)}</div>`).join("")}</div>
       </section>
+      <div class="lesson-completion">
+        <button type="button" id="mark-learned" aria-pressed="false">Đánh dấu đã học <span class="learned-state" aria-hidden="true"></span></button>
+        <p>Tiến độ được lưu trên trình duyệt này.</p>
+      </div>
+      <p class="lesson-use-note">Tài liệu chỉ phục vụ học tập nội bộ. Vui lòng không sao chép hoặc phát tán.</p>
     `;
-    window.location.hash = topic.id;
+    wireAudio(topic);
     panel.dispatchEvent(new CustomEvent("bmth:lesson-rendered", { detail: { topicId: topic.id } }));
   }
 
-  function chooseTopic(id, scrollIntoView) {
-    const topic = topics.find((item) => item.id === id) || topics[0];
+  function chooseTopic(id, { scroll = false, push = false } = {}) {
+    const topic = topics.find((item) => item.id === id);
     if (!topic) return;
     activeTopicId = topic.id;
-    renderNavigation();
-    renderLesson(topic);
-    if (scrollIntoView) document.getElementById("chu-de").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (panel.dataset.topicId !== id) {
+      panel.dataset.topicId = id;
+      panel.setAttribute("aria-labelledby", `tab-${id}`);
+      renderLesson(topic);
+    }
+    nav.querySelectorAll("[role='tab']").forEach((tab) => {
+      const selected = tab.dataset.topicId === id;
+      tab.classList.toggle("active", selected);
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    updateLearning();
+    saveLearning();
+    if (push && window.location.hash !== `#${id}`) window.history.pushState(null, "", `#${id}`);
+    if (scroll) courseShell.scrollIntoView({ behavior: reducedMotion.matches ? "instant" : "smooth", block: "start" });
   }
 
   nav.addEventListener("click", (event) => {
     const button = event.target.closest("[data-topic-id]");
-    if (button) chooseTopic(button.dataset.topicId, window.innerWidth < 980);
+    if (button) chooseTopic(button.dataset.topicId, { scroll: true, push: true });
+  });
+  nav.addEventListener("keydown", (event) => {
+    const tabs = [...nav.querySelectorAll("[role='tab']")];
+    const i = tabs.indexOf(event.target);
+    const offsets = { ArrowLeft: -1, ArrowRight: 1 };
+    if (i < 0 || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const j = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (i + offsets[event.key] + tabs.length) % tabs.length;
+    tabs.forEach((tab, index) => { tab.tabIndex = index === j ? 0 : -1; });
+    tabs[j].focus({ preventScroll: true });
+    revealTab(tabs[j]);
+  });
+  nav.addEventListener("focusout", (event) => {
+    if (!nav.contains(event.relatedTarget)) nav.querySelectorAll("[role='tab']").forEach((tab) => { tab.tabIndex = tab.dataset.topicId === activeTopicId ? 0 : -1; });
+  });
+  nav.addEventListener("scroll", updateTabOverflow, { passive: true });
+  function moveTabs(direction, button) {
+    nav.scrollBy({ left: direction * Math.max(124, nav.clientWidth * 0.65), behavior: "instant" });
+    updateTabOverflow();
+    if (button.hidden && document.activeElement === button) {
+      const tab = direction > 0 ? nav.lastElementChild : nav.firstElementChild;
+      if (tab) { tab.focus({ preventScroll: true }); revealTab(tab); }
+    }
+  }
+  tabsPrev.addEventListener("click", () => moveTabs(-1, tabsPrev));
+  tabsNext.addEventListener("click", () => moveTabs(1, tabsNext));
+  panel.addEventListener("click", (event) => {
+    if (!event.target.closest("#mark-learned") || !activeTopicId) return;
+    if (learned.has(activeTopicId)) learned.delete(activeTopicId);
+    else learned.add(activeTopicId);
+    updateLearning();
+    if (!saveLearning()) showToast("Không lưu được tiến độ; trình duyệt có thể đã chặn bộ nhớ.");
   });
 
   function toggleChat(force) {
     const shouldOpen = typeof force === "boolean" ? force : !chatPanel.classList.contains("open");
+    if (!shouldOpen && chatPanel.contains(document.activeElement)) chatLauncher.focus();
+    chatPanel.inert = !shouldOpen;
     chatPanel.classList.toggle("open", shouldOpen);
     chatPanel.setAttribute("aria-hidden", String(!shouldOpen));
     chatLauncher.setAttribute("aria-expanded", String(shouldOpen));
-    if (shouldOpen) window.setTimeout(() => chatInput.focus(), 220);
+    if (shouldOpen) window.setTimeout(() => { if (!chatPanel.inert) chatInput.focus(); }, 220);
   }
 
   function addMessage(text, role, extraClass) {
@@ -506,11 +676,30 @@
     if (event.key === "Escape") toggleChat(false);
   });
 
-  menuButton.addEventListener("click", () => {
-    document.getElementById("chu-de").scrollIntoView({ behavior: "smooth" });
-  });
-
   document.getElementById("current-year").textContent = new Date().getFullYear();
-  const hashTopic = window.location.hash.slice(1);
-  chooseTopic(topics.some((topic) => topic.id === hashTopic) ? hashTopic : activeTopicId, false);
+  function hashTopic() {
+    try { return decodeURIComponent(window.location.hash.slice(1)); }
+    catch (_) { return ""; }
+  }
+  const initial = hashTopic();
+  const homeTopic = isTopic(initial) ? topics[0]?.id : (lastTopic || topics[0]?.id);
+  renderNavigation();
+  updateHeaderSize();
+  if (typeof ResizeObserver === "function") {
+    const resize = new ResizeObserver(updateHeaderSize);
+    resize.observe(header);
+    resize.observe(nav);
+  }
+  window.addEventListener("resize", updateHeaderSize, { passive: true });
+  chooseTopic(isTopic(initial) ? initial : homeTopic);
+  if (isTopic(initial) || initial === "chu-de") requestAnimationFrame(() => {
+    updateHeaderSize();
+    courseShell.scrollIntoView({ behavior: "instant", block: "start" });
+  });
+  window.addEventListener("hashchange", () => {
+    const id = hashTopic();
+    if (isTopic(id)) chooseTopic(id, { scroll: true });
+    else if (!id || id === "top") chooseTopic(homeTopic);
+    else if (id === "chu-de") courseShell.scrollIntoView({ behavior: reducedMotion.matches ? "instant" : "smooth", block: "start" });
+  });
 })();

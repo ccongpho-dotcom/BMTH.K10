@@ -1,0 +1,299 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 28.6,
+      "text": "Xin chào mọi người. Mọi người hãy tạm quên đi những hình ảnh kiểu như là những lá cơ hiệu này, hay là tiếng chống chận, hay là hình ảnh người lính phi ngựa truyền tiên đi nhé. À vâng. Mới cái đó thì kiểu chỉ còn trên phim lịch sử thôi. Dạ, đúng rồi. Tại vì trong chiến tranh hiện đại thì khoảng thời gian từ lúc phát hiện mục tiêu đến lúc hệ thống vũ khí khai hỏa nó không còn được tính bằng phút nữa đâu mà thực sự là tính bằng mili dây cơ? Chính xác là như vậy. Cục độ bây giờ là yêu tố sống còn rồi."
+    },
+    {
+      "start": 28.6,
+      "end": 57.7,
+      "text": "Dạ. Và hôm nay trong buổi phân tích chuyên sâu của chúng ta dựa trên một tài liệu rất là thú vị về Chủ đề 2 Khái lược về hệ thống tự động hóa chỉ huy và phần mềm dùng chung trong bụng cốc phòng. Một cái tên tài liệu nghe khá là vị mô đấy chứ? Dạ vâng. Nghe thì có vẻ hơi khô khăn nhưng mà được rồi. Chúng ta hãy cùng bóc tách vấn đề này. Nhịm vụ của buổi khám phá hôm nay là chúng ta sẽ mổ sẻ xem các quân đội vận hành một cái kiểu như là một bộ não kỹ thuật số khổng lồ nó như thế nào?"
+    },
+    {
+      "start": 57.7,
+      "end": 77.7,
+      "text": "Từ những thứ siêu hiện đại như là thuật toán AI nhận diện mục tiêu trên biển, đúng không chị? Đúng rồi anh. Và cả những thứ mà tưởng chừng như rất là hành chính nôi, kiểu như là một chiếc thể, chữ ký số hay thậm chí là một cái ứng dụng nhắn tin trong điện thoại của người lính nữa. Thực ra thì những chi tiết nhỏ đó lại cấu thành nên cả một hệ thống khổng lồ đấy. Dạ."
+    },
+    {
+      "start": 77.7,
+      "end": 101.3,
+      "text": "Và Khán Thính Giả cũng không cần phải là một chuyên gia trong lĩnh vực quân sự mà có thể hiểu được chủ đề này đâu. Bởi vì mọi người sẽ thấy cách tổ chức hệ thống và quản trị dữ liệu ở một cái quy mô hàng chăm ngàn người như vậy, nó hoàn toàn có thể truyền cảm hứng cho bài toán, chuyển đổi số ở bất kỳ lĩnh vực nào. Tôi hoàn toàn đồng ý. Bởi vì vấn đề cốt lõi của mọi hệ thống quân sự hiện đại thì nó chính là cái khái niệm ưu thế thông tin."
+    },
+    {
+      "start": 101.3,
+      "end": 129.3,
+      "text": "Ý tôi là ai nắm được thông tin nhanh hơn, chính xác hơn và sử lý nó hiệu quả hơn thì người đó làm chủ chính trường thôi. Vậy thì cái thuật ngữ tự động hóa chỉ huy trong tài liệu này, thật chất mình nên hiểu nó như thế nào cho đơn giản hả anh? Thì nó một cách nôm na, nó thực chất là việc mình dùng công nghệ để giúp ngắn tối đa cái độ chế. Độ chế từ lúc mà người chỉ huy nhận thức được tình huống cho đến khi họ đưa ra quyết định cuối cùng."
+    },
+    {
+      "start": 129.4,
+      "end": 154.4,
+      "text": "Để dễ hình dung hơn thì khi mà tôi đọc phần cấu trúc hệ thống tác chiến trong tài liệu, tôi thấy nó giống hệch cơ chế sinh học của một con người luôn ạ. Một sự so sánh rất là thú vị, chị có thể phân tích rõ hơn được không? Dạ, kiểu như này nhé, chúng ta có mô trường tác chiến thì nó chính là thế giới vật lý bên ngoài đi. Sau đó thì quân đội có một lớp cảm biến, tài liệu gọi là lớp sensor đó, cũng có radar, vệ tinh."
+    },
+    {
+      "start": 154.4,
+      "end": 169.7,
+      "text": "Máy bay không người lái thì cái lớp này nó làm nhận vụ Yi-I-Chang như là đôi mắt và đối tai của mình. Ah, chuyên thu thập tín hiệu từ bên ngoài vào. Dạ, chuẩn luôn. Tiếp đến là sầu trí huy, tức là lớp C2, thì nó đóng vai trò như là bộ não, nơi tiếp nhận và phân tích các tín hiệu đó."
+    },
+    {
+      "start": 169.7,
+      "end": 198.1,
+      "text": "và tiếp theo là lớp Effector, tức là các đơn vị thực hiện như vũ khí bộ bình thì nó chính là tay chân là cơ bấp để mình hành động. Và chắc chắn là phải có một cái gì đó kết nối tất cả bọn chúng lại với nhau đúng không? Dạ, đúng. Cuối cùng chính là lớp mạng truyền thông, nét quật. Nó đóng vai trò y hệt như là hệ thần kinh chung ương, nối tất cả các bộ phật đó lại. Nghe rất là logic đúng không anh? Ờ, mô hình sinh học mà chị vừa nêu, nó mô tả rất chuẩn sát những gì đang diễn ra trong thực tế luôn."
+    },
+    {
+      "start": 198.2,
+      "end": 219.4,
+      "text": "Và nếu mà chúng ta nhìn vào lịch sử phát triển thì cái bộ náo quân sự này nó đã tiến hóa một cách chóng mặt. Nó tiến hóa qua những giai đoạn nào vậy anh? Bắt đầu, người ta chỉ tập trung vào C2 thôi. C2, tức là Command & Control, dịch ra là chỉ huy và điều khiển. Ý là người chỉ huy ra lệnh và cấp dưới thì thì hành."
+    },
+    {
+      "start": 219.5,
+      "end": 247.5,
+      "text": "Đơn giản kiểu chuyển đạt mạnh lạnh một chiều thôi nhỉ? Đúng rồi. Nhưng mà rồi nhu cầu chuyển tại thông tin nó mở rộng ra, quy mô lớn hơn. Nên chúng ta có C3. Tức là thêm một chữ C nữa cho communication, nghĩa là thông tin liên lạc. À, C3. Rồi sau đó thì sao nữa anh? Sau đó thì công nghệ máy tính bùng nổ. Nên người ta ghép thêm máy tính, tức là computer, và tình báo là Intelligence. Vậy là chúng ta có C4I."
+    },
+    {
+      "start": 247.8,
+      "end": 274.5,
+      "text": "Nhưng mà cái kiên trúc hiện đại nhất mà tài liệu này đào sâu ỡ, nó là hệ thống C4ISR. C4IS error, hai chữ cái S và error cuối cùng đó là viết tắt của cái gì về anh. À, hai chữ đó là surveillance, tức là giám sát và reconnaissance, tức là chinh sát. Điều thú vị ở đây là với C4ISR thì đôi mắt và đôi tai của hệ thống giờ đây nó hoạt động liên tục."
+    },
+    {
+      "start": 274.5,
+      "end": 305.4,
+      "text": "Nghĩa là nó không lúc nào nghỉ ngơi à? Nghĩa đúng. Nó quét mọi giữ liệu từ môi trường và đẩy trực tiếp về trung tâm chỉ huy theo thời gian thật luôn. Không có độ chẽ. Khoan đã ảnh, chỗ này tôi thấy có một rủi do rất là lớn nhé. Rủi do gì về chị? Kiểu nếu chúng ta có hàng ngàn cái cảm biến hoạt động cùng một lúc, nào là ảnh vệ tinh trả về liên tục này, rồi ra đa mặt đất thì quét liên hồi, sau lại còn UAV gửi video trực tiếp về nữa. Tất cả rội về sở chí huy cùng lúc. Vâng, một lượng giữ liệu không lo. Dạ đúng đó."
+    },
+    {
+      "start": 305.4,
+      "end": 328.5,
+      "text": "Thì nã bộ con người, dù cho là những vị tướng xuất chủ nhất đi chăng nữa thì kiểu gì cũng sẽ bị information overload ạ. Tức là quá tải thông tim. Bắt một người chỉ huy mà nhìn vào cái màn hình có cảng ngàn chấm đỏ chấp nháy từ nhiều nguồn khác nhau thì làm sao mà dáp quyết định được? Hỡ, chỉ nhận ra vấn đề rất là sắc bén đấy. Việc quá tải dữ liệu thô thực chất nó chính là cái bẫy lớn nhất của chiến tranh mạng trung tâm."
+    },
+    {
+      "start": 328.5,
+      "end": 352.8,
+      "text": "Và đó cũng chính là lý do vì sao mà hệ thống C2 hiện đại nó không hề hoạt động như một cái phéo hướng mọi thứ đâu. Ủa, vậy nó lọc bớt không tin đi á anh? Không hẳn là lọc bớt mà là nó hợp nhất lại. Chức năng sống con của sở chỉ huy hiện đại nó gọi là hợp nhất dữ liệu. Thuật ngữ chuyên môn là data fusion. Data fusion. Anh có thể lấy một cái ví dụ thực tế được không?"
+    },
+    {
+      "start": 352.8,
+      "end": 375.5,
+      "text": "Ờ, hãy hình dung thế này nha. Một đài ra đa mặt đất phát hiện ra một mục tiêu, nhưng cùng lúc đó, một máy bay chính xác đang bay trên trời cũng phát hiện mục tiêu đó và một vệ tinh ngoài không gian cũng ghi nhận tín hiệu của nó. Tức là ba nguồn cùng báo về một vật thể. Đúng vậy. Nhưng nếu không có hệ thống data fusion thì trên mặt hình của người chỉ huy sẽ hiện ra ba cái chấm đỏ khác nhau."
+    },
+    {
+      "start": 375.5,
+      "end": 389.4,
+      "text": "Nó tạo ra một sự nhiễu loạn hay người ta thường gọi là tín hiệu ma đấy. À, tôi hiểu rồi. Tức là nhờ cái data fusion này thì máy tính nó sẽ tự động hiểu là 3 cái chấm đỏ đó thực chất chỉ là 1 chiếc máy bay duy nhất hơn, đúng không? Hoàn toàn chính xác."
+    },
+    {
+      "start": 389.4,
+      "end": 409.7,
+      "text": "Nhiều các thuật toán trí tuệ nhân tạo và học máy, thì hệ thống sẽ tự động đối chiếu tỏa độ này, tốc độ, rồi quý đảo từ nhiều nguồn ca biến khác nhau, sau đó nó lọc bỏ các sai số đi và gục chúng lại thành một mục tiêu duy nhất thôi. Nghe tình vi thật sự. Vâng, kết quả của quá trình này nó sẽ tạo ra một thứ gọi là bức tranh tác chiến chung."
+    },
+    {
+      "start": 409.7,
+      "end": 434.7,
+      "text": "Tiếng Anh là Common Operational Picture, gọi tất là COP. Vậy là thay vì phải căng mắt nhìn hàng ngàn cái dữ liệu giác thì người chỉ huy chỉ cần nhìn vào một cái màn hình duy nhất, sạch sẽ và hiện thịt đúng cuộc diện chiến trường thôi. Chuẩn luôn chị. Và điều này nó giúp giúp ngắn đáng kể cái chú trình OODA. Chú trình này viết tắt của quan sát, định hướng ra quyết định và hành động đó. À, vòng lập OODA nổi tiếng trong quân sự."
+    },
+    {
+      "start": 434.7,
+      "end": 464,
+      "text": "Trước đây, cái quy trình này có khi mất đến hàng giờ đồng hồ, vì người ta phải gọi điện báo cáo bằng rộng nói, rồi hì hục tính toán tỏa độ trên bàn đồ giấy nữa. Còn bây giờ thì mọi thứ tự động hết rồi. Đúng thế. Giờ đây thì cái khái niệm sensor to shooter, tức là khoảng thời gian từ lúc cảm biến phát hiện đến lúc hòa lực khai hòa. Nó chỉ còn được tính bằng phút, thậm chí là bằng giây thôi. Thật là khổ khiếp. Nhìn vào cái bức tranh tác chiến chung đó, tài liệu cũng đưa ra những ví dụ rất là cụ thể về 3 không gian tác chiến, đó là bầu chơi."
+    },
+    {
+      "start": 464,
+      "end": 492.3,
+      "text": "mặt biển và xóng điện tử. Lấy không gian phòng không và không quân làm ví dụ trước đi. Vâng, với không quân thì tốc độ là tất cả. Dạ, việc phản ứng tính bằng dây đúng là yếu tố sinh tử. Một trước tiêm kích mà bay với tốc độ siêu ấm thì làm gì có thời gian để con người chân chử bấm nút này, nút kia. Trong tài liệu có nhắc đến một cái hệ thống phân biệt ĐICTA gọi tát là IFF được tích hợp thẳng vào Đài Rada luôn. Ờ, cái hệ thống IFF này nó cực kì quan trọng. Bởi vì trong không chiến..."
+    },
+    {
+      "start": 492.3,
+      "end": 531,
+      "text": "Nhận diện nhầm mục tiêu là một thám họa tồi tệ nhất. Bắn nhầm quân mình thì đúng là thám họa thật. Nên hệ thống tự động hóa ở đây nó không chỉ đơn thuần là hiển thị mục tiêu đâu. Nó còn tự động tính toán luôn đường bay đánh chặn, rồi phân bổ vũ khí sao cho tối yêu nhất. Tức là máy tính tự lên phương án luôn hả anh? Đúng vậy. Ví dụ nhé, nó sẽ biết chính xác là biên đội Su-30 hay là Su-22 nào đang ở gần cái mục tiêu đó nhất. Rồi máy bay đó đang mang loại tên lửa gì. Tự đó nó tự động để xuất phương án đánh chặn ngay trên màn hình trước khi người chỉ huy kiệt nhằm tính trong đầu luôn. Wow! Nhưng mà thực ra đến đoạn này mới thực sự thú vị đây."
+    },
+    {
+      "start": 531,
+      "end": 561.5,
+      "text": "Cái làm tôi to mò nhất khi đọc tái liệu, nó không phải là câu chuyện trên bầu trời mà là cách lực lượng hải quân xử lý dữ dạo cơ. À, vùng biển thì nó có cái khó riêng của nó. Dạ đúng, vì mặt biển vô cùng rộng lớn và hàng ngày có tới hàng ngàn tàu cá, tàu hàng rồi tàu du lịch di chuyển qua lại. Hệ thống của Hải Quân không chỉ dùng radar hay là hệ thống nhận dạng vệ tinh AIS để theo dõi đồng mà họ còn bắt đầu ứng dụng cả AI để tự động phát hiện những cái điểm bất thường nữa. Vâng, một bước tiến rất lớn về công nghệ đấy."
+    },
+    {
+      "start": 561.5,
+      "end": 577.9,
+      "text": "Nhưng mà cái cơ chế đằng sau việc này nó hoạt động như thế nào vậy? Ý tôi là làm sao mà AI nó biết được một cái tàu cá đang đánh bắt hợp pháp bình thường hay đó là một chiếc tàu lạ đang có hành vi do thám? Đó chính là một ứng dụng tuyệt vời của Machine Learning. Hãy còn gọi là học máy thế chì?"
+    },
+    {
+      "start": 577.9,
+      "end": 594.9,
+      "text": "Ý tôi là trong suốt nhiều năm trời, hệ thống nó đã âm thầm thu thập một lượng dữ liệu khổng lồ về cách di chuyển của hàng vạn con tàu rồi. Tức là nó học thói quen của từng loại tàu hả anh? Chính xác. Một tàu hàng thông thường thì nó sẽ đề theo một luồng tuyến cố định với một cái tốc độ rất là ổn định."
+    },
+    {
+      "start": 594.9,
+      "end": 616.7,
+      "text": "Còn một chức tàu cá thì nó là có khuý đạo di chuyển vòng vèo theo các bãi đánh bắt quen thuộc. Mỗi loại có một kiểu hành vi riêng. Dạ, thể thống AI, nó được huấn luyện trên khối giữ liệu đó để tạo ra một cái bộ khuý tắc gọi là hành vi bình thường. Vậy nếu có kẻ cố tình giấu hành tung thì sao? Đó, nếu một con tàu mà đột nhiên nó tắt thiết bị nhận dạng AIS đi, hoặc là nó chạy dích giấc."
+    },
+    {
+      "start": 616.7,
+      "end": 654.4,
+      "text": "không theo luồng tuyến hàng hại hay thậm chí chạy với tốc độ bất thường so với kích cỡ của nó thì AI lập tức nhận ra ngay. Nó sẽ đối chiếu và khoanh đỏ cái mục tiêu đó trên màn hình, cảnh báo cho trực băng. Tức là truyền viên Rada không phải ngồi căng mắt ra tìm kiếm như một kim đáy bể nữa mà hệ thống AI đã tự động mang luôn cái kim đó đặt lên bàn cho họ rồi. Chọn luôn. Việc của con người lúc này chỉ là sắc minh lại và ra quyết định thôi. Rất là thông minh. Vậy là chúng ta có không gian bầu trời, không gian mặt biển, và tài liệu con nhắc đến một không gian thứ 3 nữa há là vô hình đó là không gian điện tử. À vâng, tác chiến điện tử. Tắc chiến điện tử thì rõ ràng là không có bắn đạn thật rồi."
+    },
+    {
+      "start": 654.4,
+      "end": 676.4,
+      "text": "Thì cái khái niệm xan tìm các nguồn phóng vô hình này nó đóng vai trò gì trong tổng thể hệ thống tự động hóa này ấy? Thực ra không gian điện tử mới là nơi diễn ra cuộc chiến trước tiên đấy chị. Nó diễn ra trước cả khi có bất kỷ vụ khí vật lý nào khai hòa kìa. Nghe như kiểu một cuộc chiến tranh tàng hình vậy? Đúng vậy, tại vì ra đa của đối phương muốn hoạt động thì bắt buộc phải phát sóng."
+    },
+    {
+      "start": 676.4,
+      "end": 703.6,
+      "text": "Bộ Đà muốn liên lạc cũng phải phát sóng. Và các hệ thống tác chiến điện tử của chúng ta nó đóng vai trò như những cái chạm lắng nghe khổng lồ vậy. Nó nghe ngóng để tìm ra vị trí của đối phương hả anh? Bằng cách sử dụng các antenn định hướng và áp dụng kỹ thuật giao hội tam giác. Hệ thống có thể tính toán cực kỳ chính xác vị trí của một đài phát sóng vô hình dù nó nằm cách xa hàng chăm km. Và tôi đoán là đây chính là lúc mà cái khái niệm..."
+    },
+    {
+      "start": 703.6,
+      "end": 729.1,
+      "text": "tác chiến đa miền, thuật ngữ là multi-domain operations, nó phát huy tác dụng đúng không? Không một lực lượng nào chiến đấu đơn độc cả. Chính xác là nhiều vậy. Giả sự nhé, hệ thống tác chiến điện tử nó vừa phát hiện một cái đài radar tin lửa phòng không của đối phương vừa mới bật sáng. Rồi sao nữa anh? Thì cái dữ liệu tỏa độ đó lập tức được đầy thằng vào bức tranh tác chiến chung, cóp mà ta vừa nói ở phần trước đó. Ngày thức khắc luôn."
+    },
+    {
+      "start": 729.1,
+      "end": 765.1,
+      "text": "Hệ thống của phòng không và không quân sẽ nhận được cảnh báo. Từ đó nó tự động tính toán lại quỹ đạo. Yêu cầu biên đội Su-30 bay vòng qua cái vùng phủ sóng của đè ra đa đó để tránh rủi do. Tức là dữ liệu của bên này cứ hút mạng bên kia. Họ thậm chí là dữ liệu tỏa độ đó được bắn thẳng sang cho hệ thống tên lửa bờ của lực lượng hai quân để họ kích hoạt tiêu diệt đài radar kia luôn. Sự liên thông dữ liệu chéo giữa các quân chủng thật chất nó chính là sức mạnh cốt lõi của toàn bộ cái mạng lưới này. Nãy giờ chúng ta nói rất nhiều về tên lửa, radar, rồi chí tội nhân tạo."
+    },
+    {
+      "start": 765.1,
+      "end": 791.9,
+      "text": "Nhưng mà có một cái nguyên lý cơ bản trong bảo mật thông tin, đó là một hệ thống dù có tối tân đến đâu thì nó cũng sẽ xục đổ ở chính cái mắt xích yếu nhất của nó. Và cái mắt xích đó thường nó không nằm ở ngoài tiền tuyến đâu mà nó là một ngay ở khâu hành chính, khâu ban hành mệnh lệnh hoặc đơn giản là một cá nhân nào đó trong hệ thống thôi. Đúng rồi, nếu một hét cơ mà giảm ảo được mệnh lệnh tác chiến thì sao?"
+    },
+    {
+      "start": 791.9,
+      "end": 815.9,
+      "text": "Điều này dẫn chúng ta đi từ ngoài chiến trường bước thẳng vào trái tim của việc quản trị. Đó là cơ sở dữ liệu và đảo mật sinh tính. Về vấn đề này thì tài liệu phân định rất là dạch dòi 2 cái chục cơ sở dữ liệu. 2 chục đó là gì vậy anh? Chủ thứ nhất là cơ sở dữ liệu tác chiến. Đây là phân hệ tuyệt mật. Nó chứa toàn bộ bản đồ số quân sự rồi sơ đồ bố chí lực lượng vào một đời vũ khí."
+    },
+    {
+      "start": 815.9,
+      "end": 833.5,
+      "text": "Trục này thì nó yêu cầu cái cơ chế phân quyền vật lý và logic cực kì khát khe. Dạ. Thế còn trục thứ 2? Trục thứ 2 là cơ sở dữ liệu dùng chung. Cái này thì nó hướng tới mục tiêu là chính phủ số. Nó dùng để quản lý các công tác hành chính lý lịch quân nhân rồi văn bản pháp quy."
+    },
+    {
+      "start": 833.5,
+      "end": 851.7,
+      "text": "Và trục này thì nó có sự liên thông nhất định với các khệ thống dân sự bên ngoài, kiểu như bảo hiểm xã hội hay là y tế vậy đó. Vậy điểm chung để bảo vệ hai cái trục này là gì? Điểm chốt chặn cuối cùng giữa người dùng và các cơ sở dữ liệu này, nó chính là hạ tầng khóa công khai. Hay chúng ta vẫn quen gọi là chiều kỳ số, viết tắt là PKI đó chỉ."
+    },
+    {
+      "start": 851.7,
+      "end": 866.3,
+      "text": "Ở nói về chữ ký số thì ngoài đời dân sự chúng ta dùng rất nhiều. Cá nhân thì hay dùng eSci trên mấy cái áp điện thoại. Còn doanh nghiệp thì cắm USB túc kênh vào máy để khay thuế ký hợp đồng điện tử. Vâng, công nghệ cốt lõi thì nó khá tương đồng."
+    },
+    {
+      "start": 866.3,
+      "end": 886.4,
+      "text": "Nhưng mà việc chia các lớp chứng thư số trong quân đội, đặc biệt là tái liệu có nhắc đến thể VKI quân sự lớp 2 do Bộ Tư lệnh 86 Cấp, thì thực chất nó có gì khác biệt so với 1 cái USB token mua ngoài thị trường không ảnh, nếu chúng ta liên kết điều này với bức tranh lớn hơn. Sự khác biệt nó nằm ở chín cái bản chết của việc sắc thực đấy chị."
+    },
+    {
+      "start": 886.4,
+      "end": 914.4,
+      "text": "Ở môi trường dân sự biến ngoài thì chữ ký số lớp 3 mà chị nói nó chủ yếu dùng để xác nhận danh tính thôi. Ý là nó xác nhận tôi là người ký cái hợp động này đúng không? Chà đúng. Chỉ có thể cầm cái USB tốt cần đó, cắm vào bất kỳ máy tính nào, ngồi ở quán cà phê, hệ ở nhà cũng được, miễn là có mạng internet là ký được. Nhưng mà thể PKI quân sự lớp 2 thì nó hoàn toàn không hoạt động theo kiểu dễ dã như vậy đâu. Ủa vậy nó hoạt động ra sao anh?"
+    },
+    {
+      "start": 914.4,
+      "end": 957.9,
+      "text": "Nó không chỉ làm nhiệm vụ xác nhận bạn là ai mà nó còn là chia khóa vật lý để xác định bạn được quyền truy cập vào đầu nữa. Khoan, tức là cái thể đó nó bị gắn chết với một thiết bị và một mạng lưới cụ thể luôn hả? Chuyển xác. Thẻ PKI lớp 2, nó phải kết hợp với một cái mả OTP chuyên dụng nữa, thì mới là phương thức duy nhất để một cán bộ có thể đăng nhập vào mạng máy tính quân sự. Vậy là không thể mang về nhà dùng được rồi? Đúng vậy. Chỉ không thể nào cầm cái thẻ này đèm cắm vào lập tóc cá nhân ở nhà để mà chui vào hệ thống được đâu. Khi cắm thẻ vào, hệ thống nó sẽ kiểm tra đồng thời cả ba yêu tố cùng lúc. Ba yêu tố đó là gì vậy anh? Một là người dùng có hợp lệ không?"
+    },
+    {
+      "start": 957.9,
+      "end": 980.5,
+      "text": "Hay là phần cứng, tức là cái máy tính đó có nằm trong danh sách được cấp phép không? Và ba là đường chuyên mạng có đúng là mạng nội bộ không? Ngày cứ như là bọng mật 3 lớp vậy? Dạ. Chính cái thiết kế này nó tạo ra một cái hệ thống gọi là airgap, tức là nó bị cách ly vật lý hoàn toàn khỏi cái mạng internet công cộng bên ngoài. Không có cửa nào chui vào từ internet được cả."
+    },
+    {
+      "start": 980.5,
+      "end": 1005.4,
+      "text": "Ồ, kế việc cách ly vật lý này nó dẫn thẳng đến các phần mềm dùng chung mà tài liệu đề cập ở phần sau, như là thư điện tử quân sự hay là hệ thống còn lý văn bản? Vâng, những công cụ làm việc hàng ngày. Dạ, mà thú thật nhé, ban đầu khí đọc quá, tôi nghĩ là việc tự xây dựng một cái hệ thống email riêng chắc là tốn kém dữ lắm, tốn rất nhiều nguồn lực. Tại sao mình không dùng luôn mấy cái nền tảng thương mại có sẵn trên thị trường, với truyền báo mặt doanh nghiệp cho nó nhanh nhỉ? Ờ."
+    },
+    {
+      "start": 1005.4,
+      "end": 1025,
+      "text": "Đây là một quan niệm mà rất nhiều người lầm tưởng. Mối đe dọa lớn nhất đối với các mạng lưới quy mô lớn, thật ra nó không phải là bị 2 cơ tấn công trực diện mừng mã độc đâu. Thế là bằng đường nào anh? Nó thường qua con đường phết sinh, tức là lửa đảo qua email đấy chị. Nếu mà mình dùng niền tảng thương mại có kết nối internet đình thường."
+    },
+    {
+      "start": 1025,
+      "end": 1052.2,
+      "text": "Thì một hacker ở bên kia bắn cầu hoàn toàn có thể gửi một cái email trong đó chứa phai PDF đính kèm mã đọc vào thẳng học thư của một người chị Huy. Và nếu người đó bất cận tại về thì... Phì xong luôn. Chỉ cần một cú click chuột thôi. Mã đọc nó sẽ âm thầm lây lan ra toàn bộ hệ thống. Nhưng mà với hệ thống thư điện tử quân sự thì nó chỉ chạy trên TS là quý S thôi. Tức là mạng truyền số liệu quân sự. Ý anh là nó không có cửa ngõ nào cắm ra ngoại internet hết? Dạ, đúng rồi."
+    },
+    {
+      "start": 1052.2,
+      "end": 1070.1,
+      "text": "Nó không hề có cộng kết nối nào ra thế giới bên ngoài cả. Vậy nên, một cái email từ mạng bên ngoài á, nó không có cách nào có thể tôn tại vật lý trên đường chuyên của TS lờ quý S được. Do đó, nó loại chủ hoàn toàn cái nguy cơ lây nhiệm nã độc từ internet công cộng. Một dài pháp cú lập cực kỳ chuyện đề."
+    },
+    {
+      "start": 1070.1,
+      "end": 1099.7,
+      "text": "Nhưng mà có một thực tế như thế này, là không phải lúc nào các cán bộ chiến sĩ cũng ngồi in một chỗ trước cái máy tính bàn trong danh chạy được. Vâng, tác chiến thì phải cơ động chứ. Sự cơ động là yếu tố tất yếu mà. Thì tài liệu có nhắc đến một cái ứng dụng tên là Quy Me, dành riêng cho thiết bị di động. Nếu mà ứng dụng này nó được cài trên smartphone, rồi dùng 6 3g, 4g hay 5g bình thường của các nhà mạng viễn thông thì làm sao mà đảm bảo được cái sự cách ly bảo mật như anh vừa nói lúc nãy? Đây là một bài toán rất là học búa."
+    },
+    {
+      "start": 1099.7,
+      "end": 1123,
+      "text": "nó giải quyết sự đánh đổi giữa tính cơ động và tính bỏ mật. Nghe mâu thuẫn nhỉ? Vâng. Ấn dụng Kimi này thì về mặt giao diện nó được thiết kế y hệt như các Ấn dụng nhắn tin gọi điện thông thường thôi để cho mọi người dễ sử dụng. Nhưng mà cái kiến chúc ẩn năng sau nó là nó tạo ra một cái đường hầm mã hóa. Thuật nghĩa gọi là n-crypto-tunnel. Đường hầm mã hóa."
+    },
+    {
+      "start": 1123.2,
+      "end": 1156.5,
+      "text": "Tức là dữ liệu đi qua đó sẽ không ai đọc được. Dạ. Khi ứng dụng này hoạt động qua mạng 3G hay 4G, thì dữ liệu nó không hề đi qua các máy chủ trung gian của máy hãng công nghệ lớn đâu. mà nó được đóng gói lại, mã hóa nhiều lớp và chuyển thẳng về mấy chủ bào mật của riêng quân đội. Tuyệt vời, tức là các cán bộ vẫn có thể nhận thông báo hay là giao việc khẩn cấp ngay trên thực địa mà không sợ có ai nghe lén hay chặn thu dữ liệu đúng không anh? Chuyện luôn chị, nó giống như việc mình mang theo một cái văn phòng bào mật thu nhỏ đút trong thu y áo vậy đó. Vậy tất cả những điều này có ý nghĩa gì?"
+    },
+    {
+      "start": 1156.5,
+      "end": 1185.5,
+      "text": "Ý tôi là khi quân đội chuyển khai hàng loạt công nghệ nào là AI, radar đa miền cho đến phần mềm quản lý văn bản, rồi app QMI thì vô hình chung nó tạo ra một cái giàu cản cực lớn về mặt con người. Giao cản về mặt chính độ đúng không? Dạ đúng. Số hóa công cụ máy móc là một chuyện. Mình có thể mua hoặc tự xây dựng được nhưng làm sao mà số hóa được cái tư duy của hàng trăm ngàn con người đến từ nhiều cấp bậc, độ tuổi và chính độ khác nhau đây? Ờ."
+    },
+    {
+      "start": 1185.5,
+      "end": 1215,
+      "text": "Tài liệu có giải quyết vấn đề này đấy, thông qua một cụm từ rất hay. À, tài liệu có nhắc đến cụm từ bình dân học vụ số, thông qua hệ thống quy lms.bqp. Tự nhiên, nghe cụm từ bình dân học vụ, nó làm tôi gợi nhớ đến chiến dịch xóa mù chữ năm 1904, phải trong đây là một chiến dịch giở như xóa mù công nghệ trong quân đội hả anh? Ừ, đó là một phép so sánh rất mang tính lịch sử và nó phản ánh cực kỳ đúng bàn chất của vấn đề luôn. Các nhà hoạch định quân sự họ hiểu rất rõ một điều là"
+    },
+    {
+      "start": 1215,
+      "end": 1240.4,
+      "text": "Một cổ máy, dù thuật toán có tối tân đến đâu đi nữa thì nó cũng trở nên vô dụng nếu người vận hành nó không có đủ kiện thức. Mấy tính thông mình đến mấy mà người dùng bấm bậy thì cũng hỏng hết. Dạ vâng. Thế nên, cái hệ thống Quia LMS, tức là Quản lý học tập số, nó không chỉ đơn thuần là cái nơi để upload mấy cái phi PDF tài liệu khô khan đâu mà nó thực sự là một nền tảng Iloning toàn diện chạy trên mạng nội bộ."
+    },
+    {
+      "start": 1240.4,
+      "end": 1253.2,
+      "text": "giống như mấy nền tảng học trực tuyến của các trường đại học với ạ anh. Đúng rồi. Ở đó họ có các khoá học đào tạo từng xa này, có các bài kiểm tra để đánh giá năng lực thường xuyên và cả một cái thư viện số khổng lồ nữa. Tức là ai cũng phải học? Dạ."
+    },
+    {
+      "start": 1253.2,
+      "end": 1275.1,
+      "text": "Việc yêu cầu toàn quân phải liên tục cập nhật kiên thức công nghệ thông qua cái nền tảng này chính là cách duy nhất để duy trì sự sắc bén của cái mắt xích con người. Cuối cùng thì vụ khí mạnh nhất nó không phải là quả tiên lửa mà chính là người ngồi bấm nút phóng quả tiên lửa đó. Nhìn lại tổng thể bức tranh từ nãy đến giờ, chúng ta đã đi từ những khái niệm kiến trúc rất là vị mô như là"
+    },
+    {
+      "start": 1275.1,
+      "end": 1300.7,
+      "text": "C4ISR hiểu được cách một hệ thống nó hợp nhất hàng ngàn tín hiệu radar và cảm biến lại thành một bức tranh tác chiến trung duy nhất. Đúng, một hành trình khá là dài. Rồi, chúng ta cũng đã thấy cách AI tự động phân tích hành vi của hàng vạn quan tàu trên biển và cách các hệ thống tác chiến điện tử thì âm thầm xan tìm các giải sóng vô hình để phục vụ cho cái gọi là tác chiến đà miền. Mặc không chỉ có chuyện ngoài tỉnh tuyến đâu nhé."
+    },
+    {
+      "start": 1300.7,
+      "end": 1330.6,
+      "text": "Không chỉ dừng ở tiền tuyến, chúng ta cũng đã mổ sẻ cách quân đội ở thiết lập các mạng lưới airgap, cách ly vật lý, rồi dụng thể PKI để khóa chặt quyền truy cập nội bộ và liên tục nâng cấp năng lực con người qua phong chào bình dân học vụ số. Có thể thấy là sự thay đổi này nó mang tính toàn diện từ cấp độ chiến lược vĩ mô cho đến từng cái theo tác mở email hàng ngày của một người lính luôn. Nhưng mà có một chi tiết mở rộng trong tài liệu này mà tôi nghĩ là cực kỳ đáng để chúng ta phải xuyên ngậm sâu hơn."
+    },
+    {
+      "start": 1330.6,
+      "end": 1359.2,
+      "text": "Chí tiến nào vậy anh? Đó là hệ thống hiện tại nó đang dần dịch chuyển từ cái khái niệm C4ISR sang một cái mô hình mới là C5ISR. Chữ C thứ 5, được bộ sùng ở đây, chỉ biết là gì không? Chính là cyber, tức là không gian mạng. Điều này thực sự gọi mở một câu hỏi quan trọng đấy. Ý anh là khi tất cả mọi thứ đều được số hóa và đều được liên kết với nhau thì bản thân cái sự liên kết đó lại trở thành một điểm yếu chí mạng hả?"
+    },
+    {
+      "start": 1359.2,
+      "end": 1383.5,
+      "text": "Chính xác là như vậy. Nếu chị để ý, toàn bộ cái cụ máy chiến tranh khổng lồ này từ cái chạm ra đa cành giới ngoài biển khơi hay là hệ thống tính toán đường bay của máy bay tiêm kích, cho đến các email truyền lệnh điều động lực lượng, tất cả bọn chúng đều đang chạy trên một cái hệ thần kinh chung. Đó chính là lớp mạng truyền thông. Vậy chuyện gì sẽ xảy ra nếu cái hệ thần kinh đó bị tấn công? Đó mới là ác mọng."
+    },
+    {
+      "start": 1383.6,
+      "end": 1405.6,
+      "text": "Kẻ thù trong tương lai họ không cần thiết phải ném 1 quả bom để phá hùy 1 bể phóng tên lửa nữa. Họ sẽ hách vào hệ thống. Dạ. Họ chỉ cần tìm cách chui vào, đưa dữ liệu giả vào quá trình data fusion. Và bung, họ có thể biến 1 cái chấm đỏ của quân thù thành 1 cái chấm xanh của quân mình, ngay trên màn hình của người chỉ huy. Quá nguy hiểm, chỉ huy sẽ ra lệnh xây lầm hoàn toàn. Dạ vâng."
+    },
+    {
+      "start": 1405.6,
+      "end": 1435.1,
+      "text": "Trong tương lai, các củ chiến tranh có thể sẽ được định đoạt hoàn toàn trong cái không gian mạng vô hình này, ngay cả trước khi tiến xuống vật lý đầu tiên kịp vang lên gờ. Đúng là một cái rủi do khổng lồ, xong hành cùng với sự tiến bộ cơ nghệ. Nghĩ lại, người lính phất cờ hiệu trên định đổi ngày xưa, dù cho công cụ của anh ta rất là thô sơ và chậm chạm, nhưng mà cái tín hiệu cờ của anh ta không bao giờ có thể bị một hét cơ cách đó hàng ngàn số can thiệp hay là làm giả bằng thuật toán được. Vâng, một sự thật khá là chớ treo."
+    },
+    {
+      "start": 1435.1,
+      "end": 1456.2,
+      "text": "Còn ngày nay thì hệ thống siêu việt mang lại cho chúng ta một cái sức mạnh nhãn quan và tốc độ phản ứng không tưởng. Nhưng buồn lại, nó lại đặt ra một yêu cầu sinh tử về việc phải xây dựng những cái la chắn không gian mạng tinh vi nhất. Đây thực sự là một cóc nhìn rất là sắc bén để khép lại chủ đề của chúng ta ngày hôm nay. Vâng, một chủ đề rất thực tế cho chuyện đổi số."
+    },
+    {
+      "start": 1456.2,
+      "end": 1466.2,
+      "text": "Cảm ơn quý vị khán thính giả đã dành thời gian đồng hành cùng chúng tôi trong buổi phân tích chuyên sâu này. Hẹn gặp lại mọi người ở những tài liệu và những chủ đề thú vị tiếp theo nhé. Chào tạm biệt."
+    }
+  ]
+}

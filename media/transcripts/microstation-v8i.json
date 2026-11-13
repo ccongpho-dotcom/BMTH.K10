@@ -1,0 +1,229 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 19.9,
+      "text": "Thường thì khi nghĩ về sự sáng tạo, chúng ta hãy hình dung ra một bức tranh canvas trống chân, đúng không? Kiểu như một nơi mà người nghệ sĩ có thể thỏa sức vung về cõ vẽ. Đúng rồi, mọi thứ bay bồng tự do và không hề có một dưới hậu nào cả. Nhưng mà hôm nay, chúng ta hãy thử thay đổi góc nhìn một chút."
+    },
+    {
+      "start": 20.1,
+      "end": 45.8,
+      "text": "Cùng bước vào một văn phòng thiết kế kỹ thuật, nơi các kỹ sư đang quy hoạch những con đường, hay vẽ lên toàn bộ một câu chúc đồ thị. Ồ, một thế giới hoàn toàn khác. Ở đó, bức tranh không hề chống chân đâu. Và sự tự do lại bị trói buộc bởi những quy tắc toán học lạnh lùng, chặt chẽ đến mức ngẹt thờ. Đó là một sự so sánh rất thú vị đấy, bởi vì trong thế giới kỹ thuật, sự vô định lại chính là kẻ thù nguy hiểm nhất."
+    },
+    {
+      "start": 45.8,
+      "end": 65.7,
+      "text": "Kệ thú nguy hiểm nhất sao? Chính xác. Cái mà chúng ta gọi là khuôn khổ khắt khe đó thực chất lại là công cụ duy nhất để đảm bảo một cây cầu không bị sập hay một tòa nhà được xây đúng từng milimet. Và đó cũng chính là lý do chúng ta có mặt trong buổi đào sâu ngày hôm nay. Trên bản của tôi lúc này là một tập hồ sơ tài liệu thoạt nhìn có vẻ khá là..."
+    },
+    {
+      "start": 65.7,
+      "end": 90.2,
+      "text": "Nó có một đoạn hội thoại tạo bộ câu hỏi trắc nghiệm tương tác, rồi một danh sách 15 câu hỏi kèm đáp án chi tiết và vài trích đoạn từ cuốn tài liệu hướng dẫn sử dụng phần mềm đồ họa kỹ thuật tên là MicroStation V8E. Nghe qua thì đúng là khu khăn thật. Nhưng mục tiêu của chúng ta hôm nay không phải là ngồi tụng lại một cuốn cẩm năng phần mềm nhằm chán đâu."
+    },
+    {
+      "start": 90.2,
+      "end": 109.9,
+      "text": "Sứ mảnh của chúng ta là bóc tách từ duy logic đằng sau cách một hệ thống chuyên nghiệp tổ chức không gian thực tại. Và cả cách con người trò chơi hóa quá trình nhồi nhét những luật lệ đó vào đầu nữa. Chuẩn luôn. Được rồi. Chúng ta hãy cùng gỡ rối vấn đề này nhé. Dù người nghe có phải là kỹ sư hay không, tôi tin là mọi người sẽ thấy những điều rất bất ngờ. Tôi đã sẵn sàng."
+    },
+    {
+      "start": 109.9,
+      "end": 138.5,
+      "text": "Đằng sau những thông số có vẻ khô khăn kia, thường ẩn chứa những bài học rất sâu sắc về cách nã bộ con người và máy móc thoả hiệp với nhau đấy. Vậy thì hãy bắt đầu với cách mà phần mềm này tổ chức thế giới của nó đi. Theo tài liệu thì MicroStation V8E là một sản phẩm của hãng Bentley Systems. Một cái tên rất lớn trong ngành. Đúng vậy. Và nó sử dụng định dạng tệp tin DGN hiện đại. Tài liệu còn đặc biệt nhấn mạnh là nó khác hoàn toàn với định dạng V7 cũ trước đây."
+    },
+    {
+      "start": 138.5,
+      "end": 164.7,
+      "text": "Đúng rồi, sự nâng cấp này mang lại nhiều thay đổi cốt lõi. Cách họ quản lý khối lượng dữ liệu khổng lồ là chia chúng thành các active level, hay còn gọi là lớp hiện hành. Bất kỳ thời điểm nào, chỉ có duy nhất một lớp được kích hoạt để thao tác. Nghe thì có vẻ giống các phần mềm chỉnh sự ảnh thông thường mà chúng ta hay dùng nhỉ? Thì lúc đầu tôi cũng nghĩ vậy. Nhưng khoan đã, có một chỉ tiết trong tài liệu làm tôi thấy thực sự khó hiểu."
+    },
+    {
+      "start": 164.7,
+      "end": 194.1,
+      "text": "Chị biết không, phần mềm này giới hạn cứng tối đa chỉ có 63 lớp dữ liệu trong một tẹp. 63 lớp? Hơn thế nữa, nó chỉ cho phép 8 kiểu đường cơ bản, được đánh số từ 0 đến 7, và đúng 32 lực nét, tức là độ dày của nét vẽ, đánh số từ 0 đến 31. Những con số rất cụ thể và nhỏ giọt. Thành thật mà nói, giới hạn 63 lớp dữ liệu, nghe như một thiết kế từ thời kỳ thập niên 90 vậy."
+    },
+    {
+      "start": 194.1,
+      "end": 223.2,
+      "text": "Bây giờ là thời đại nào rồi, râm máy tính toàn 32g, 64g, sức mạnh sử lý là phổng lô. Ý anh là phần cứng dư sức gánh hàng ngàn lớp? Chính xác. Tại sao không cho người ta vẽ 1 ngàn lớp hay hàng triệu kiểu nét vẽ cho thoải mái? Nếu nhìn từ góc độ sức mạnh công nghệ thuần tuy, đúng là dưới hạn đó nghe có vẻ vô lý, nhưng điều thú vị ở đây là con số 63 lớp hay 8 kiểu đường không sinh ra từ sự yếu kém của phần cứng đâu. Vậy thì tại sao?"
+    },
+    {
+      "start": 223.2,
+      "end": 249.6,
+      "text": "Nó là một sự hạn chế có chủ đích để cứu con người khỏi chính sự tự do của họ. Cứu con người khỏi sự tự do? Nghe có vẻ hơi chiết lý quá không? Chị có thể giải thích rõ hơn cơ chế này hoạt động thế nào trong thực tế được không? Hãy thử tưởng tượng một dự án quy hoạch thành phố của sự tham gia của 500 kỷ sự khác nhau. Nếu phần mềm cho phép vô hạn lớp dữ liệu, chuyện gì sẽ xảy ra? Chắc là mỗi người sẽ tạo một kiểu."
+    },
+    {
+      "start": 249.6,
+      "end": 291.1,
+      "text": "Đúng vậy, kỹ sư A sẽ tạo ra lớp số 5.000 để vẽ ống nước. Kỹ sư B lại thích đặt tên lớp là ống nước chuẩn bản cuối cùng. Kỹ sư C thì lại dùng nét vẽ có độ dày tuỳ hứng. À, tôi hình dung ra rồi. Bản vẽ lúc đó sẽ trở thành một thảm họa. Một mớ bỏng bóng không ai có thể đọc chéo hay trình sửa được của nhau. Việc ép tất cả người dùng vào khuôn khổ 63 lớp, 8 kiểu đường và 32 lực nét chính là cách ép họ sử dụng trong một ngôn ngữ tiêu chuẩn. Một hệ thống giao tiếp chung. Đúng như tài liệu đã ghi nhận, mục đích cốt lõi của việc tổ chức hệ thống level là để, chích nguyên văn nhé, dễ quản lý và hiển thị đối tượng. À, tôi hiểu rồi. Nó giống như quy định mặc đồng phục ở trường học vậy."
+    },
+    {
+      "start": 291.1,
+      "end": 312.1,
+      "text": "Nếu thả cửa cho kiểu thời trang, phang thời tiết, việc quả lý hàng ngàn học sinh sẽ cực kỳ hỗn loạn. Một sự xóa sánh rất đốc tế. Vậy là sự giới hạn trong bối cảnh kỹ thuật lại là công cụ để tối yêu hóa năng xuất tập thể. Chính như xác là như vậy. Không giới hạn đó tạo ra một môi trường làm việc có thể đoán trước được, không ai bị bất ngờ bởi dữ liệu của người khác."
+    },
+    {
+      "start": 312.1,
+      "end": 341.6,
+      "text": "Môi trường thì đã được thiết lập chặt chẽ rồi. Vậy còn cách chúng ta tương tác vì nó thì sao? Không này mới thực sự thú vị đây này. Anh tin thấy điểm gì đặc biệt trong cách tương tác à? Đọc phần hương dẫn thao tác. Tôi thấy phần mềm này áp đặt đuột lệ ngay từ cú click chuột đầu tiên. Họ quy định thế nào? Có một nguyên tác bất di bất dịch. Chuột trái là bắt đầu lệnh. Hay còn gọi là nốt data. Chuột phải là kết thúc lệnh. Gọi là nốt reset. Rất rõ ràng, trái là bắt đầu, phải là kết thúc."
+    },
+    {
+      "start": 341.6,
+      "end": 363.1,
+      "text": "Đúng. Và khi vẽ, tuyệt đối không được giữ chuột kéo lê như vẽ trên pen đâu nhá. Phải nhấn chuột trái, rồi thả ra, sau đó kết thúc bằng chuột phải. Một kiểu thao tác rất đặc thù của dân kép. Nhưng điểm làm tôi toát mồ hôi hột là khi thao tác trên màn hình cảm ứng gơ. Cấu hình để bận nó lên cực kỳ sâu luôn. Sâu đến mức nào?"
+    },
+    {
+      "start": 363.1,
+      "end": 390,
+      "text": "Chị phải chui từ Workspace vào Preferences, chọn input rồi trong mục Click Sensitivity mới mỏ ra được mục pan. Quả thực là phải đào sứ khá nhiều menu. Và đây, điều kỳ diệu xuất hiện. Khi dùng bút, chạm, việc nhấn giữ liên tục trên màn hình lớn hơn 3 giây sẽ được dịch thành cú click chuột phải. 3 giây để kết thúc lệnh. 3 giây. Trong thời đại công nghệ số thì 3 giây là cả 1 thế kỷ."
+    },
+    {
+      "start": 390,
+      "end": 416.6,
+      "text": "Tại sao không thiết lập là chạm đúc cho nhanh mà phải bắt người ta giữ nguyên tay 3 giây đồng hồ? Đó là một câu hỏi rất hay. Tại sao lại là 3 giây mà không phải là chạm đúc như thói quen dùng điện thoại của chúng ta? Ừ, đúng. Chạm đúc có phải tiện hơn không? Nếu chúng ta nhìn vào cơ chế thực sự về cách mà một kỹ sư thao tác trên bàn vẽ, họ sẽ phải liên tục chạm nhanh để bắt các điểm nối hoặc phóng to thu nhỏ. À, thao tác với cường độ cao. Chuyển."
+    },
+    {
+      "start": 416.6,
+      "end": 445.4,
+      "text": "Nếu thiết lập chạm đúc là kết thúc lạnh, người kỹ sư sẽ liên tục kết thúc nhầm lạnh khi họ chỉ đang cố gắng thao tác nhanh cho bạn vẽ. Vậy là chạm đúc sẽ gây ra lỗi sai ngoài ý muốn? Việc yêu cầu giữ tĩnh ngỏi bút trên màn hình trong khoảng thời gian đủ dài, ở đây là hơn 3 giây, tạo ra một senh giới vật lý rất rõ ràng. Senh giới vật lý? Nó buộc não bộ phải phát ra tín hiệu. Tôi đã vẽ xong, tôi đang cố ý dừng lại, thay vì một thao tác lỡ tay gõ nhầm."
+    },
+    {
+      "start": 445.4,
+      "end": 470.6,
+      "text": "Thế thì nó chẳng khác gì một dạng mật mắc ngầm của nội kín cả. Hãy nghĩ mà xem, nếu không đọc tái liệu này, một người mới dùng màn hình cảm ứng sẽ bắt đầu chạm để vẽ. Và dưới sao? Rồi họ sẽ kẹt vĩnh viễn trong cái lệnh vẽ đó, vì không biết cách nào để thoát ra. Thật buồn cười, nhưng đó là sự thật. Và đó chính là các hệ thống xây dựng phản xạ có điều kiện cho người dùng. Nghĩa là sao? Phản xạ có điều kiện ấy."
+    },
+    {
+      "start": 470.6,
+      "end": 486.8,
+      "text": "Ban đầu việc phải nhớ trái phải hay lầm nhầm đến 3 giây ngay rất gượng gạo. Nhưng khi lập lại hàng vàng lần, nó ngấm vào máu. Thành một bản năng. Đúng. Một khi những mật mã cơ bản đó đã thành bản năng, hệ thống mới mở khóa cho người dùng những công cụ tăng tốc độ siêu Việt."
+    },
+    {
+      "start": 486.8,
+      "end": 500.8,
+      "text": "kiểu như học võ phải đứng tấn trước khi buông quyền vậy. Rất chuẩn. Ví dụ như công cụ copy, nằm trong thanh manipulate mà tài liệu nhắc đến nhá. Nếu anh cứ ngồi copy từng đối tượng 1 thì bao giờ mới sang một dựa lớn? Chắc là mất cả thanh xuân."
+    },
+    {
+      "start": 500.8,
+      "end": 528.7,
+      "text": "Tại liệu chỉ gió rằng họ có tính năng UseFans, tức là tạo một hàng dào chọn, nhờ và những phản xã nhấp thả chuột cực kỳ chuẩn xác đã được rèn luyện, người kỹ sư có thể quan một hàng dào bao chọn toàn bộ các chi tiết cần thiết và copy tất cả cuộc lúc. Đúng vậy, thào tác sau chép sẽ tự động áp dụng lên tất cả những gì nằm gọn trong hàng dào đó. Nhành gọn và vô cùng chính xác. Hay như hệ thống phím tác nữa, gõ phím số 8 trên thành TaxToon 3 để xóa ngay lập tức, tức là lệnh DeleteElement."
+    },
+    {
+      "start": 528.7,
+      "end": 556.9,
+      "text": "hoặc nhấn một chuỗi phím Quy, rồi phím Nam để vẽ đường cong. Quy, rồi Nam không cần đưa chuột lên menu luôn. Tốc độ làm việc lúc này không còn phụ thuộc vào việc giò rẫm menu trên mặt hình nữa mà là hoàn toàn dựa vào phản sạc cơ bắt. Quá tựng, nếu không tự biến mình thành một cụ máy thuộc lòng luật lệ thì không thể sống sót trong cái phần mềm này được. Dùng từ sống sót nghe có vẻ hơi căng thẳng nhưng mà rất đúng bản chất đấy. Nói đến chuyện sống sót, điều đó dẫn thẳng chúng ta đến phần tiếp theo của hộ sơ."
+    },
+    {
+      "start": 556.9,
+      "end": 599.1,
+      "text": "Đó là tài liệu về việc dùng AI để tạo bộ câu hỏi trắc nghiệm đào tạo phần mềm này. Phần này thể hiện rất rõ tính tâm lý học trong đào tạo. Tôi đọc đoạn Prom, yêu cầu tạo 15 câu hỏi về MicroStation V8E ở mức độ dễ. Ok, dễ thì chắc là làm nhẹ nhàng qua môn thôi đúng không? Nhưng thực tế thì sao? Thực tế, luật chơi đi game làm tôi phải gọi nó là chò Squid Game phiên bản kỹ sư luôn. Chò chơi xinh tồn gờ à? Luật chơi đó có vẻ gây ấn tận mạnh với anh nhỉ? Rất mạnh, chị nghe này. Nói yêu cầu người học phải trả lời đúng 3 câu liên tiếp. Thang điểm thì lẻ một cách đầy toan tính. Lẻ như thế nào? Đúng 1 câu được 7 điểm. Đúng 2 câu thì tăng lên 7,5."
+    },
+    {
+      "start": 599.1,
+      "end": 626.3,
+      "text": "Nhưng đúng ba câu liên tục thì vọt thẳng liên tắm về 2 điểm. Và đây, quý tắc tự thần. Xai câu đầu tiên, bị loại trực tiếp. Tôi thực sự không hiểu. Áp dụng một lật chơi tàn nhẫn, kiểu sai một ly đi một dạm như vậy cho những câu hỏi đường phân loại là dễ thì có mục đích gì? Chẳng phải nó là người học nạn chi sao? Ngược lại nhá, nó là một đòn 7 tâm lý học cực kỳ xác xạo."
+    },
+    {
+      "start": 626.3,
+      "end": 651.3,
+      "text": "Đầu tiên, hãy phân tích cái thang điểm 7, 7,5 và 8,2 mà anh vừa nhắc tới. Vâng, điểm số tăng rất kỳ lạ. Anh có thấy nó không hề tăng tiến theo một đường thẳng tuyến tính bình thường không? Đúng vậy, khoảng cách từ 7,5 lên 8,2 lớn hơn nhiều so với từ 7 lên 7,5. Đó là cách cho chơi hóa hệ thống dopamine của nã bộ. Phần mềm hiểu rằng việc học thuộc cái menu kỹ thuật rất khô khàn. Đọc menu thì đúng là chán ngát."
+    },
+    {
+      "start": 651.3,
+      "end": 680,
+      "text": "Nên bằng cách, kéo giãn phần thưởng ở Vec Dic, tức là việc trả lời đúng 3 câu liên tục, nó khích lệ sự tập trung cao độ và tính nhất quán của nghề học. Ô, tạo ra cảm giác muốn trinh phục Vec Dic. Nhưng điều đáng nói nhất là luật cái chết bất đắc kỳ tử ngay tại câu đầu tiên. Bị đuổi khổ phòng thi ngay từ vầy xuất phát. Cảm giác đó ho chắc chắn không dễ chịu chút nào. Vì trong môi trường kỹ thuật, kiến thức được rắn nhãn là dễ, không có nghĩa là kiến thức phụ, mà đó là kiến thức sống con. Sống con gỡ à?"
+    },
+    {
+      "start": 680,
+      "end": 696.7,
+      "text": "Hay nhìn vào nội dung các câu hỏi trong tài liệu. Câu số 7 hỏi, thành phần Nam ở vị trí trên cùng hiện thị tên Tập Tinh là gì? À, đạp án là thanh tiêu đề hay thay thổ 3. Cái này thì hiện nhiên quá mà. Hay câu số 13, yêu cầu chỉ ra đường dẫn để bật thanh công cụ bắt điểm SNAP 1."
+    },
+    {
+      "start": 696.7,
+      "end": 721.8,
+      "text": "Đáp án là phải tuần tự vào setting, chọn Snap, rồi chọn bottom 3. Nghe thì có vẻ giống như kiểm tra trí nhớ vật vánh thôi mà, kiểu học vẹt đấy. Nhưng hậu quả của việc không biết những thứ vật vánh đó thì không hề vật vánh chút nào. Ý chị là sao? Nếu một người không biết nhìn tên tệp trên thai thứ 3, họ có thể đang chỉnh sửa và phá hỏng tệp dữ liệu của người khác mà không hề hay biết. Chết thật, thế thì đi tông cả dự án."
+    },
+    {
+      "start": 721.8,
+      "end": 760.4,
+      "text": "Nếu họ không biết gọi thành Snap-1 ra, họ hoàn toàn bị tê liệt, không thể vẽ nối bất cứ đường nép nào cho truận sắc. Việc áp dụng luật loại trực tiếp tạo ra một sự căng thẳng sinh lý thực sự cho người học. Bộ náo chúng ta luôn ghi nhớ sâu sắc nhất trong những trạng thái cảm xúc cực đoan, bao gồm cả áp lực. Sự tàn nhẫn của bài test, ép người học phải đóng đinh những kiến thức nền tảng đó và tiêm thức. Bây giờ thì tôi hiểu rồi. Chính AI trong tài liệu cũng kết luận rằng luật chơi này giúp học viên nhớ bài lâu hơn. Một sự khắc nghiệt được tính toán tỉ mị để không dung túng cho bất kỳ sai số nào. Vậy thì sau khi trải qua bài kiểm tra sinh tồn đó..."
+    },
+    {
+      "start": 760.4,
+      "end": 804.6,
+      "text": "thuộc lòng luật nhấn nhả 3 giây và làm quen với giới hạn 63 lớp dữ liệu. Khi thực sự bước vào trận chiến thiết kế, ở phần cuối của Hồ Sơ, chúng ta có một bức tranh khá choáng ngập về không gian làm việc. Tài liệu hướng dẫn cách thiết lập View Number, tức là cửa sổ khung nhìn. Tính năng này rất quan trọng trong thiết kế đa chiều. Và phần mềm này cho phép mở tối đa tận 8 cửa sổ khung nhìn hoạt động độc lập và quan sát đồng thời. 8 cửa sổ cùng một lúc. Ờ, khoan đã, con người thì chỉ có 2 mắt thôi. Mở 8 cái khung nhìn trên màn hình thì chẳng khác nào tự làm cho mình hoa mắt. Chắc chắn là sẽ rất dối giám nếu không quen. Tại sao lại cần đến tận 8 góc nhìn cùng một lúc cơ chứ?"
+    },
+    {
+      "start": 804.6,
+      "end": 824.8,
+      "text": "Bởi vì họ không vẽ 1 bức tranh phẳng 2 triệu, mà họ đang giả lập lại một thế giới vật lý phức tạp. Đấy chiều sâu. Chỉ có thể ví dụ cụ thể được không? Hãy tưởng tượng việc thiết kế một nút giao thông nhiều tầng đi. Nếu chỉ nhìn từ trên xuống, tức là góc nhìn top đào, chúng ta sẽ không thấy được độ dốc của cây cầu vượt. Đúng, mọi thứ sẽ bẹp dí lại trên một mặt phẳng."
+    },
+    {
+      "start": 824.8,
+      "end": 840.6,
+      "text": "Thế nên, người kỹ sư sẽ cần 1 khung nhìn toàn cảnh từ trên cao để quản lý vĩ mô, 1 khung nhìn mặt cắt ngang để xem độ giấy bê tông và nhiều khung nhìn phóng to ở các góc ngã tư khác nhau để kiểm soát vĩ mô các điểm nối. À, vậy là phải bao quá mọi góc độ."
+    },
+    {
+      "start": 840.6,
+      "end": 867.7,
+      "text": "8 không nhìn hoạt động đồng thời cho phép họ làm chủ toàn bộ không gian đó mà không phải liên tục bật tắt hay di chuyển màn hình, làm mất đi tính liên kết của không gian tổng thể. Nghe thì có vẻ vị đại đấy. Thế nhưng, khi mở 8 cửa sổ như vậy, việc đưa chuột vào vẽ làm sao cho chuẩn sát được, mắt người nhìn nhiều dễ bị áo rác, tay cầm chuột thì có thể dún. Chắc chắn là con người không thể tự làm chính sát được. Lệch 1 mm trên bản vẽ có khi ra thực tế là kế cầu không khớp nhau rồi."
+    },
+    {
+      "start": 867.7,
+      "end": 897.1,
+      "text": "Đó chính là lý do những kỹ sư đó phải vượt qua bài kiểm tra dễ để lấy được thanh công cụ Snap Mode mà chúng ta vừa nhắc tới ở phần trước đấy. Thanh công cụ bắt điểm sinh tồn đó. Đúng vậy. Phần mềm không bao giờ đặt nhìn tin vào đôi tay hay con mắt của con người. Nó cung cấp các công cụ như Toggle Acusnap và Nearest Snap Point. Nó hoạt động như thế nào? Các công cụ này giống như những thỏi nam châm vô hình. Khi con trò chuột đến gần một đối tượng, nó sẽ tự động hút chặt vào đỉnh hoặc điểm giao cách chính xác về mặt toàn học."
+    },
+    {
+      "start": 897.1,
+      "end": 914.3,
+      "text": "Oh, tự động hút vào luôn. Thế là khỏi lo dùn tay. Sự ước lượng cảm tính của mắt người bị loại bỏ hoàn toàn. Mọi thứ được phó tác cho hệ thống bắt điểm. Lại là một lớp dế hạn nữa để đảm báo sự hoàn hảo. Đúng vậy, vật đình ca của nó thể hiện qua công cụ tên là AccuDraw. AccuDraw."
+    },
+    {
+      "start": 914.3,
+      "end": 940.8,
+      "text": "Nó làm gì vậy? Để vẽ một khung bản đồ trần tỷ lệ A4 dọc nhá. Người kỹ sư không cần kéo chuột giò dõm kích thức giải dọng làm gì. Họ làm thế nào? Họ gạt con chuột sang một bên, nhập trực tiếp toại độ toán học tuyệt đối, x bằng 21, y bằng 29, bấm phim xác nhận. Một khung hình hoàn hảo xuất hiện, không sai một phần ngàn milimet. Quá ghề gấm, chỉ bằng những con số tuyệt đối. Hay khi sử dụng công cụ plus SmartLine,"
+    },
+    {
+      "start": 940.8,
+      "end": 960.9,
+      "text": "phần mềm ép người dùng phải khai báo trước thông số đỉnh vẽ. Đó là đỉnh sắc nhận, shop, botan routed hay vát cạnh Trumpfield. Mọi thứ phải được định nghĩa rõ ràng ngay từ đầu. Thậm chí công cụ Blitz Regular Polygon cũng cho phép tính tóán vẽ đa giác điều từ 3 cho đến tận 1 chăm cạnh 1 cách hoàn hảo. Thật không thể tin nổi."
+    },
+    {
+      "start": 961.5,
+      "end": 982.1,
+      "text": "Nếu ghép nối tất cả những dữ kiện này lại, chúng ta đang nhìn thấy một chiết lý thiết kế quá đồng nhất. Bắt đầu từ việc giới hẹn 63 lớp dữ liệu tường như vô lý để dập tắt sự tuy hứng và tạo ra nguồn ngữ tiêu chuẩn. Sau đó, ép người dùng học mật mã chạm 3 giây để zen luyện sự phản dạ cơ bắp."
+    },
+    {
+      "start": 982.1,
+      "end": 1000.5,
+      "text": "Rồi dùng một trò chơi sinh tồn tan khốc để ghiêm kiến thức sống con và tiềm thức. Và cuối cùng, cùng cấp cho họ 8 khung nhìn cùng hệ thống tỏa độ Acutron để loại bỏ nốt phần sai số ít ở còn lại của sinh học con người. Toàn bộ cụ máy này vận hành chỉ để phục vụ cho một thứ duy nhất. Đó là sự chính xác tuyệt đối."
+    },
+    {
+      "start": 1000.5,
+      "end": 1027.2,
+      "text": "Dù cho người nghe không làm trong ngành kỹ thuật, bài học về cách thiết lập giới hạn để quản lý sự tự do và cách đầy con người vào khuôn khổ để tạo ra sự xuất chúng, thực sự là những bài học mang tính phổ quát cực cao. Rất đáng suy ngẫm. Nhưng mà này, để khép lại bức tranh này, có một chi tiết nhỏ nằm lặng lẽ trong phần hướng dẫn công cụ vẽ đa giác mà có lẽ sẽ làm thay đổi cảm nhận của chúng ta về sự lạnh lùng của hệ thống này đấy. Oh! Còn một cú tuyết nào ở Food Trust sao?"
+    },
+    {
+      "start": 1027.2,
+      "end": 1054.6,
+      "text": "Đó là thuộc tính Field Type, tức là cách chọn chế độ tô màu cho một vùng khép kín. Tô màu thì có gì đặc biệt? Dù hệ thống này được cao trị bởi những con số vô hồn, danh giới khất khe và các tọa độ toán học tuyệt đối, quyết định cuối cùng lại được trao trả cho con người. Trao trả cho con người? Phần mềm cung cấp 3 tuổi chọn thẩm mỹ cốt lõi. Thế nhất là Opaque, tức là tô màu trùng hoàn toàn với màu của đường viền."
+    },
+    {
+      "start": 1054.6,
+      "end": 1091.8,
+      "text": "Thứ 2 là Outline, màu tô khác biệt để làm nổi bất đường viền, hoặc thứ 3 là Năn để lại một hoảng trống xuyên thấu. Nghĩa là sau tất cả những tính toán phức tạp, cuối cùng người kỹ sư vẫn phải tự hỏi, mình nên tô màu này thế nào cho dễ nhìn. Chính xác, bởi vì bản vẽ đó cuối cùng không phải để máy tính đọc. Nó là để cho những người công nhân, nhà thầu, hay một người dân bình thường nhìn vào. Để họ hiểu được, đâu là mặt hổ nước, đâu là bãi cỏ, đâu là khối bê tông cứng. Đúng vậy. Dù cho bản vẽ có được dựng lên từ những công thức toán học khô khăn nhất."
+    },
+    {
+      "start": 1091.8,
+      "end": 1116,
+      "text": "Thao táo cuối cùng của người kỹ sư vẫn là quyết định xem giữ liệu đó sẽ hiển thị ra sao để chạm đến thị giác của người xem. Một sự tinh tến ở ngoài những con số. Điều đó gọi mở một sự suy ngẫm sầu sắc. Phải chăng đỉnh cao của mọi hệ thống kỹ thuật máy móc, dù có lạnh lùng và nghiêm ngặt nhất, cuối cùng vẫn luôn phải lùi lại một bước để nhường chỗ cho sự thấu cảm của con người."
+    },
+    {
+      "start": 1116,
+      "end": 1144.9,
+      "text": "Một kể kết không thể đẹp hơn. Chúng ta đi từ sự tự do bị giấy hạn bởi toán học và rồi lại tìm thấy sự tự do trong việc thấu cả người khác ở bước đi cuối cùng. Một vòng lập hoàn hảo giữa máy móc và con người. Có lẽ những kỹ sư trong không gian kỹ thuật số kia cũng là những người nghệ sĩ thực thụ. Không phải bằng cách vung vẩy những nét cỏ tuy hứng mà bằng cách dùng sự khắt khe của toán học để tạo ra một hiện thực an toàn và dễ tiếp nhận cho tất cả mọi người."
+    },
+    {
+      "start": 1145,
+      "end": 1156.6,
+      "text": "Đó thực sự là một góc nhìn đáng để nhìn ngẫm. Chắc chắn rồi. Hi vọng mọi người đã có những giây phút thực sự thú vị sau khi khép lại hồ sư tài liệu ngày hôm nay. Hẹn gặp lại trong những buổi đào sâu tiếp theo."
+    }
+  ]
+}

@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Không gian học tập số BMTH.K10 dành cho học phần Công nghệ thông tin.">
   <meta name="theme-color" content="#061b35">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="BMTH.K10">
+  <meta property="og:title" content="BMTH.K10 · Học phần Công nghệ thông tin">
+  <meta property="og:description" content="Khám phá 5 chủ đề Công nghệ thông tin, nghe bài ôn tập và tự kiểm tra kiến thức.">
+  <meta property="og:url" content="https://ccongpho-dotcom.github.io/BMTH.K10/">
+  <meta property="og:image" content="https://ccongpho-dotcom.github.io/BMTH.K10/assets/bmth-share.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Biểu trưng BMTH.K10 trên nền xanh, với dòng chữ Học phần Công nghệ thông tin">
   <title>BMTH.K10</title>
   <link rel="icon" type="image/svg+xml" href="assets/ai-digital-logo.svg">
-  <link rel="stylesheet" href="assets/styles.css?v=20261103-3">
+  <link rel="stylesheet" href="assets/styles.css?v=20261113-ui1">
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
@@ -30,9 +41,13 @@
         </svg>
         <span>Toàn cảnh</span>
       </button>
-      <button class="menu-button" type="button" aria-label="Mở danh mục chủ đề" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+    </div>
+    <div class="topic-menu">
+      <div class="topic-menu-rail">
+        <div id="topic-nav" class="topic-nav" role="tablist" aria-label="5 chủ đề học phần"></div>
+      </div>
+      <button class="topic-scroll topic-scroll-prev" type="button" aria-label="Cuộn về các chủ đề trước" aria-controls="topic-nav" hidden>‹</button>
+      <button class="topic-scroll topic-scroll-next" type="button" aria-label="Cuộn tới các chủ đề tiếp theo" aria-controls="topic-nav" hidden>›</button>
     </div>
   </header>
 
@@ -62,23 +77,12 @@
       </div>
     </section>
 
-    <section class="course-shell" id="chu-de" aria-labelledby="topics-heading">
-      <aside class="topic-sidebar" aria-label="Danh mục chủ đề">
-        <div class="sidebar-heading">
-          <span class="section-number">05</span>
-          <div>
-            <p>NỘI DUNG HỌC PHẦN</p>
-            <h2 id="topics-heading">Các chủ đề</h2>
-          </div>
-        </div>
-        <nav id="topic-nav" class="topic-nav"></nav>
-        <div class="sidebar-note">
-          <span aria-hidden="true">◈</span>
-          <p>Tài liệu chỉ phục vụ học tập nội bộ. Vui lòng không sao chép hoặc phát tán.</p>
-        </div>
-      </aside>
-
-      <article id="lesson-panel" class="lesson-panel protected-content" aria-live="polite"></article>
+    <section class="course-shell" id="chu-de" aria-label="Nội dung học phần">
+      <div class="learning-progress">
+        <span class="learning-progress-label" id="learning-progress-label" role="status">Đã học 0/5 chủ đề</span>
+        <progress id="learning-progress" aria-label="Tiến độ học" max="5" value="0"></progress>
+      </div>
+      <article id="lesson-panel" class="lesson-panel protected-content" role="tabpanel" tabindex="0"></article>
     </section>
   </main>
 
@@ -99,7 +103,7 @@
     <span class="chat-label">Hỏi trợ lý AI</span>
   </button>
 
-  <section id="chat-panel" class="chat-panel" aria-label="Trợ lý AI BMTH.K10" aria-hidden="true">
+  <section id="chat-panel" class="chat-panel" aria-label="Trợ lý AI BMTH.K10" aria-hidden="true" inert>
     <header class="chat-header">
       <div class="chat-avatar"><img src="assets/ai-digital-logo.svg" alt=""></div>
       <div>
@@ -107,8 +111,8 @@
         <span id="chat-status" class="chat-status" data-state="ready" aria-live="polite">Sẵn sàng hỗ trợ học tập</span>
       </div>
       <div class="chat-header-actions">
-        <button id="chat-reset" type="button" aria-label="Bắt đầu cuộc trò chuyện mới" title="Cuộc trò chuyện mới">↻</button>
-        <button id="chat-close" type="button" aria-label="Đóng trợ lý AI" title="Đóng">×</button>
+        <button id="chat-reset" type="button" aria-label="Bắt đầu cuộc trò chuyện mới" title="Cuộc trò chuyện mới"><span aria-hidden="true">↻</span></button>
+        <button id="chat-close" type="button" aria-label="Đóng trợ lý AI" title="Đóng"><span aria-hidden="true">×</span></button>
       </div>
     </header>
     <div id="chat-messages" class="chat-messages" aria-live="polite">
@@ -138,7 +142,7 @@
   <script src="data/topics.js?v=20261015-2"></script>
   <script src="data/media.js?v=20261016-1"></script>
   <script src="data/faq.js?v=20261110-1"></script>
-  <script src="assets/app.js?v=20261112-full2"></script>
+  <script src="assets/app.js?v=20261113-ui1"></script>
   <script src="assets/motion.js?v=20261017-1"></script>
 </body>
 </html>

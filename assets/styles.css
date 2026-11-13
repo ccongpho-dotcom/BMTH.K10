@@ -360,3 +360,152 @@ html.overview-mode .view-mode-toggle {
   background: linear-gradient(135deg, #0b365f, #0d726f);
   box-shadow: 0 12px 32px rgba(3, 32, 61, .32);
 }
+
+/* Course navigation lives in the sticky site header, outside the lesson. */
+:root { --header-height: 145px; --muted: #495d72; }
+[hidden] { display: none !important; }
+:where(button, a, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid #147aab;
+  outline-offset: 3px;
+}
+.site-header :focus-visible, .chat-header :focus-visible { outline-color: #f7d783; }
+.site-header { gap: 9px 22px; padding-bottom: 8px; }
+.brand-copy small, .slogan, .quiz-shortcut, .view-mode-toggle { font-size: max(13px, .82rem); }
+.brand-copy small { color: #d4e5f2; }
+.topic-menu {
+  position: relative;
+  grid-column: 1 / -1;
+  min-width: 0;
+  width: 100%;
+  max-width: 1380px;
+  justify-self: center;
+  padding-inline: 48px;
+}
+.topic-menu-rail { min-width: 0; }
+.topic-menu .topic-nav {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 5px 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: none;
+}
+.topic-menu .topic-nav::-webkit-scrollbar { display: none; }
+.topic-menu .topic-button {
+  flex: 1 0 auto;
+  width: auto;
+  min-height: 44px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-color: #294257;
+  color: #e4eff7;
+  white-space: nowrap;
+}
+.topic-menu .topic-button:hover { transform: none; border-color: #57b6b8; }
+.topic-menu .topic-button.active { border-color: #58c5bf; box-shadow: inset 0 -3px 0 #55ded1; }
+.topic-button .topic-number, .topic-button .topic-name, .topic-learned { font-size: max(13px, .88rem); }
+.topic-learned { color: #a8f6d2; }
+.topic-scroll {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #396575;
+  border-radius: 10px;
+  background: #10324a;
+  color: #ecfbff;
+  font: 700 23px/1 var(--font-sans);
+  cursor: pointer;
+}
+.topic-scroll-prev { left: 0; }
+.topic-scroll-next { right: 0; }
+.hero {
+  min-height: 330px;
+  padding-top: 38px;
+  padding-bottom: 56px;
+  row-gap: 18px;
+}
+.hero h1 { font-size: clamp(2rem, 3.1vw, 3.8rem); white-space: normal; }
+.hero-visual { min-height: 230px; }
+.hero-lead { margin-bottom: 18px; color: #d7e5f2; }
+.course-shell { display: block; min-height: 0; margin-top: -18px; scroll-margin-top: calc(var(--header-height) + 8px); }
+.lesson-panel { scroll-margin-top: calc(var(--header-height) + 10px); }
+.learning-progress {
+  padding: 13px clamp(18px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #eaf6f5;
+  border-bottom: 1px solid #c8e6e3;
+}
+.learning-progress-label { flex: 0 0 auto; font-size: max(13px, .89rem); color: #154e57; font-weight: 800; }
+.learning-progress progress { flex: 1 1 auto; max-width: 310px; min-width: 45px; height: 9px; accent-color: #137c76; }
+.lesson-completion { margin-top: 26px; padding: 16px; border: 1px solid #c8e6e3; border-radius: 14px; background: #f1faf8; }
+.lesson-completion button, .audio-tools button, .audio-tools select {
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 1px solid #b4d3da;
+  border-radius: 10px;
+  color: #17475c;
+  background: #fff;
+  font-size: max(13px, .85rem);
+  font-weight: 700;
+}
+.lesson-completion button, .audio-tools button { cursor: pointer; }
+.lesson-completion button[aria-pressed="true"] { color: #17483b; background: #dff7eb; border-color: #79beaa; }
+.learned-state:not(:empty) { margin-inline-start: 8px; }
+.lesson-completion p, .lesson-use-note, .transcript-note { color: #495d72; font-size: max(13px, .86rem); margin: 8px 0 0; }
+.lesson-use-note { margin-top: 18px; }
+.audio-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 8px; }
+.audio-tools label { display: inline-flex; align-items: center; gap: 6px; color: #304f60; font-size: max(13px, .85rem); font-weight: 650; }
+.audio-tools button:disabled { opacity: .65; cursor: default; }
+.audio-transcript { border-top: 1px solid #d4e4e8; margin-top: 10px; }
+.audio-transcript summary { display: list-item; align-content: center; min-height: 44px; padding: 8px 3px; cursor: pointer; color: #1b5668; font-size: max(13px, .9rem); font-weight: 750; }
+.audio-transcript-body p { margin: 10px 0; color: #30465c; font-size: .95rem; }
+.transcript-time { margin-inline-end: 9px; color: #1c5868; font-variant-numeric: tabular-nums; font-weight: 750; }
+.lesson-kicker, .media-label, .summary-badge, .media-empty, .topic-quiz-card > a,
+.quick-prompts button, .chat-disclaimer, .chat-status, .site-footer { font-size: max(13px, .83rem); }
+.lesson-kicker { color: #166862; }
+.chat-status { color: #d0ecf1; }
+.chat-disclaimer, .media-empty { color: #4d6376; }
+.site-footer { color: #53667b; }
+.summary-heading { flex-wrap: wrap; }
+
+@media (max-width: 980px) {
+  .site-header { gap: 6px 12px; }
+  .hero { min-height: 0; padding-block: 27px 37px; row-gap: 12px; }
+  .topic-menu .topic-button { flex-grow: 0; }
+}
+@media (min-width: 1220px) {
+  .topic-menu { padding-inline: 0; }
+}
+@media (max-width: 760px) {
+  .site-header { padding: 7px max(10px, env(safe-area-inset-left)) 6px max(10px, env(safe-area-inset-right)); }
+  .site-header .slogan { padding-top: 4px; line-height: 1.25; font-size: 13px; }
+  .brand img { width: 38px; height: 38px; }
+  .brand-copy small { display: none; }
+  .hero { grid-template-areas: "heading" "copy"; padding: 20px 15px 29px; row-gap: 8px; }
+  .hero h1 { font-size: clamp(1.45rem, 6vw, 2.05rem); text-wrap: wrap; }
+  .hero .eyebrow { margin-bottom: 6px; font-size: 13px; letter-spacing: .11em; }
+  .hero-lead { margin-bottom: 10px; font-size: .9rem; }
+  .hero-visual, .hero-actions .secondary-button { display: none; }
+  .hero-actions .primary-button { padding: 7px 11px; min-height: 44px; font-size: .88rem; }
+  .site-header :is(.brand, .quiz-shortcut, .view-mode-toggle), .lesson-panel .topic-quiz-card > a,
+  .chat-panel button, .chat-launcher { min-height: 44px; }
+  .quiz-shortcut, .chat-header button { min-width: 44px; width: 44px; }
+  .quiz-shortcut { font-size: 0; }
+  .topic-menu { padding-inline: 48px; }
+  .course-shell { margin-top: -10px; }
+  .learning-progress { gap: 9px; }
+  .lesson-panel { padding: 20px 14px 32px; }
+  .lesson-title { font-size: clamp(1.48rem, 6.8vw, 2.12rem); overflow-wrap: anywhere; }
+  .lesson-summary { padding: 14px; }
+  .chat-input, .chat-form textarea { font-size: 16px; }
+}

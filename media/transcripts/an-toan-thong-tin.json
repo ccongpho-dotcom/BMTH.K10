@@ -1,0 +1,294 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 16.6,
+      "text": "Thường thì khi chúng ta nghĩ về những mối nguy hiểm xung quanh mình, chúng ta hay hình dùng ra những thứ rất hữu hình hoặc là những thứ rất ồn ào. Đúng rồi, những thứ mình có thể nhìn thấy hoặc nghe thấy ngay lập tức. Chẳng hạn như một vụ tai đạn dạo thông ngoài phố này."
+    },
+    {
+      "start": 16.6,
+      "end": 40.5,
+      "text": "Một cơn bão đang kéo đến, hoặc tiến coi báo trái réo rất trong tòa nhà. Chắc chắn rồi. Ở thế giới thực thì luôn có những dấu hiệu cảnh báo rõ ràng để chúng ta kịp thời nê tránh. Nhưng mà trong không gian số thì mọi thứ lại tính lặng một cách đáng sợ. Mỗi nguy hiểm lớn nhất đôi khi lại bắt nguồn từ một thao tác cơ bắt vô cùng bình thường. Một thứ mà mỗi người chúng ta thực hiện đến hàng nghìn lần mỗi ngày."
+    },
+    {
+      "start": 40.8,
+      "end": 69.7,
+      "text": "Chỉ là một cú nhấp chuột thôi đúng không? Chính xác. Một cú nhấp chuột sai lầm, một khoảnh khác lơ đáng là đã có thể tạo ra một thảm họa dây chuyển rồi. Thật sự là như vậy? Nó có thể là việc bốc hơi toàn bộ tiền tiết kiệm trong tài khoản cá nhân hoặc vĩ mô hơn là làm tê liệt toàn bộ hệ thống phòng thủ của một quốc gia. Đó chính là nghịch lý lớn nhất của thời đại số hiện nay. Sức tàn phá của nó thực ra tỉ lệnh nghịch với tiếng ôn mà nó tạo ra. Sự tỉnh lặng nhưng hậu quả thì khôn lượng. Đúng thế."
+    },
+    {
+      "start": 69.7,
+      "end": 92.2,
+      "text": "danh giới giữa sự an toàn và một cuộc khủng hoảng toàn diện hiện nay mỏng manh đến mức nó hoàn toàn được định đoạt bởi sự hiểu biết. Hay nói đúng hơn là phản xạ của từng cá nhân ngồi sau màn hình? Phản xạ. An toàn thông tin không còn là lãnh điện độc quyền của những kỹ sư công nghệ mặc áo hút đi ngồi gõ mã lệnh trong căn phòng tối nữa. Nó đã trở thành một kỹ năng sinh tồn thiết yếu cho tất cả mọi người. Được rồi, hãy cùng mở mang vấn đề này."
+    },
+    {
+      "start": 92.3,
+      "end": 114.7,
+      "text": "Hôm nay, chúng ta sẽ thực sự đi sâu vào chủ đề An Toàn Thông Tin và An Ninh Mạng. Sức mạnh của buổi phân tích sâu này không phải là đọc một quân sách giáo Khoa về công nghệ khô khăn. Thế thì tốt quá, vì mấy cái lý thuyết đó thường rất dễ gây buồn ngủ. Rất buồn ngủ là đằng khác. Hôm nay, chúng ta sẽ bóc tách để hiểu rõ thế giới số thực sự vận hành và tự bảo vệ nó như thế nào bên dưới bề mặt."
+    },
+    {
+      "start": 114.7,
+      "end": 143.7,
+      "text": "Từ việc tại sao một chuỗi mật khẩu đơn giản lại nắm giữ sinh mạnh số của một con người? Cho đến những chiến lược vĩ mô hơn. Đúng vậy. Cho đến chiến lược phòng thủ không gian mạng với những quý tắc khắc nghiệt nhất ở các độ quốc gia, đặc biệt là cách bộ quốc phòng bảo vệ dữ liệu. Đây là một điểm khởi đầu tuyệt vời. Bởi vì trước khi chúng ta thảo luận về việc dựng lên những bức tường lửa đắt tiền hay cài đặt các phần mềm diệt virus phức tạp, chúng ta phải giải quyết một câu hỏi mang tính chiết học hơn. Một câu hỏi chiết học trong ngành IT sao? Đúng vậy."
+    },
+    {
+      "start": 143.7,
+      "end": 170.3,
+      "text": "Chẳng hạn như khi một hách cơ tấn công, rốt cuộc chúng ta đang cố gắng bảo vệ những thuộc tính gì của dữ liệu. Mình phải biết mình bảo vệ cái gì trước chứ. À, đây là lúc chúng ta phải nhắc đến một khái niệm nền tảng trong an ninh mạng. Thường được gọi là tâm giác bảo mật CIA. Ờm, và thính giả lưu ý là không phải cơ quan tình báo CIA của Mỹ đâu nhá. Chắc chắn rồi. Ở đây, nó là viết tắt của ba chữ, tính bí mật, tính toàn vẹn và tính sẵn sàng."
+    },
+    {
+      "start": 170.6,
+      "end": 196,
+      "text": "Nếu để tìm một phép so sánh, tôi hay hình dung hệ thống an toàn thông tin giống như một ngân hàng có tính năng bảo mật tuyệt đối vệ. Một cái ngân hàng, anh có thể nói rõ hơn được không? Tình bí mật chính là lớp vỏ thép của chiếc kết sắt khổng lồ dưới tầng hầm. Nó đàm bảo rằng chỉ những người thực sự sở hữu triều khóa mới có thể mở ra xem bên trong có gì. Đúng rồi, không ai khác được phép dòng ngõ. Tiếp đến là tính toàn vẹn."
+    },
+    {
+      "start": 196,
+      "end": 220.5,
+      "text": "Nó giống như quy trình kiểm đếm để đảm bảo rằng số tiền khách người vào không bị ai lén lút làm già, cắt xén hay cháo đổi thầy những tờ giấy lộn. Tức là thông tin gửi đi và nhận lại phải y nguyên. Chính xác. Và cuối cùng là tính sẵn sàng. Nghĩa là các cây ATM của ngân hàng đó phải luôn hoạt động 24 trên 7. Luôn sẵn sàng nhà tiền bất cứ lúc nào một khách hàng hợp pháp cắm thể vào."
+    },
+    {
+      "start": 220.5,
+      "end": 241.5,
+      "text": "Một phép ẩn dụ cực kỳ chuẩn sắc luôn. Và điều thú vị ở đây là khi thế giới mạng ngày càng phức tạp, chỉ một tâm giác ba góc này là chưa đủ để bao qua mọi rùi do đâu. Vậy là họ phải thêm vào những yêu tố mới? Đúng vậy. Các hệ thống hiện đại buộc phải gắn thêm 2 lớp hóa nữa. Lớp thứ nhất là tính sắc thực. Tính sắc thực."
+    },
+    {
+      "start": 241.5,
+      "end": 276.8,
+      "text": "Lấy lại ví dụ ngân hàng của anh nhé. Khi giao dịch qua mạng làm sao ngân hàng biết người đang có mật khẩu, thực sự là chủ thể. Chứ không phải một kẻ mạo danh vừa mua được mật khẩu đó trên chợ đen. là tôi hiểu dõi. Và lớp thứ hai là tính không thể chối bỏ. Nó giống như một chữ ký tươi bằng bút mực trên một bàn hợp đồng vật lý vậy đó. Nghĩa là một khi đã làm thì không thể chối là mình chưa làm. Chỏản luôn. Một khi một lệnh chuyển tiền hay một chỉ thị điện tử được phát đi, hệ thống phải lưu vết bằng chữ ký số. Người gửi không thể quay quét lại và nói rằng, oi, tôi chưa từng gửi cái đó. Do mấy tính bị lỗi đấy."
+    },
+    {
+      "start": 276.8,
+      "end": 300.8,
+      "text": "Vậy khi một trong những lớp khóa này bị phá vỡ thì thù phạm thực sự là ai? Có một sự nhầm lẫn rất phổ biến mà tôi thấy chúng ta cần làm rõ chỗ này. Anh đang nói đến cách gọi tên những người bẻ khóa đúng không? Đúng thế. Mọi người hay dùng từ hét cơ hay tiên tạc để chỉ những kẻ xấu tốn tiền trên mạng. Nhưng thực chất tiên tạc chỉ đơn thuần là những người có chuyên môn cực cao về hệ thống thôi."
+    },
+    {
+      "start": 300.8,
+      "end": 329.1,
+      "text": "Thực ra thì rất nhiều tin tạc làm việc hợp pháp đế trước. Họ được có công ty thuê để kiểm thử và tìm ra điểm yếu của hệ thống trước khi kẻ xấu kịp ra tay. Chính xác. Chỉ khi có ai đó lợi dụng các điểm yếu đó để xâm nhập trái phép, biến nó thành một lỗ hổng bão mật, nhằm chục lợi thì lúc đó người ta mới trở thành tội phạm mạng. Nhận định rất xác xảo. Tội phạm mạng hiện nay hoạt động chuyên nghiệp không khác gì những tập đoàn đa quốc gia đâu. Có tổ chức đàng hoàng luôn xác. Chắc chắn rồi."
+    },
+    {
+      "start": 329.1,
+      "end": 357.8,
+      "text": "Và khi chúng nhắm mục tiêu, chúng sẽ nhìn vào 3 nhóm nguy cơ chính. Nhóm thứ nhất là từ chính tổ chức, kiểu như quy trình làm việc lòng lẻo, hay sự yếu kém trong quản lý chuỗi công ứng. Thế còn nhóm thứ hai? Nhóm thứ hai là rủi do kỹ thuật, chẳng hạn như mạ độc này. Các cuộc tấn công làm sập mấy chủ. Hay nguy hiểm nhất là các cuộc tấn công có chủ đích cứ âm thầm nằm vùng trong hệ thống hàng năm trời. Ngày qua thì có vẻ như máy móc và má lệnh là vấn đề cốt lõi. Nhưng anh biết kẻ thù lớn nhất, cái mắt xích dễ gãy nhất thực sự nằm ở đâu không?"
+    },
+    {
+      "start": 357.8,
+      "end": 387.6,
+      "text": "Đó lại không phải là lỗi phần mềm đâu. Nó nằm ở chính chúng ta, dùi do từ con người. Dùi do từ con người. Có phải vì hệ thống công nghệ ngày nay đã được mã hóa tốt đến mức, việc dùng sức mạnh máy tính để bẻ khóa trực diện, trở nên quá tốn kém và bất khả thi. Nên cuối cùng chúng đành chuyển sang tấn công vào người dùng không? Chính xác là như vậy. Tội và mạng đã nhận ra một sự thật cực kỳ thực dụng. Tại sao phải tốn hàng tháng chơi vất vả viết mã lệnh để xuyên thùng một bức từng lửa trị giá hàng triệu đô la?"
+    },
+    {
+      "start": 387.6,
+      "end": 401.8,
+      "text": "Trong khi chỉ cần gọi một cuộc điện thoại là lấy được mất khấu. Đúng vậy, chỉ cần một cú lừa là có thể lấy được chiều khóa đi qua cổng chính rồi. Đây là nghệ thuật thao túng tâm lý hay trong giới chuyên môn gọi là kỹ nghệ xã hội. Kỹ nghệ xã hội."
+    },
+    {
+      "start": 401.8,
+      "end": 419.4,
+      "text": "Nghe thật sự giống kịch bản của một bộ phim viễn tưởng về thao túng nhận thức vậy. Chúng không còn đi bẻ khóa hệ thông máy tính nữa. Chúng chuyển sang bẻ khóa tâm lý con người. Bẻ khóa tâm lý? Nó diễn ra trên thực tế như thế nào vậy chị? Hãy tưởng tượng một kịch bản hoàn toàn có thật và cực kỳ phổ biến như thế này."
+    },
+    {
+      "start": 419.4,
+      "end": 448.6,
+      "text": "Một buổi sáng mận rộn, một nhân viên kế toán mới vào làm, nhận được cuộc gọi. Đầu dây bên kia, sương là bộ phận IT của công ty. Kịch bản quá quen thuộc. Dọng điệu của họ cực kì gắp gắp, nói rằng mấy chủ email đang bị tấn công và tài khoản của cô ấy sẽ bị khóa vĩnh viễn trong 5 phút nữa nếu không xác thực. Họ yêu cầu cô ấy đọc ngay giải số mã OTP vừa gửi đến nhiệm thoại để cứu dữ liệu. Và trong khành khắc hoảng lặn đó, cô ấy làm theo. Đúng vậy. Sợ làm ảnh hưởng đến công việc. Phản xã tự nhân của con người là tuân lệnh người có thầm quyền. Cô ấy đọc"
+    },
+    {
+      "start": 448.6,
+      "end": 476.6,
+      "text": "và bùm toàn mộ hệ thống của công ty bị xâm nhập. Wow! Không cần một rong cốt phức tạp nào. Tội phạm chỉ đơn giản là khai thác sự sợ hãi, lòng tham, sự to mò hay thậm chí chỉ là sự nhiệt tình giúp đỡ người khác của nạn nhân thôi. Câu chuyện này mở ra một vấn đề rất lớn. Nếu chúng ta biết chắc chắn con người luôn là khâu yếu nhất, dễ bị thao túng nhất thì chúng ta không thể chỉ trông chờ và việc nâng cao ý thức tự giác của mỗi người được."
+    },
+    {
+      "start": 476.6,
+      "end": 499.3,
+      "text": "Rất khó, vì ý thức là một thứ rất mong manh và dễ bị cảm xúc chi phối. Vậy, hệ thống công nghệ và pháp luật phải thiết kế như thế nào để tự bảo vệ nó trước chính những người đang sử dụng nó hàng ngày? Đó là lúc các hệ thống hiện đại phải áp dụng một nguyên tắc vô cùng lạnh lùng, nhưng lại cực kỳ cần thiết. Nó gọi là zero trust, không tin cậy mặc định. Không tin cậy mặc định."
+    },
+    {
+      "start": 499.3,
+      "end": 535.9,
+      "text": "nghe hưu của vệ xa cách nhở. Nghĩa là, dù bạn là giám đốc hay nhân viên tập sự, dù bạn đang ngồi ở văn phòng công ty hay ở nhà, hệ thống mặc định coi bạn là một mối đe dọa tiềm tàng cho đến khi bạn chứng mình được điều ngược lạ. bằng cách xác thực liên tục. Đúng. Đi kèm về nó là nguyên tắc đặc quyền tối thiểu. Kiểu như bạn chỉ được cấp quyền truy cập vào đúng những phi, những dữ liệu vừa đủ để hoàn thành công việc của mình trong ngày hôm đó thôi. Không hơn không kém. Khoan đã, hãy dừng lại ở đây một chút. Cho tôi phản biện từ góc nhìn của một người lao động bình thường nhé. Vâng, anh cứ nói. Nếu tôi đi làm mỗi ngày trong một môi trường áp dụng Zero Trust,"
+    },
+    {
+      "start": 535.9,
+      "end": 555.2,
+      "text": "nơi mà công ty không tin tưởng cái laptop của tôi, không tin tưởng cái điện thoại của tôi và bắt tôi phải xác mình danh tính đa yếu tố trong mỗi cú nhấp chuột, nghe có vẻ như một môi trường ngột ngạch, thiếu thốn niềm tin và đầy tính kiển soát. Liệu chúng ta có đang bị hoang tưởng thái quá, tự làm khó mình trong thế giới số không?"
+    },
+    {
+      "start": 555.2,
+      "end": 581.5,
+      "text": "Tôi hiểu cảm giác đó. Nhưng nếu chúng ta kết nối điều này với bức tranh lớn hơn thì sự thật là Zero Trust hoàn toàn không phải là vấn đề nghi ngờ đạo đức cá nhân đâu. Vậy nó là gì? Nó là một cơ chế tiêu chuẩn hóa sự an toàn. Hãy lấy sân bay làm ví dụ nhá. Khi đến sân bay, tất cả mọi người đều phải cười dây, tháo thất lưng, đi qua máy quét an ninh. Từ một vị khác du lịch bình thường, một dành nhân VIP cho đến chính cơ trưởng của chuyến bay đó. À, một quy trình bất buộc cho tất cả."
+    },
+    {
+      "start": 581.5,
+      "end": 602.2,
+      "text": "Đúng vậy, không có ai cảm thấy bị xúc phạm hay bị nghi ngờ nhân phẩm cả. Bởi vì mọi người đều ngầm hiểu rằng, quy trình cao bằng này là cách duy nhất để đảm bảo không một ai có thể mang vụ khí lên mấy bay. Tôi bắt đầu hiểu ra rồi. Zero Trust trên không gian mạng cũng vận hành với chiếc lý tương tự. Bạn không chứng minh sự trông sạch của bản thân, bạn đang thực hiện quy trình an toàn của hệ thống. Tiêu chuẩn hóa sự an toàn."
+    },
+    {
+      "start": 602.2,
+      "end": 629.7,
+      "text": "Tôi rất thích cách giải thích đó. Nhưng để cái tiêu chuẩn này không chỉ dừng lại ở quy mô doanh nghiệp mà trở thành một tấm khiên cho cả xã hội thì hệ thống pháp luật buộc phải vào cuộc đúng không? Chắc chắn rồi. Pháp luật là khung sương sống. Nếu nhìn vào những biến chuyển gần đây, có thể thấy Việt Nam đang thiết lập những đền tảng pháp lý rất mạnh tay. Đặc biệt là sự xuất hiện đồng bộ của hàng luật đạo luật mới vào năm 2025. Các đạo luật chủ cột. Đúng thế. Chúng ta có luật an ninh mạng 2025."
+    },
+    {
+      "start": 629.7,
+      "end": 653.4,
+      "text": "luật bảo vệ dữ liệu cá nhân 2025, cùng với luật bảo vệ bí mật nhà nước 2025, cùng với luật cơ yếu đã có tủy trước, chúng tạo thành một tư giác phòng thủ cực kỳ vững chắc. Rất toàn viện. Và tôi đặc biệt bị thu hút bởi cách các đạo luật năm 2025 này trực diện đối phó với công nghệ tương lai. Họ đã đưa trí tuệ nhân tạo, AI và DeepFake vào tầm ngắm."
+    },
+    {
+      "start": 653.4,
+      "end": 687.5,
+      "text": "Họ nghiêm cấm tuyệt đối việc sử dụng AI để giả mạo hình ảnh, dọng nói, nhằm lừa đào hay sâm phạm an ninh. Những cho lừa đảo qua kỹ nghệ xã hội ngày xưa thường rất thô sơ, anh nhớ không? Nhớ chứ. Kiểu như một hoàng tự châu Phi nào đó gửi e-mail, báo tôi được thừa kế món tiền khổng lồ và sin phí chuyển khoản. Đúng, những cây e-mail sai chính tả tùng lù mệnh. Nhưng bây giờ thì sao? Với Defect, một nhân viên có thể nhận được một cuối gọi video từ chính vị giám đốc điều hành của mình. Một cuối gọi video luôn? Vâng."
+    },
+    {
+      "start": 687.5,
+      "end": 715.6,
+      "text": "Khuôn mặt đó, dọng điều đó, thậm chí là cách nhíu mảy cũng y hết xếp mình. Vị xếp ảo này yêu cầu chuyển gấp một khoản tiền lớn cho đối tác. Mặt thường của con người không thể nào phân biệt được đâu là thật, đâu là AI nữa. Việc các đạo luật 2025 quy định rõ ràng, hành vi giỏ mạo bằng AI là tội phạm nghiêm trọng cho thấy pháp luật đang nỗ lực bám đuổi sự tiến hóa của công nghệ. Hơn thế nữa, nó ép buộc các tổ chức phải coi giữ liệu cá nhân của người dân là một loại tài sản được bảo vệ nghiêm ngặt bằng luật."
+    },
+    {
+      "start": 715.6,
+      "end": 744.4,
+      "text": "Chứ không phải thứ thích thú thập lúc nào thì thú thập, rồi để hỡ hênh cho tin tạc lấy cấp. Chính xác là vậy. Giữ liệu là tài sản. Luật pháp tạo ra rào chắn vị mô. Công ty thì có hệ thống Zero Trust. Nhưng thực tế thì hệ thống phòng thủ nào cũng có thể bị xuyên thùng cả. Và đây là lúc mọi thứ trở nên thật sự thú vị. Anh đang nhắc đến gốc độ cá nhân phải không? Vâng. Khi tất cả các mằng lọc không lồ đó thất bại, một email lửa đảo chót lọt rơi thẳng vào hộp thư cá nhân của chúng ta, chuyện gì sẽ xảy ra."
+    },
+    {
+      "start": 744.4,
+      "end": 774,
+      "text": "Tội phạm mạng có vô vàng lớp nguyện trang. Rất nhiều chiều chò. Phishing thì quan lưới diện rộng, xem ai cắn câu. BEC thì tinh vi hơn, giả mạo trực tiếp email cấp trên. Thậm chí có những hình thức rất đời thật. Ví dụ như Mã Quia đúng không? Đúng rồi. Kẻ gian vào quán cà phê và lén rắn đề một Mã Quia độc hại lên cái mã thành toán của quán. Khách hàng vô tư Quét tưởng đang trà tiền ly cà phê nhưng thực ra là đáng cấp quyền cho Mã độc chiếm đoạt tại khoản ngân hàng. Rất phổ biến hiện nay luôn."
+    },
+    {
+      "start": 774,
+      "end": 804.1,
+      "text": "trong những khoảng khắc đời thường chấp nhuáng đó, mỗi người chúng ta phải làm gì để sinh tồn? Khi đối mặt với những cái bẫy danh sẵn ở cấp độ cá nhân như vậy, có một kỹ năng sinh tồn cốt lõi mà bất cứ ai cũng phải khắc cốt kỳ tâm. Đó là quy tắc 3 bước. Dừng, nghĩ, kiểm tra. Chỉ có thể giải thích rõ hơn từng bước không? Đầu tiên là dừng, kẻ lừa đảo luôn muốn tạo ra áp lực thời gian. Kiểu như, tai khoảng của bạn sẽ bị khóa trong 2 phút nữa, hoặc con bạn đang cấp cứu cần tiên màu gấp."
+    },
+    {
+      "start": 804.1,
+      "end": 829.1,
+      "text": "Bất cứ khi nào cảm thấy áp lực phải hành động ngay lập tức, hãy nhớc tay ra khỏi con chuột hoặc bàn phiếm nhiễn thoại, dừng lại đã. Oh, bẻ gẫy nhịp điệu của chúng. Đúng vậy. Tiếp theo là nghĩ, hãy tìm kiếm những điểm phi lý. Tự hỏi xem, tại sao cảnh sát lại gọi điện thoại yêu cầu chuyển tiền vào một tay hoàn cá nhân mang tên tạm giữ nào đó? Cảnh sát thật không bao giờ làm việc qua điện thoại như vậy. Rất hợp lý. Và bước cuối cùng."
+    },
+    {
+      "start": 829.1,
+      "end": 854.1,
+      "text": "Cuối cùng và quan trọng nhất là kiểm tra. Hãy dùng một kênh giao tiếp hoàn toàn độc lập để xác minh. Kênh độc lập nghĩa là sao? Nếu nhận được email lạ từ xếp yêu cầu chuyển tiền, đừng có bấm trả lời lại cái email đó. Hãy nhắc máy lên gọi trực tiếp vào số điện thoại di động cá nhân của xếp để hỏi lại, hoặc gọi cho bộ phận nhân sự để xác nhẫn. Dừng, nghĩ, kiểm tra."
+    },
+    {
+      "start": 854.1,
+      "end": 878.7,
+      "text": "Tiệt vời, nhưng con người thì luôn mắc sai lầm. Chắc chắn rồi, không ai hoàn hảo cả. Giả sử đi, giả sử tôi đã lỡ tay bấm vào cái đường linh độc hại đó và màn hình máy tính của tôi bỗng nhiên chuyển sang màu đỏ. Hiện lên một chức đồng hộ đếm ngược với thông báo toàn bộ dữ liệu đã bị mã hóa. Hãy trả tiền chuộc bằng Bitcoin. Ác mộng mang tên ransomware, hay còn gọi là mã độc tống tiền. Đúng."
+    },
+    {
+      "start": 878.8,
+      "end": 907.5,
+      "text": "Khi sự cố đã xảy ra, tài liệu hướng dẫn quy trình xử lý chuẩn là nhanh, tức là phản ứng tức thời. Bảo toàn, tức là giữ nguyên hiện trạng. Và đúng kinh, báo cho chuyên gia. Có một chi tiết ở bước bảo toàn khiến tôi bị đứng hình. Theo phản sạ tự nhiên nhất của con người khi thấy máy tính dính virus, đó là hoảng loạn, vươn tài ra rút phích cam điện hoặc đe nút nguồn để tắt phụt máy đi, với hy vọng ngắt được con virus đang chạy."
+    },
+    {
+      "start": 907.5,
+      "end": 924.3,
+      "text": "phản xạo ngắt ngồn nghe lập tức. Nhưng các chuyên gia lại khuyên, tuyệt đối không được tắt máy khi dính má độc tống tiền. Điều này nghe thật sự trái ngược với trực giác thông thường. Tại sao lại không được tắt máy? Công nhận là nó trái với trực giác, nhưng lại tuần theo nguyên lý kỹ thuật số một cách rất nghiêm ngặt."
+    },
+    {
+      "start": 924.3,
+      "end": 948.1,
+      "text": "Khi bị nhiễm run somewhere, hãy coi chức máy tính của bạn như hiện trường của một vụ án mạng vừa mới xảy ra vậy. Và con mã độc chính là hung thủ, đang có mặt ngay ở đó. Khi máy tính đang chạy, tất cả các dữ liệu hoạt động của mã độc, bao gồm có thể cả manh mối với máy chủ điều khiển nó, hoặc thậm chí là một phần của cái chiều khóa dùng để giải mạ dữ liệu, nó đang nằm trong bộ như RAM."
+    },
+    {
+      "start": 948.1,
+      "end": 973.1,
+      "text": "Đúng, RAM là bội nhớ tạm thời, nghĩa là nó chỉ lưu chữ khi có điện thôi. Nếu bạn hoảng sợ và ngắt nguồn điện, RAM sẽ bị xóa sạch bong, không còn một dấu vết. Trời ơi! Việc tự ý tách máy lúc đó giống hệt như việc một người vô tình cầm trổi rọn dẹp sạch sẽ nhận trường, lau sạch dấu vân tay và vết máu trên hung khí trước khi cảnh sát hình sự kịp đến. Một sự ví vòn quá dễ hiểu. Vậy cách làm đúng là gì?"
+    },
+    {
+      "start": 973.1,
+      "end": 997,
+      "text": "Cách làm đúng là rút dây mạng internet, tắt wifi để cô lập máy tính không cho nó lây lan sang máy khác, nhưng vẫn phải cắm điện. Giữ nguyên hiện trường là cơ hội duy nhất để các chuyên gia điều tra và có hy vọng cứu vãn được dữ liệu. Việc giữ nguyên hiện trường này có lẽ cũng áp dụng cho các lỗi sơ đằng khác, đúng không? Chẳng hạn, khi lỡ gửi nhà một email chứa tài liệu mật của công ty ra bên ngoài. Ôi, lỗi này nhiều người mắc lắm."
+    },
+    {
+      "start": 997,
+      "end": 1017.9,
+      "text": "Sự xấu hồ và hoàng sợ khiến chúng ta vội vã vào hộp thư mục đã gửi, xóa cái email đó đi, xóa luôn cả lịch sử truy cập trên máy tính để chối tội. Đó là hành vi tự hủy hoại đấy. Thật sự, nếu hệ thống có nút thu hồi, hãy bấm ngay lập tức. Sau đó, dù có sợ hãi đến đâu, cũng phải báo cáo cho bộ phận IT."
+    },
+    {
+      "start": 1017.9,
+      "end": 1045.8,
+      "text": "Không báo cáo, họ sẽ không thể khoanh vùng xem tài liệu đó đã bị phát tăn đến đâu để mà xử lý khung hoảng. Rất chuẩn sắc. Nhưng anh biết không, không chỉ có bảo vệ giữ liệu đâu, cuộc chiến sinh tôn trên không gian mạng này còn vắt kiệt thề lực của con người nữa. Thề lực á, lên quan gì ở đây? Chúng ta không thể nào đưa ra các quyết định sáng xuất ở cái bước, nghĩ mà tôi vừa nói, nếu như bộ nạo đang quá tải vì gián mắt và màn hình quá lâu. Đó là lý do tại sao quý tắc 20, 20, 20 ra đời."
+    },
+    {
+      "start": 1045.8,
+      "end": 1074.7,
+      "text": "À ha! Quy tắc bảo vệ mắt và não bộ. Nghĩa là nhìn màn hình 20 phút thì phải đảo mắt nhìn ra xa 6 m trong vòng 20 giây để mắt được thư giãn. Đúng thế. Môi trường số có thể là áo, nhưng tồn thương cơ thể là thật. Sự tỉnh táo của một trí óc và một cơ thể khỏe mạnh chính là lớp giáp cá nhân bình vững nhất chức mọi thuật toán lừa đảo hay AI thào túng. Từ gốc độ cá nhân, chúng ta đã thấy an toàn thông tin khắt khe đến mức nào."
+    },
+    {
+      "start": 1074.7,
+      "end": 1103.6,
+      "text": "nhưng bây giờ hãy đầy dưới hạn đó lên mức tối đa đi. Chúng ta hãy cùng nhìn lên một cấp độ vĩ mô nhất. An ninh quốc gia. Chụ đề này thì cục kỳ nhấm ngặt luôn. Vâng. Nếu chúng ta cảm thấy việc thiết lập xác thực hai lớp cho tài khoản e-mail cá nhân đã là phiền phức thì hãy xem các chuyên gia quân sự, đặc biệt là trong bộ quốc phòng, vận hành hệ thống của họ khắc nhiệt tới mức nào. Họ có những quy chuẩn hoàn toàn khắc biệt. Đầu tiên là về luật lệ."
+    },
+    {
+      "start": 1103.6,
+      "end": 1124.7,
+      "text": "Họ phân chia bí mật thành 3 cấp độ với thời gian sống vô cùng dài. Cấp tuyệt mật phải được bảo vệ trong 30 năm. Tối mật là 20 năm và mật là 10 năm. Một khoảng thời gian rất dài để giữ an toàn cho dữ liệu. Nhưng cách họ thiết lập hạ tầng mới thực sự làm tối kinh ngạc, họ sửa dụng các mạng lan độc lập hoàn toàn."
+    },
+    {
+      "start": 1124.7,
+      "end": 1149.7,
+      "text": "Sự độc lập ở đây không phải chỉ là dùng một bức tường lửa hay một lớp phần mềm để ngắn cách đầu. Nó là sự chia cắt hoàn toàn về mặt vật lý. Tiếng Anh gọi là e-gap đấy. Hoàn đã. Chia cắt vật lý 100% nghĩa là những hệ thống máy tính chứa dữ liệu tuyệt mặt đó hoàn toàn không cắm dây hay có bất kỳ kết nối mạng internet nào ra thế giới bên ngoài sao? Hoàn toàn không. Thế thì họ làm việc và chia sẻ thông tin kiểu gì?"
+    },
+    {
+      "start": 1149.7,
+      "end": 1176.8,
+      "text": "Chẳng phải điều này đi ngược lại hoàn toàn với su hướng linh hoạt của kỷ nguyên điện toán đã mây sao? Đó chính là sự đánh đổi bắt buộc giữa tiện lợi và sinh tồn. Khi dùi do của việc lộ lò thông tin ảnh hưởng trực tiếp đến sự an nguy của cả một quốc gia thì sự tiện lợi bị gạt sang một bên hoàn toàn. Thật khó tưởng tượng. Các máy tính này cô lập hoàn toàn. Anh không thể cắm bưa một cái USB mựa tiệm tạp hóa vào hệ thống đó được. Vì ai biết trong cái lo USB ấy có rắn điệp vần cứng hay mã độc nào ẩn ấp không?"
+    },
+    {
+      "start": 1176.8,
+      "end": 1202.7,
+      "text": "Vậy họ dùng mạng nội bộ để chuyển phai à? Mọi việc chuyển tải thông tin ra ngoài, nếu có, đều phải chạy qua các kênh viện thông chuyên biệt. Sử dụng hệ thống mật mã do chính ban cư yếu chính phủ cấp phát độc quyền. Còn với cả nhân quân nhân thì sao? Quy tắc cũng hà khác không kém. Không một hình ảnh danh chạy, không một lịch trình công tác nào được đăng lên mạng xã hội. Tuyệt đối không có chuyện đưa báo cáo nội bộ lên hỏi chất GPT để nó tóm tắt hộ đâu."
+    },
+    {
+      "start": 1202.7,
+      "end": 1232.7,
+      "text": "Ồ, vì sao lại cấm dùng AI như vậy? Vì một khi dữ liệu mật được nạp vào các nền tảng AI công cộng đó, nó sẽ tự động trở thành vốn hiểu bít của hệ thống và hoàn toàn có thể bị chích xuất bởi một người dùng khác ở quốc gia đối địch. Thàu nào trong quân đội họ luôn triển khai một mô hình gọi là phòng thủ 7 lớp, hay còn gọi là phòng thủ theo chiều sâu? Lắng ngày cô chúc này nhé, nó gồm lớp 1 tổ chức con người, lớp 2 bảo vệ vật lý, lớp 3 biên mạng, lớp 4 mạng nội bộ."
+    },
+    {
+      "start": 1232.7,
+      "end": 1267.6,
+      "text": "lớp 5 thiết bị đầu cuối, lớp 6 ứng dụng và trong cùng là lớp 7 dữ liệu. Khi nghe về 7 lớp này, hãy hình dung mô hình này không phải là 1 cái danh xách liệt kê đơn thuần đồng mà là 1 sự bổ trợ chồng chéo. Kiểu như bốc hành tây đi nhỉ? Đúng. Nếu 1 hát cơ gửi email lừa đảo và nhân viên, tức là lớp 1 con người, lỡ bấm vào, hát cơ vẫn phải đối mặt với lớp 3 là biên mạng và lớp 4 là mạng nội bộ. Nếu qua được đó để loat vào laptop thì các quyền hạn ngặt nghèo của ứng dụng lại chặn họ lại. Và dù họ có đập vỡ được từng 6 thì ổ cứng tức là lớp 7 cũng đã bị mạ hóa cục bộ rồi."
+    },
+    {
+      "start": 1267.6,
+      "end": 1287.9,
+      "text": "Vậy, tất cả những điều này có ý nghĩa gì? Trong đầu tôi ngay lập tức hiện lên hình ảnh của một pháo đài phòng thủ thời Trung cổ. Một cái pháo đài? Đúng vậy. Để tiếp cận được kho báo, quân thủ phải lân lượt vượt qua đội linh gác nghiêm ngặt vòng ngoài, lội qua một con hào sâu trước đây ca sấu, rồi phá vỡ từng lớp tường thành kiến cổ."
+    },
+    {
+      "start": 1287.9,
+      "end": 1312.7,
+      "text": "Công phá cánh cổng cộng sồi khổng lồ. Để rồi phát hiện ra, khó báo nằm gọn trong một chiếc kết sắt đúc bằng thép nguyên khối. Một hình ảnh cực kỳ tượng hình, điều này đặt ra một câu hỏi rất quan trọng. Câu hỏi gì đấy? Nhìn vào sự phân định dạch ròi, sự cô lập khắc nghiệt và 7 lớp hiên chắn mà Bộ Quốc phòng phải xây dựng để tự vệ. Anh có nghĩ rằng các doanh nghiệp thông thường và cả mỗi cá nhân chúng ta đang sống quá ngây thơ không? Ngây thơ."
+    },
+    {
+      "start": 1312.7,
+      "end": 1342.2,
+      "text": "Chúng ta dường như đang vô tư giao nộp toàn bộ lịch sử di chuyển, thói quen tiêu dùng, giữ liệu sinh chắc học và thông tin tài chính của mình cho các nền tảng đám mây miễn phí, hoặc là các ứng dụng tài về vô tội vạ. Để đổi lấy sự tiện lợi. Đúng. Chúng ta bán rẻ quyền riêng tư và sự an toàn chỉ để đổi lấy một chút tiện lợi trên màn hình cảm ứng. Sự tranh lệch trong nhận thức bảo mật giữa cấp độ quốc gia và cá nhân thật sự là một khoảng trống không lâu. Thật sự là một lời cánh tỉnh. Chúng ta vừa đi qua một hành trình bóp tách rất sâu ngày hôm"
+    },
+    {
+      "start": 1342.2,
+      "end": 1368.4,
+      "text": "Từ việc phá vỡ định kiến để hiểu tam giác bỏ mật CIA, nhận ra có người mới là lỗ hổng lớn nhất thông qua các đòn thao túng tâm lý. Và cả vai trò của luật pháp nữa. Đúng vậy, chúng ta thấy sự chuyển bình của các bộ luật năm 2025 nhằm gian đe nạn lửa đảo bằng AI và Defect. Đồng thời, trang bị các kỹ năng sinh tổn như dừng, nghĩ, kiểm tra. Cùng với việc hiểu được tại sao phải dựng nguyên hiện trường trước máy tính bị nhiễm mạ độc."
+    },
+    {
+      "start": 1368.4,
+      "end": 1394.4,
+      "text": "cuối cùng là kết thúc bằng cách chiêm ngưỡng pháo đại 7 lớp kiên cố của quân đội. Một hành trình quá nhiều thông tin. Nếu có một thông điệp động lại sau buổi phân tích này thì đó là trên không gian số, không ai là một hòn đảo đơn độc cả. Mọi thứ đều kết nối. Sự an toàn của toàn bộ hệ thống phụ thuộc hoàn toàn vào mất xích yếu nhất và mất xích đó có thể là bất kỳ ai trong chúng ta. Chính vị thế, mỗi khi một người đặt tay lên bàn phím gõ mật khẩu,"
+    },
+    {
+      "start": 1394.4,
+      "end": 1422.8,
+      "text": "Quyết định bấm và một đường linh lạ, hay chỉ đơn giản là chụp một tấm ảnh có dính màn hình mé tính công ty để đang lên mạng xã hội? Dù chỉ là một bức ảnh sao phi ở văn phòng. Ở khoảnh khác đó, họ không chỉ đang quyết định số phần của tài khoản cá nhân mà họ đang nắm giữ chiều khóa, bảo vệ sự sống con của tổ chức và rộng hướng là chủ quyền số của quốc gia. Nhìn vào sự khốc liệt và cực đoan trong các biện pháp phòng thù vật lý của quân đội hiện tại, anh có nghĩ rằng đó sẽ là tương lai của tất cả chúng ta không?"
+    },
+    {
+      "start": 1423.1,
+      "end": 1453.1,
+      "text": "Anh biết không? Đó chính là suy nghĩ cứ quần quan trong đầu tôi nãy giờ. Cứ nhìn vào túc độ phát triển liên rồ của công nghệ lúc này mà xem. Nó tiến hóa từng ngày. Khi mà những thuật toán deep fake không chỉ dừng lại ở dọng nói hay khôn mặt mà trong tương lai có thể tạo ra cả những bản sao tính cách hoàn hảo trên mạng. Thật đáng sợ. Và đáng sợ hơn nữa là viễn gánh máy tính lượng từ ra đời trong vài thập kỳ tới. Một cụ máy có khả năng giải mã bẻ gãy mọi mật khẩu phức tạp nhất của nhân loại hiện nay chỉ trong cái chấp mặt."
+    },
+    {
+      "start": 1453.1,
+      "end": 1494.6,
+      "text": "Không một hệ thống mã hóa truyền thống nào chịu nổi. Lệu có một ngày, khái niệm danh tính số sẽ xục đổ vì không một hệ thống mạng nào có đủ an toàn để lưu chữ nó không. phải chăng đỉnh cao của sự tiến hóa công nghệ số, cuối cùng lại ép nhân loại phải lùi lại, quay trở về với những phương thức bão mật sinh học ngoại tuyến, vật lý hoàn toàn, giống như các mạng lan tuyệt mật đang bị cô lập khỏi internet hiện nay. Một vòng lập của lịch sử chăng rằng cách duy nhất để bảo vệ mình trên internet trong tương lai là phải ngắt kết nối khỏi nó. Một cô hỏi lớn để mỗi người tự suy ngẫm trong những lần nhấp chua tiếp theo. Cảm ơn mọi người đã đồng hành cùng chung tôi trong buổi phân tích chuyên sâu này."
+    },
+    {
+      "start": 1494.6,
+      "end": 1496.6,
+      "text": "Hẹn gặp lại trong các chủ đề tiếp theo."
+    }
+  ]
+}
