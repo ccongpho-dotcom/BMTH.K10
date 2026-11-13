@@ -274,6 +274,10 @@ a { color: inherit; }
 .message-bubble { max-width: 87%; padding: 11px 13px; border-radius: 15px 15px 15px 4px; color: #34495d; background: #eaf1f4; font-size: .86rem; white-space: pre-wrap; word-break: break-word; }
 .message.user .message-bubble { color: #fff; background: #0d6e70; border-radius: 15px 15px 4px 15px; }
 .message.typing .message-bubble::after { content: "●  ●  ●"; color: #229b97; letter-spacing: .1em; animation: fade 1s ease-in-out infinite alternate; }
+.chat-quiz-actions { margin-top: 9px; white-space: normal; }
+.chat-quiz-action { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 44px; max-width: 100%; padding: 8px 13px; border: 1px solid #085b5a; border-radius: 9px; color: #fff; background: #0b6664; font-size: max(13px, .84rem); font-weight: 700; line-height: 1.25; text-align: center; text-decoration: none; }
+.chat-quiz-action:hover { color: #fff; background: #084f4e; text-decoration: underline; }
+.chat-quiz-action:focus-visible { outline: 2px solid #17456d; outline-offset: 2px; }
 @keyframes fade { to { opacity: .35; } }
 .quick-prompts { padding: 8px 12px 5px; display: flex; gap: 7px; overflow-x: auto; border-top: 1px solid #edf1f4; }
 .quick-prompts button { flex: 0 0 auto; padding: 6px 9px; border: 1px solid #cfe3e4; border-radius: 999px; color: #1e716e; background: #f7fbfb; font-size: .7rem; cursor: pointer; }

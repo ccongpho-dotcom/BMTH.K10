@@ -38,6 +38,8 @@
   let history = [];
   let busy = false;
   const welcomeMessage = "Xin chào! Đồng chí cần làm rõ nội dung nào?";
+  const quizSuggestion = 'Đồng chí có thể ôn lại kiến thức ở chức năng "Tự kiểm tra".';
+  const geminiLimitCodes = new Set(["GEMINI_IP_DAILY_LIMIT", "GEMINI_UPSTREAM_LIMIT", "GEMINI_SESSION_LIMIT"]);
   const legacyAnswerIntro = /^(?:\s*(?:>\s*)?(\*{1,2}|_{1,2})?chào học viên\s*[,!:–—-]?\s*trợ lý học tập xin giải đáp câu hỏi của bạn(?:\s+dựa trên tài liệu học phần)?\s+như sau(?:[ \t]*[:：.!–—-](?:\1)?|\1[ \t]*[:：.!–—-]|(?:\1)?(?=[ \t]*(?:\r?\n|$)))[ \t]*(?:\r?\n[ \t]*)*)+/iu;
   const sessionIdKey = "bmth-chat-session-id";
   const stopWords = new Set(["la", "gi", "nhung", "nhu", "the", "nao", "cua", "co", "va", "cho", "trong", "mot", "cac", "duoc", "ve", "voi", "khi", "can", "hay", "toi", "dong", "chi"]);
@@ -491,6 +493,19 @@
     return wrapper;
   }
 
+  function addQuizSuggestion() {
+    const row = addMessage(quizSuggestion, "assistant");
+    const actions = document.createElement("div");
+    actions.className = "chat-quiz-actions";
+    const link = document.createElement("a");
+    link.className = "chat-quiz-action";
+    link.href = "quiz.html";
+    link.textContent = "vào phần tự kiểm tra";
+    actions.appendChild(link);
+    row.querySelector(".message-bubble").appendChild(actions);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
   function topicSummary(topic) {
     if (!topic) return "";
     const sections = topic.sections.map((section) => `${section.title}: ${section.content}`).join("\n");
@@ -621,9 +636,14 @@
     } catch (error) {
       typing.remove();
       if (streamed) streamed.remove();
-      const known = ["GEMINI_IP_DAILY_LIMIT", "GEMINI_UPSTREAM_LIMIT", "GEMINI_UNAVAILABLE", "GEMINI_SESSION_LIMIT"].includes(error.code);
-      addMessage(known ? error.message : "Tôi chưa hoàn tất câu trả lời. Đồng chí có thể thử lại.", "assistant");
-      setChatStatus(known ? "ready" : "error", known ? "Vẫn có thể tra cứu học liệu có sẵn" : "Chưa nhận được phản hồi đầy đủ");
+      if (geminiLimitCodes.has(error.code)) {
+        addQuizSuggestion();
+        setChatStatus("ready", "Vẫn có thể tra cứu học liệu có sẵn");
+      } else {
+        const unavailable = error.code === "GEMINI_UNAVAILABLE";
+        addMessage(unavailable ? error.message : "Tôi chưa hoàn tất câu trả lời. Đồng chí có thể thử lại.", "assistant");
+        setChatStatus(unavailable ? "ready" : "error", unavailable ? "Vẫn có thể tra cứu học liệu có sẵn" : "Chưa nhận được phản hồi đầy đủ");
+      }
     } finally {
       busy = false;
       button.disabled = false;
