@@ -99,7 +99,41 @@
     return question === normalizedPhrase || question.includes(normalizedPhrase) || normalizedPhrase.includes(question);
   }
 
+  // BMTH_ANSWER_INTENT_V1: không chọn FAQ khớp một phần cho câu hỏi so sánh hoặc câu hỏi rộng.
+  function bmthIntentKeyV1(value) {
+    return String(value ?? "").toLowerCase().normalize("NFD")
+      .replace(/\p{M}+/gu, "").replace(/đ/g, "d")
+      .replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  function bmthClassifyIntentV1(value) {
+    const key = bmthIntentKeyV1(value);
+    const plain = key
+      .replace(/^(?:(?:xin|hay|vui long|giup toi|cho toi biet|cho biet|dong chi cho biet|dong chi hay) )+/, "")
+      .replace(/(?: (?:giup toi|cho toi|voi a|nhe|a))+$/, "");
+    const human = "(?:tri tue(?:(?: cua)? (?:con nguoi|nguoi)| tu nhien)?|human intelligence)";
+    const ai = "(?:tri tue nhan tao(?: ai)?|ai|artificial intelligence)";
+    const pair = (a, b) => [
+      new RegExp(`^(?:su )?(?:phan biet|so sanh|doi chieu|neu (?:su )?khac biet) (?:giua )?${a} (?:va|voi|so voi) ${b}$`),
+      new RegExp(`^${a} (?:va|voi|so voi) ${b} (?:(?:giong va )?khac nhau(?: (?:o )?(?:diem nao|cho nao|nhu the nao|the nao))?|khac gi|khac nhau gi|co gi khac nhau)$`),
+      new RegExp(`^${a} khac(?: gi)?(?: (?:so )?voi)? ${b}(?: (?:o )?(?:diem nao|cho nao|nhu the nao|the nao|gi))?$`),
+      new RegExp(`^(?:su )?khac biet giua ${a} va ${b}(?: la gi| o dau| o diem nao| nhu the nao)?$`),
+      new RegExp(`^${a} co phai la ${b} khong$`),
+    ].some((rule) => rule.test(plain));
+    if (pair(human, ai) || pair(ai, human)) return "human-ai";
+
+    const micro = "(?:phan mem )?micro ?station(?: v ?8 ?i)?";
+    if (new RegExp(`^(?:${micro} )?(?:(?:(?:co the|cho phep) )?mo (?:toi da )?(?:duoc )?|co )(?:toi da )?bao nhieu (?:cua so )?(?:view|khung nhin)(?: cung (?:mot )?luc| dong thoi)?(?: (?:cua|trong|bang|tren) ${micro})?$`).test(plain)
+        && new RegExp(micro).test(plain)) return "micro-views";
+    if (new RegExp(`^(?:${micro} (?:(?:cho phep|co the|co the dung de|dung de|duoc dung de|su dung de) (?:thuc hien |lam )?(?:nhung )?(?:gi|viec gi|cong viec gi)|co (?:nhung )?chuc nang (?:gi|nao)|(?:co the )?lam duoc (?:nhung )?gi)|(?:cac |nhung )?(?:chuc nang(?: chinh)?|cong dung|tac dung) (?:cua )?${micro}(?: la gi| gom nhung gi)?|(?:co the )?lam (?:nhung )?gi (?:voi|bang|trong) ${micro})$`).test(plain)) return "micro-overview";
+
+    if (/(?:^| )(?:phan biet|so sanh|doi chieu|khac biet|khac nhau|giong nhau|khac gi|khac .{1,100} o (?:diem|cho) nao)(?: |$)/.test(plain)) return "compare";
+    if (/(?:^| )(?:cho phep thuc hien (?:nhung )?gi|co the lam (?:duoc )?(?:nhung )?gi|duoc dung de lam gi|dung de lam gi|co (?:nhung )?chuc nang (?:gi|nao)|chuc nang (?:chinh )?cua .+ la gi)$/.test(plain)) return "overview";
+    return "ordinary";
+  }
+
   function findQuickAnswer(message) {
+    const strictIntent = bmthClassifyIntentV1(message) !== "ordinary";
     const question = normalizeText(message);
     const questionTokens = new Set(meaningfulTokens(question));
     if (!question || !questionTokens.size) return null;
@@ -107,7 +141,10 @@
     let best = null;
     for (const item of faqEntries) {
       const patterns = [item.question, ...(Array.isArray(item.patterns) ? item.patterns : [])];
-      const exactPattern = patterns.some((pattern) => phraseIncluded(question, pattern));
+      const exactPattern = patterns.some((pattern) => strictIntent
+        ? bmthIntentKeyV1(message) === bmthIntentKeyV1(pattern)
+        : phraseIncluded(question, pattern));
+      if (strictIntent && !exactPattern) continue;
       const keywordPhrases = Array.isArray(item.keywords) ? item.keywords.map(normalizeText).filter(Boolean) : [];
       const keywordHits = keywordPhrases.filter((keyword) => {
         if (keyword.includes(" ")) return question.includes(keyword);
@@ -312,80 +349,114 @@
     return `${scope}\n${overview}`;
   }
 
+  // BMTH_CHAT_FULL_UI_V2
+  function bmthV2BrowserQuick(message) {
+    const key = normalizeText(message);
+    const intent = bmthClassifyIntentV1(message);
+    if (intent === "human-ai" || intent === "micro-overview" || intent === "micro-views") return null;
+    return faqEntries.find(item => [item.question, ...(Array.isArray(item.patterns) ? item.patterns : [])]
+      .some(pattern => normalizeText(pattern) === key)) || null;
+  }
+
+  function bmthV2BrowserText(value) {
+    return String(value ?? "").replace(/[^\p{Script=Latin}\p{Nd}\u0300\u0301\u0302\u0303\u0306\u0309\u031b\u0323\x20-\x7e\n\r\t–—“”‘’…•→←≤≥≠×÷°%]/gu, "");
+  }
+
+  async function bmthV2BrowserRead(response, onDelta) {
+    if (!response.body) throw new Error("Trình duyệt không nhận được luồng trả lời.");
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "", answer = "", donePacket = false;
+    function take(line) {
+      if (!line.trim()) return;
+      if (donePacket) throw new Error("Luồng phản hồi không hợp lệ.");
+      const event = JSON.parse(line);
+      if (event.type === "error") throw Object.assign(new Error(event.error || "Phản hồi bị gián đoạn."), { code: event.code });
+      if (event.type === "done") { donePacket = true; return; }
+      if (event.type === "delta" && typeof event.text === "string") {
+        answer += bmthV2BrowserText(event.text);
+        if (answer.length > 15000) throw new Error("Phản hồi vượt giới hạn hiển thị.");
+        onDelta(answer);
+      }
+    }
+    try {
+      while (true) {
+        const { value, done } = await reader.read();
+        buffer += done ? decoder.decode() : decoder.decode(value, { stream: true });
+        let nl;
+        while ((nl = buffer.indexOf("\n")) >= 0) { const line = buffer.slice(0, nl); buffer = buffer.slice(nl + 1); take(line); }
+        if (buffer.length > 65536) throw new Error("Luồng phản hồi vượt giới hạn.");
+        if (done) { if (buffer.trim()) take(buffer); break; }
+      }
+    } finally { await reader.cancel().catch(() => {}); }
+    if (!donePacket || !answer.trim()) throw new Error("Phản hồi chưa hoàn tất.");
+    return answer.trim();
+  }
+
   async function askAssistant(message) {
     if (busy) return;
     addMessage(message, "user");
-
-    const quickAnswer = stripAnswerIntro(findQuickAnswer(message)?.answer);
-    if (quickAnswer) {
-      addMessage(quickAnswer, "assistant");
-      history.push({ role: "user", text: message }, { role: "model", text: quickAnswer });
-      history = history.slice(-8);
-      setChatStatus("ready", "Đã trả lời từ học liệu có sẵn · Không dùng API");
-      window.setTimeout(() => {
-        if (!busy) setChatStatus("ready", "Sẵn sàng hỗ trợ học tập");
-      }, 4200);
-      return;
-    }
-
-    if (!navigator.onLine) {
-      setChatStatus("offline", "Mất kết nối mạng");
-      addMessage("Câu hỏi này chưa có trong bộ trả lời nhanh và thiết bị đang mất kết nối mạng. Đồng chí vui lòng kiểm tra kết nối rồi thử lại.", "assistant");
-      return;
-    }
-    if (!config.chatApiUrl) {
-      setChatStatus("error", "Chatbot chưa được kết nối");
-      addMessage("Chatbot chưa được kết nối. Giảng viên cần điền URL Cloudflare Worker trong tệp config.js sau khi thiết lập API Google AI Studio.", "assistant");
-      showToast("Chưa cấu hình địa chỉ chatbot");
-      return;
-    }
-
-    busy = true;
-    const submitButton = chatForm.querySelector("button[type='submit']");
-    submitButton.disabled = true;
-    chatReset.disabled = true;
-    setChatStatus("busy", "Đang tìm trong toàn bộ học phần…");
-    const typing = addMessage("", "assistant", "typing");
-
-    try {
-      const activeTopic = topics.find((item) => item.id === activeTopicId);
-      const response = await fetch(config.chatApiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-BMTH-Session": getChatSessionId()
-        },
-        body: JSON.stringify({
-          message,
-          activeTopic: activeTopic ? activeTopic.title : "",
-          context: courseContext(message, activeTopic?.id),
-          history: history.slice(-4)
-        })
-      });
-      const data = await response.json().catch(() => ({}));
-      if (response.status === 429 && data.code === "GEMINI_SESSION_LIMIT") {
-        typing.remove();
-        setChatStatus("ready", "Đã hết lượt Gemini · Vẫn tra cứu được học liệu");
-        addMessage(data.error || "Đồng chí đã hết lượt hỏi Gemini trong phiên. Vẫn có thể hỏi các câu có trong kho học phần.", "assistant");
-        return;
-      }
-      if (!response.ok) {
-        if (response.status === 429) throw new Error(data.error || "Hệ thống đang có nhiều câu hỏi. Vui lòng đợi khoảng 60 giây rồi thử lại.");
-        throw new Error(data.error || "Không thể kết nối với trợ lý AI.");
-      }
-      typing.remove();
-      const answer = stripAnswerIntro(data.answer) || "Tôi chưa thể tạo câu trả lời lúc này.";
-      addMessage(answer, "assistant");
+    const remember = (answer) => {
       history.push({ role: "user", text: message }, { role: "model", text: answer });
       history = history.slice(-8);
-      setChatStatus("ready", "Sẵn sàng hỗ trợ học tập");
+    };
+    const quick = bmthV2BrowserQuick(message);
+    if (quick) {
+      const answer = bmthV2BrowserText(quick.answer).trim();
+      addMessage(answer, "assistant");
+      remember(answer);
+      setChatStatus("ready", "Đã trả lời từ học liệu có sẵn · Không dùng API");
+      return;
+    }
+    if (!navigator.onLine || !config.chatApiUrl) {
+      setChatStatus("offline", "Chưa kết nối trợ lý AI");
+      addMessage("Tôi chưa kết nối được tới trợ lý AI. Đồng chí vui lòng kiểm tra kết nối rồi thử lại.", "assistant");
+      return;
+    }
+    busy = true;
+    const button = chatForm.querySelector("button[type='submit']");
+    button.disabled = true;
+    chatReset.disabled = true;
+    setChatStatus("busy", "Đang tra cứu và soạn câu trả lời…");
+    const typing = addMessage("", "assistant", "typing");
+    let streamed = null;
+    try {
+      const active = topics.find(item => item.id === activeTopicId);
+      const response = await fetch(config.chatApiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/x-ndjson", "X-BMTH-Session": getChatSessionId() },
+        // context and the session header let the new page still work after a Worker rollback.
+        body: JSON.stringify({ message, activeTopic: active?.title || "", context: courseContext(message, active?.id).slice(0, 24000),
+          history: history.slice(-8).map(item => ({ role: item.role, text: item.text.slice(0, item.role === "user" ? 850 : 1300) })) })
+      });
+      let answer, source;
+      if (response.ok && (response.headers.get("Content-Type") || "").includes("application/x-ndjson")) {
+        answer = await bmthV2BrowserRead(response, (text) => {
+          typing.remove();
+          if (!streamed) streamed = addMessage("", "assistant");
+          streamed.querySelector(".message-bubble").textContent = text;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+      } else {
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw Object.assign(new Error(data.error || "Tôi chưa kết nối được với trợ lý AI."), { code: data.code });
+        answer = bmthV2BrowserText(data.answer || "Tôi chưa có câu trả lời phù hợp.").trim();
+        source = data.source;
+      }
+      typing.remove();
+      if (streamed) streamed.querySelector(".message-bubble").textContent = answer;
+      else addMessage(answer, "assistant");
+      remember(answer);
+      setChatStatus("ready", source === "faq500" || source === "course-intent" || source === "social" ? "Đã trả lời · Không dùng Gemini" : "Sẵn sàng hỗ trợ học tập");
     } catch (error) {
       typing.remove();
-      addMessage(`Xin lỗi, hệ thống đang gặp lỗi: ${error.message}`, "assistant");
-      setChatStatus(navigator.onLine ? "error" : "offline", navigator.onLine ? "Hệ thống đang bận, vui lòng thử lại" : "Mất kết nối mạng");
+      if (streamed) streamed.remove();
+      const known = ["GEMINI_IP_DAILY_LIMIT", "GEMINI_UPSTREAM_LIMIT", "GEMINI_UNAVAILABLE", "GEMINI_SESSION_LIMIT"].includes(error.code);
+      addMessage(known ? error.message : "Tôi chưa hoàn tất câu trả lời. Đồng chí có thể thử lại.", "assistant");
+      setChatStatus(known ? "ready" : "error", known ? "Vẫn có thể tra cứu học liệu có sẵn" : "Chưa nhận được phản hồi đầy đủ");
     } finally {
       busy = false;
-      submitButton.disabled = false;
+      button.disabled = false;
       chatReset.disabled = false;
       chatInput.focus();
     }
