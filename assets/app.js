@@ -17,6 +17,10 @@
   const chatMessages = document.getElementById("chat-messages");
   const toast = document.getElementById("toast");
   const header = document.querySelector(".site-header");
+  const mobileTopicToggle = document.getElementById("mobile-topic-toggle");
+  const topicMenu = document.querySelector(".topic-menu");
+  const exploreTopics = document.querySelector('.hero-actions a[href="#chu-de"]');
+  const mobileLayout = window.matchMedia("(max-width: 760px) and (pointer: coarse)");
   const courseShell = document.getElementById("chu-de");
   const tabsPrev = document.querySelector(".topic-scroll-prev");
   const tabsNext = document.querySelector(".topic-scroll-next");
@@ -52,6 +56,7 @@
     if (!viewportMeta || !viewModeToggle) return;
     const enabled = Boolean(overview && isPhoneScreen());
     document.documentElement.classList.toggle("overview-mode", enabled);
+    setMobileTopicMenu(false);
     viewportMeta.setAttribute("content", enabled
       ? "width=1180, initial-scale=1, viewport-fit=cover"
       : "width=device-width, initial-scale=1, viewport-fit=cover");
@@ -280,6 +285,49 @@
     updateTabOverflow();
   }
 
+  function usesMobileTopicMenu() {
+    return mobileLayout.matches && !document.documentElement.classList.contains("overview-mode");
+  }
+
+  function setMobileTopicMenu(open, restoreFocus = false) {
+    if (!mobileTopicToggle) return;
+    const enabled = usesMobileTopicMenu();
+    const expanded = enabled && open;
+    mobileTopicToggle.hidden = !enabled;
+    mobileTopicToggle.setAttribute("aria-expanded", String(expanded));
+    mobileTopicToggle.setAttribute("aria-label", expanded ? "Đóng danh mục chủ đề" : "Mở danh mục chủ đề");
+    header.classList.toggle("mobile-topics-open", expanded);
+    if (enabled) nav.setAttribute("aria-orientation", "vertical");
+    else nav.removeAttribute("aria-orientation");
+    if (enabled && restoreFocus) mobileTopicToggle.focus({ preventScroll: true });
+  }
+
+  if (mobileTopicToggle) {
+    mobileTopicToggle.addEventListener("click", () => {
+      setMobileTopicMenu(mobileTopicToggle.getAttribute("aria-expanded") !== "true");
+    });
+    const syncMobileMenu = () => setMobileTopicMenu(false);
+    if (mobileLayout.addEventListener) mobileLayout.addEventListener("change", syncMobileMenu);
+    else if (mobileLayout.addListener) mobileLayout.addListener(syncMobileMenu);
+    document.addEventListener("click", (event) => {
+      if (mobileTopicToggle.getAttribute("aria-expanded") === "true" &&
+          !mobileTopicToggle.contains(event.target) && !topicMenu.contains(event.target) &&
+          !exploreTopics?.contains(event.target)) setMobileTopicMenu(false);
+    });
+    document.addEventListener("focusin", (event) => {
+      if (mobileTopicToggle.getAttribute("aria-expanded") === "true" &&
+          !header.contains(event.target)) setMobileTopicMenu(false);
+    });
+    exploreTopics?.addEventListener("click", (event) => {
+      if (!usesMobileTopicMenu() || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      if (window.location.hash !== "#chu-de") window.history.pushState(null, "", "#chu-de");
+      courseShell.scrollIntoView({ behavior: reducedMotion.matches ? "instant" : "smooth", block: "start" });
+      setMobileTopicMenu(true);
+      nav.querySelector("[aria-selected='true']")?.focus({ preventScroll: true });
+    });
+  }
+
   function wireAudio(topic) {
     const audio = panel.querySelector("audio");
     if (!audio) return;
@@ -436,13 +484,18 @@
 
   nav.addEventListener("click", (event) => {
     const button = event.target.closest("[data-topic-id]");
-    if (button) chooseTopic(button.dataset.topicId, { scroll: true, push: true });
+    if (!button) return;
+    chooseTopic(button.dataset.topicId, { scroll: true, push: true });
+    if (usesMobileTopicMenu()) {
+      setMobileTopicMenu(false);
+      panel.focus({ preventScroll: true });
+    }
   });
   nav.addEventListener("keydown", (event) => {
     const tabs = [...nav.querySelectorAll("[role='tab']")];
     const i = tabs.indexOf(event.target);
-    const offsets = { ArrowLeft: -1, ArrowRight: 1 };
-    if (i < 0 || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    const offsets = usesMobileTopicMenu() ? { ArrowUp: -1, ArrowDown: 1 } : { ArrowLeft: -1, ArrowRight: 1 };
+    if (i < 0 || ![...Object.keys(offsets), "Home", "End"].includes(event.key)) return;
     event.preventDefault();
     const j = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (i + offsets[event.key] + tabs.length) % tabs.length;
     tabs.forEach((tab, index) => { tab.tabIndex = index === j ? 0 : -1; });
@@ -693,7 +746,13 @@
       event.preventDefault();
       showToast("Nội dung bài giảng được cung cấp ở chế độ chỉ đọc.");
     }
-    if (event.key === "Escape") toggleChat(false);
+    if (event.key === "Escape") {
+      if (mobileTopicToggle?.getAttribute("aria-expanded") === "true") {
+        setMobileTopicMenu(false, true);
+        return;
+      }
+      toggleChat(false);
+    }
   });
 
   document.getElementById("current-year").textContent = new Date().getFullYear();
@@ -704,6 +763,7 @@
   const initial = hashTopic();
   const homeTopic = isTopic(initial) ? topics[0]?.id : (lastTopic || topics[0]?.id);
   renderNavigation();
+  setMobileTopicMenu(false);
   updateHeaderSize();
   if (typeof ResizeObserver === "function") {
     const resize = new ResizeObserver(updateHeaderSize);

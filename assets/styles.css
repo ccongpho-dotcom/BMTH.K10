@@ -522,3 +522,59 @@ html.overview-mode .view-mode-toggle {
   .lesson-summary { padding: 14px; }
   .chat-input, .chat-form textarea { font-size: 16px; }
 }
+
+/* Restore the earlier phone home screen without overriding the desktop layout. */
+@media (max-width: 760px) and (pointer: coarse) {
+  html:not(.overview-mode) .site-header {
+    gap: 8px 3px;
+    padding: 9px max(12px, env(safe-area-inset-right)) 10px max(12px, env(safe-area-inset-left));
+  }
+  html:not(.overview-mode) .brand { gap: 7px; width: 100%; }
+  html:not(.overview-mode) .brand img { flex: 0 0 auto; width: 40px; height: 40px; }
+  html:not(.overview-mode) .brand-copy { min-width: 0; }
+  html:not(.overview-mode) .brand-copy strong { font-size: .98rem; letter-spacing: .09em; white-space: nowrap; }
+  html:not(.overview-mode) .brand-copy small { display: block; margin-top: 4px; color: #bed0df; font-size: .57rem; line-height: 1.12; }
+  html:not(.overview-mode) .site-header .slogan { padding-top: 8px; font-size: .63rem; line-height: 1.35; letter-spacing: .06em; }
+  html:not(.overview-mode) .header-tools { gap: 5px; }
+  html:not(.overview-mode) .header-tools > :is(.quiz-shortcut, .view-mode-toggle, .mobile-topic-toggle) { min-height: 44px; }
+  html:not(.overview-mode) .view-mode-toggle { gap: 5px; padding-inline: 7px; font-size: .7rem; white-space: nowrap; }
+  html:not(.overview-mode) .view-mode-toggle svg { width: 15px; }
+  html:not(.overview-mode) .mobile-topic-toggle {
+    display: grid; place-items: center; width: 44px; padding: 0;
+    border: 1px solid rgba(255,255,255,.23); border-radius: 12px; background: transparent; color: #fff; cursor: pointer;
+  }
+  html:not(.overview-mode) .mobile-topic-toggle[aria-expanded="true"] { border-color: #58c5bf; background: #123b53; }
+  html:not(.overview-mode) .mobile-topic-toggle svg { width: 24px; stroke: currentColor; stroke-width: 2; fill: none; }
+  html:not(.overview-mode) .topic-menu { display: none; }
+  html:not(.overview-mode) .mobile-topics-open .topic-menu {
+    position: absolute; inset: calc(100% + 1px) max(14px, env(safe-area-inset-right)) auto max(14px, env(safe-area-inset-left));
+    display: block; width: auto; max-width: none; padding: 6px;
+    border: 1px solid #396575; border-radius: 14px; background: #091e34; box-shadow: 0 16px 34px rgba(2, 17, 32, .4);
+  }
+  html:not(.overview-mode) .topic-menu .topic-nav { display: grid; grid-template-columns: 1fr; overflow: auto; max-height: min(350px, 58dvh); }
+  html:not(.overview-mode) .topic-menu .topic-button { justify-content: flex-start; white-space: normal; text-align: left; }
+  html:not(.overview-mode) .topic-menu .topic-scroll { display: none; }
+
+  html:not(.overview-mode) .hero {
+    min-height: 710px; grid-template-areas: "heading" "copy" "visual";
+    align-content: start; padding: 48px 20px 66px; row-gap: 22px;
+    background: radial-gradient(ellipse at 83% 31%, rgba(27,144,180,.25), transparent 56%), linear-gradient(120deg,#0a243c,#0b2647);
+  }
+  html:not(.overview-mode) .hero h1 { font-size: clamp(1.55rem, 7.85vw, 2.75rem); line-height: 1.08; text-wrap: balance; }
+  html:not(.overview-mode) .hero .eyebrow { margin-bottom: 14px; font-size: .82rem; letter-spacing: .2em; }
+  html:not(.overview-mode) .hero-lead { margin-bottom: 32px; color: #bed0df; font-size: .96rem; }
+  html:not(.overview-mode) .hero-actions { align-items: flex-start; flex-direction: column; gap: 12px; }
+  html:not(.overview-mode) .hero-actions :is(.primary-button, .secondary-button) { display: inline-flex; min-height: 44px; padding: 14px 20px; max-width: 100%; font-size: 1rem; }
+  html:not(.overview-mode) .hero-visual { display: grid; min-height: 270px; margin-top: -2px; }
+  html:not(.overview-mode) .chat-launcher { width: 60px; height: 60px; }
+}
+
+@media (max-width: 359px) and (pointer: coarse) {
+  html:not(.overview-mode) .site-header { padding-inline: max(9px, env(safe-area-inset-left)) max(9px, env(safe-area-inset-right)); }
+  html:not(.overview-mode) .header-tools { gap: 4px; }
+  html:not(.overview-mode) .brand { gap: 5px; }
+  html:not(.overview-mode) .brand img { width: 36px; height: 36px; }
+  html:not(.overview-mode) .brand-copy strong { font-size: .82rem; letter-spacing: .055em; }
+  html:not(.overview-mode) .view-mode-toggle { gap: 4px; padding-inline: 6px; font-size: .66rem; }
+  html:not(.overview-mode) .view-mode-toggle svg { width: 14px; }
+}
